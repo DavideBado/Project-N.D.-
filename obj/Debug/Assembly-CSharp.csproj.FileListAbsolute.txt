@@ -258,3 +258,8 @@ D:\GameDev\GitKraken\Project-N.D.-\obj\Debug\Assembly-CSharp.csproj.CoreCompileI
 D:\GameDev\GitKraken\Project-N.D.-\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\GameDev\GitKraken\Project-N.D.-\obj\Debug\Assembly-CSharp.dll
 D:\GameDev\GitKraken\Project-N.D.-\obj\Debug\Assembly-CSharp.pdb
+D:\GameDev\GitKraken\Project-N.D.-\Temp\bin\Debug\Boo.Lang.dll
+D:\GameDev\GitKraken\Project-N.D.-\Temp\bin\Debug\UnityEditor.UI.dll
+D:\GameDev\GitKraken\Project-N.D.-\Temp\bin\Debug\UnityEditor.Timeline.dll
+D:\GameDev\GitKraken\Project-N.D.-\Temp\bin\Debug\UnityEditor.Graphs.dll
+D:\GameDev\GitKraken\Project-N.D.-\Temp\bin\Debug\ICSharpCode.NRefactory.dll
