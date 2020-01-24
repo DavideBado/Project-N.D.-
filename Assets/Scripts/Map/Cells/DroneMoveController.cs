@@ -18,10 +18,8 @@ public class DroneMoveController : MonoBehaviour
     public Transform ZminBorder, ZmaxBorder, XminBorder, XmaxBorder;
 
     public List<CamSpot> camSpots = new List<CamSpot>();
-
     float mouseX;
     public float rotationSpeed;
-
     private void Start()
     {
        if(AllSpotPosTypes.Count > 0) CurrentIspotType = AllSpotPosTypes[0];
@@ -38,9 +36,10 @@ public class DroneMoveController : MonoBehaviour
         Vector3 VerticalTranslation = Input.GetAxis("Vertical") * speed * Time.deltaTime * transform.forward;
         Vector3 HorizontalTranslation = Input.GetAxis("Horizontal") * speed * Time.deltaTime * transform.right;
 
-        transform.position += VerticalTranslation + HorizontalTranslation;
         mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
         transform.rotation = Quaternion.Euler(0, mouseX, 0);
+        transform.position += VerticalTranslation + HorizontalTranslation;
+
         if (transform.position.x < XminBorder.position.x) transform.position = new Vector3(XminBorder.position.x, transform.position.y, transform.position.z);
         if (transform.position.x > XmaxBorder.position.x) transform.position = new Vector3(XmaxBorder.position.x, transform.position.y, transform.position.z);
         if (transform.position.z < ZminBorder.position.z) transform.position = new Vector3(transform.position.x, transform.position.y, ZminBorder.position.z);
@@ -76,7 +75,7 @@ public class DroneMoveController : MonoBehaviour
         LayerMask layerMask = ~WallMask;
         if (Physics.Raycast(DroneCamera.transform.position, Pointer.transform.position - DroneCamera.transform.position, out Currenthit, 500000f, layerMask))
         {
-            Debug.DrawLine(Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 10)), Currenthit.point, Color.red, 5f);
+            Debug.DrawLine(Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 10)), Currenthit.point, Color.red, 100f);
             if (Currenthit.transform.GetComponent<Cell3D>() != null)
             {
                 Currenthit.transform.GetComponent<MeshRenderer>().material.color = Currenthit.transform.GetComponent<MeshRenderer>().material.color + Color.red;

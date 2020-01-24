@@ -76,25 +76,27 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         // Cache de input
-        var inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        var inputVector = new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime * walkSpeed, 0, Input.GetAxis("Vertical") * Time.deltaTime * walkSpeed);
 
         // On the ground
         if (grounded)
         {
-            // Apply a force that attempts to reach our target velocity
-            var velocityChange = CalculateVelocityChange(inputVector);
-            rb.AddForce(velocityChange, ForceMode.VelocityChange);
+            //// Apply a force that attempts to reach our target velocity
+            //var velocityChange = CalculateVelocityChange(inputVector);
+            //rb.AddForce(velocityChange, ForceMode.VelocityChange);
 
-            // Jump
-            if (canJump && jumpFlag)
-            {
-                jumpFlag = false;
-                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y + CalculateJumpVerticalSpeed(), rb.velocity.z);
-            }
+            //// Jump
+            //if (canJump && jumpFlag)
+            //{
+            //    jumpFlag = false;
+            //    rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y + CalculateJumpVerticalSpeed(), rb.velocity.z);
+            //}
 
-            // By setting the grounded to false in every FixedUpdate we avoid
-            // checking if the character is not grounded on OnCollisionExit()
-            grounded = false;
+            //// By setting the grounded to false in every FixedUpdate we avoid
+            //// checking if the character is not grounded on OnCollisionExit()
+            //grounded = false;
+
+            transform.Translate(inputVector, Space.Self);
         }
         // In mid-air
         else

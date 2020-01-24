@@ -64,11 +64,17 @@
     <Reference Include="Cinemachine">
       <HintPath>D:/GameDev/GitKraken/Project-N.D.-/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProGrids">
+      <HintPath>D:/GameDev/GitKraken/Project-N.D.-/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>D:/GameDev/GitKraken/Project-N.D.-/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>D:/GameDev/GitKraken/Project-N.D.-/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids.Editor">
+      <HintPath>D:/GameDev/GitKraken/Project-N.D.-/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/GameDev/GitKraken/Project-N.D.-/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

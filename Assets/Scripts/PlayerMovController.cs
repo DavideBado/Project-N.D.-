@@ -8,6 +8,7 @@ using System.Linq;
 
 public class PlayerMovController : MonoBehaviour
 {
+    public Capsulo capsulo = null;
     int currentSpotCameraIndex = 0;
     public List<CamSpot> camSpots = new List<CamSpot>();
     public Camera SpotCamera;
@@ -63,42 +64,47 @@ public class PlayerMovController : MonoBehaviour
         currentSpeed = walkSpeed;
         ChangeCamSpot(0);
         //gates = FindObjectsOfType<Gate>().ToList();
-        if (camSpots.Count == 0) SpotCameraScreen.enabled = false;
+       // if (camSpots.Count == 0) SpotCameraScreen.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (camSpots.Count == 0) SpotCameraScreen.enabled = false;
+        //if (camSpots.Count == 0) SpotCameraScreen.enabled = false;
         if (InputActive)
         {
             float translationVertical = Input.GetAxis("Vertical") * currentSpeed;
             float HorizontalTranslation = Input.GetAxis("Horizontal") * currentSpeed;
       
+
             GraphSpeed = translationVertical;
 
             translationVertical *= Time.deltaTime;
             HorizontalTranslation *= Time.deltaTime;
 
-            MoveToCameraForward();
+            //MoveToCameraForward();
+            Transform movementTransform = Camera.main.transform;
+            movementTransform.eulerAngles = new Vector3(0, movementTransform.eulerAngles.y, movementTransform.eulerAngles.z);
 
-            if (translationVertical > 0)
+            if (Input.GetAxis("Vertical") != 0) transform.rotation = movementTransform.rotation;
+      
+                    if (translationVertical > 0)
             {
-                if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.forward, 0.5f, WallMask)) transform.Translate(0, 0, translationVertical);
+                if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.forward, 0.5f, WallMask)) transform.Translate(new Vector3(0, 0, translationVertical), movementTransform);
             }
             else if (translationVertical < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.forward, 0.5f, WallMask))
                 {
-                    transform.Translate(0, 0, translationVertical);
+                    transform.Translate(new Vector3(0, 0, translationVertical), movementTransform);
                     Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
                 }
 
             if (HorizontalTranslation > 0)
             {
-                if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.right, 0.5f, WallMask)) transform.Translate(HorizontalTranslation, 0, 0);
+                if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.right, 0.5f, WallMask)) transform.Translate(new Vector3(HorizontalTranslation, 0, 0), movementTransform);
             }
             else if (HorizontalTranslation < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.right, 0.5f, WallMask))
                 {
-                    transform.Translate(HorizontalTranslation, 0, 0);
+                    transform.Translate(new Vector3(HorizontalTranslation, 0, 0), movementTransform);
                     Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
                 }
             

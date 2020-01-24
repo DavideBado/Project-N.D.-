@@ -258,3 +258,7 @@ D:\GameDev\GitKraken\Project-N.D.-\obj\Debug\Assembly-CSharp.csproj.CoreCompileI
 D:\GameDev\GitKraken\Project-N.D.-\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\GameDev\GitKraken\Project-N.D.-\obj\Debug\Assembly-CSharp.dll
 D:\GameDev\GitKraken\Project-N.D.-\obj\Debug\Assembly-CSharp.pdb
+D:\GameDev\GitKraken\Project-N.D.-\Temp\bin\Debug\Unity.ProGrids.dll
+D:\GameDev\GitKraken\Project-N.D.-\Temp\bin\Debug\Unity.ProGrids.Editor.dll
+D:\GameDev\GitKraken\Project-N.D.-\Temp\bin\Debug\Unity.ProGrids.pdb
+D:\GameDev\GitKraken\Project-N.D.-\Temp\bin\Debug\Unity.ProGrids.Editor.pdb
