@@ -1,21 +1,17 @@
 fileFormatVersion: 2
-guid: 45a2b29c5ddf3d7488aca88dbcc2a134
+guid: d76a7b028626d7e4782b5f5a0c82b4b9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert1
-    2100002: lambert10
+    2100000: M_Base_Wall_01
+    2100002: M_Frame_05
+    2100004: M_Frame_01
     2300000: //RootNode
     3300000: //RootNode
     4300000: SM_Arch_01
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert10
-    second: {fileID: 2100000, guid: f5b82bc42ded7da4893d4ef280fcc55e, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
