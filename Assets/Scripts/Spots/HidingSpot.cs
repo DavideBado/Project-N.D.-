@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class HidingSpot : PlaceableSpot
 {
-
+    public GameObject Logic;
 }

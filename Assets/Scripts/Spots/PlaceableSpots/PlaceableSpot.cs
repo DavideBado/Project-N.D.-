@@ -7,12 +7,14 @@ public class PlaceableSpot : SpotBase
     public Collider ColliderForRayCast;
     public PlaceableSpotGraphicsController Graphics;
     public PlaceableSpotType SpotType;
+     
     public enum PlaceableSpotType
     {
         EscapePoint,
         StartinPoint,
         Hiding,
-        Cam
+        Cam,
+        Multi
     }
 
     private void OnEnable()

@@ -146,6 +146,7 @@
     <Compile Include="Assets\Scripts\Spots\EscapeSpot.cs" />
     <Compile Include="Assets\Scripts\Spots\HidingSpot.cs" />
     <Compile Include="Assets\Scripts\Spots\InterestSpot.cs" />
+    <Compile Include="Assets\Scripts\Spots\PlaceableSpots\ObjectsSpot.cs" />
     <Compile Include="Assets\Scripts\Spots\PlaceableSpots\PlaceableSpot.cs" />
     <Compile Include="Assets\Scripts\Spots\PlaceableSpots\PlaceableSpotGraphicsController.cs" />
     <Compile Include="Assets\Scripts\Spots\PlaceableSpots\SpawnSpot.cs" />

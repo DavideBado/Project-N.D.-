@@ -195,6 +195,7 @@ public class PlayerMovController : MonoBehaviour
 
     float pezzahidingSpeed = 0;
     public MenuSelector MenuSelector;
+    public float HidingSpotMaxDistance = 1.5f;
     private void DetectHidingPoint()
     {
         if (Input.GetKeyDown(interact) && !MenuSelector.InMapView)
@@ -202,7 +203,7 @@ public class PlayerMovController : MonoBehaviour
             if (isHiding == false)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f))
+                if (Physics.Raycast(transform.position, transform.forward, out hit, HidingSpotMaxDistance))
                 {
                     if (hit.collider.gameObject.tag == "HidingSpot")
                     {

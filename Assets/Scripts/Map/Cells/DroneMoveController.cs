@@ -21,11 +21,15 @@ public class DroneMoveController : MonoBehaviour
     float mouseX;
     public float rotationSpeed;
 
+    public PlaceableSpot.PlaceableSpotType CurrentSpotType;
+    public List<PlaceableSpot.PlaceableSpotType> MyPossibleSpotTypes = new List<PlaceableSpot.PlaceableSpotType>();
     public int RemHiding, RemCams, RemEsc, RemStart;
+
     private void Start()
     {
        if(AllSpotPosTypes.Count > 0) CurrentIspotType = AllSpotPosTypes[0];
     }
+
     private void Update()
     {
         CheckInput();
@@ -135,45 +139,8 @@ public class DroneMoveController : MonoBehaviour
                 {
                     if (Input.GetAxis("DroneSelect") != 0)
                     {
-                        switch (Currenthit.transform.GetComponent<PlaceableSpot>().SpotType)
-                        {
-                            case PlaceableSpot.PlaceableSpotType.EscapePoint:
-                                if (RemEsc > 0)
-                                {
-                                    EscapeSpot _EscapeSpot = Currenthit.transform.GetComponent<EscapeSpot>();
-                                    GameManager.instance.CurrentEscapeSpot = _EscapeSpot;
-                                    _EscapeSpot.Graphics.SetSelectedGraphichs(true);
-                                    RemEsc--;
-                                }
-                                break;
-                            case PlaceableSpot.PlaceableSpotType.StartinPoint:
-                                if (RemStart > 0)
-                                {
-                                    SpawnSpot _SpawnSpot = Currenthit.transform.GetComponent<SpawnSpot>();
-                                    GameManager.instance.CurrentStartSpot = _SpawnSpot;
-                                    _SpawnSpot.Graphics.SetSelectedGraphichs(true);
-                                    RemStart--;
-                                }
-                                break;
-                            case PlaceableSpot.PlaceableSpotType.Hiding:
-                                if (RemHiding > 0)
-                                {
-                                    HidingSpot _HidingSpot = Currenthit.transform.GetComponent<HidingSpot>();
-                                    _HidingSpot.Graphics.SetSelectedGraphichs(true);
-                                    RemHiding--;
-                                }
-                                break;
-                            case PlaceableSpot.PlaceableSpotType.Cam:
-                                if (RemCams > 0)
-                                {
-                                    CamSpot _CamSpot = Currenthit.transform.GetComponent<CamSpot>();
-                                    _CamSpot.Graphics.SetSelectedGraphichs(true);
-                                    RemCams--;
-                                }
-                                break;
-                            default:
-                                break;
-                        }
+                        SwitchSpotTypes(Currenthit.transform.GetComponent<PlaceableSpot>().SpotType);
+                      
                     }
                     else if (Input.GetAxis("DroneRemove") != 0)
                     {
@@ -202,6 +169,17 @@ public class DroneMoveController : MonoBehaviour
                                 break;
                             case PlaceableSpot.PlaceableSpotType.Cam:
                                 break;
+                            case PlaceableSpot.PlaceableSpotType.Multi:
+                                ObjectsSpot _objectsSpot = Currenthit.transform.GetComponent<ObjectsSpot>();
+                                for (int i = 0; i < _objectsSpot.SpotTypesForMulti.Count; i++)
+                                {
+                                    if (_objectsSpot.SpotTypesForMulti[i] == CurrentSpotType)
+                                    {
+                                        _objectsSpot.SpotsForMulti[i].SetActive(false);
+                                        _objectsSpot.Graphics.SetSelectedGraphichs(false);
+                                    }
+                                }
+                                break;
                             default:
                                 break;
                         }
@@ -215,5 +193,60 @@ public class DroneMoveController : MonoBehaviour
             //else if (Oldhit.transform) Oldhit.transform.GetComponent<MeshRenderer>().material.color = Oldhit.transform.GetComponent<MeshRenderer>().material.color - Color.red;
         }
         //else if (Oldhit.transform) Oldhit.transform.GetComponent<MeshRenderer>().material.color = Oldhit.transform.GetComponent<MeshRenderer>().material.color - Color.red;
+    }
+
+    private void SwitchSpotTypes(PlaceableSpot.PlaceableSpotType _type)
+    {
+        switch (_type)
+        {
+            case PlaceableSpot.PlaceableSpotType.EscapePoint:
+                if (RemEsc > 0)
+                {
+                    EscapeSpot _EscapeSpot = Currenthit.transform.GetComponent<EscapeSpot>();
+                    GameManager.instance.CurrentEscapeSpot = _EscapeSpot;
+                    _EscapeSpot.Graphics.SetSelectedGraphichs(true);
+                    RemEsc--;
+                }
+                break;
+            case PlaceableSpot.PlaceableSpotType.StartinPoint:
+                if (RemStart > 0)
+                {
+                    SpawnSpot _SpawnSpot = Currenthit.transform.GetComponent<SpawnSpot>();
+                    GameManager.instance.CurrentStartSpot = _SpawnSpot;
+                    _SpawnSpot.Graphics.SetSelectedGraphichs(true);
+                    RemStart--;
+                }
+                break;
+            case PlaceableSpot.PlaceableSpotType.Hiding:
+                if (RemHiding > 0)
+                {
+                    HidingSpot _HidingSpot = Currenthit.transform.GetComponent<HidingSpot>();
+                    _HidingSpot.Graphics.SetSelectedGraphichs(true);
+                    RemHiding--;
+                }
+                break;
+            case PlaceableSpot.PlaceableSpotType.Cam:
+                if (RemCams > 0)
+                {
+                    CamSpot _CamSpot = Currenthit.transform.GetComponent<CamSpot>();
+                    _CamSpot.Graphics.SetSelectedGraphichs(true);
+                    RemCams--;
+                }
+                break;
+            case PlaceableSpot.PlaceableSpotType.Multi:
+                ObjectsSpot _objectsSpot = Currenthit.transform.GetComponent<ObjectsSpot>();
+                _objectsSpot.Graphics.SetSelectedGraphichs(true);
+                for (int i = 0; i < _objectsSpot.SpotTypesForMulti.Count; i++)
+                {
+                    if (_objectsSpot.SpotTypesForMulti[i] == CurrentSpotType)
+                    {
+                        _objectsSpot.SpotsForMulti[i].SetActive(true);                        
+                    }
+                    else _objectsSpot.SpotsForMulti[i].SetActive(false);
+                }
+                break;
+            default:
+                break;
+        }
     }
 }
