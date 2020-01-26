@@ -53,7 +53,7 @@ public class PlayerMovController : MonoBehaviour
     [HideInInspector]
     public float GraphSpeed;
     public CameraMovement m_camera;
-
+    
     public Vector3 ResetPosition;
 
     bool InputActive = true;

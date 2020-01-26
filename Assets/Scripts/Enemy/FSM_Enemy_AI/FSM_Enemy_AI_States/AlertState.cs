@@ -9,6 +9,7 @@ public class AlertState : StateMachineBehaviour
     EnemyAI enemyAI;
     NavMeshAgent agent;
     float timer = 2;
+    float savedTime;
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -19,7 +20,8 @@ public class AlertState : StateMachineBehaviour
         //m_enemyNavController.GetComponent<MeshRenderer>().material = m_enemyNavController.graphicsController.AlertMat;
         m_enemyNavController.graphicsController.AlertAnimGObj.SetActive(true);
 
-        agent.isStopped = true;       
+        agent.isStopped = true;
+        savedTime = Time.time;
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -30,7 +32,11 @@ public class AlertState : StateMachineBehaviour
         if (m_enemyNavController.VisibleTarget)
         {
             timer = 2;
-            m_enemyNavController.Counter += m_enemyNavController.ModCounters[m_enemyNavController.visibleTargetArea] * Time.deltaTime;
+            if (Time.time - savedTime >= m_enemyNavController.CounterUpdateTime)
+            {
+                m_enemyNavController.Counter += m_enemyNavController.ModCounter(m_enemyNavController.transform, m_enemyNavController.VisibleTarget);
+                savedTime = Time.time;
+            }
             m_enemyNavController.transform.LookAt(m_enemyNavController.VisibleTarget.transform.position);
             if (m_enemyNavController.Counter >= m_enemyNavController.Counter_Alert_MaxValue) enemyAI.AlertStateMaxCounter?.Invoke();
         }

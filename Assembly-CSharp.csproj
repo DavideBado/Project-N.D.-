@@ -62,13 +62,11 @@
   <ItemGroup>
     <Compile Include="Assets\Attributes\DraggablePoint.cs" />
     <Compile Include="Assets\CameraReset.cs" />
-    <Compile Include="Assets\CamSpot.cs" />
     <Compile Include="Assets\Capsulo.cs" />
     <Compile Include="Assets\Editors\FieldOfViewEditor.cs" />
     <Compile Include="Assets\Editors\HearingEditor.cs" />
     <Compile Include="Assets\Editors\NavigationEditor.cs" />
     <Compile Include="Assets\Gate.cs" />
-    <Compile Include="Assets\HidingSpot.cs" />
     <Compile Include="Assets\KeySpot.cs" />
     <Compile Include="Assets\LevelDataLoader.cs" />
     <Compile Include="Assets\Movement.cs" />
@@ -144,6 +142,14 @@
     <Compile Include="Assets\Scripts\PlayerMovController.cs" />
     <Compile Include="Assets\Scripts\PlayerNavController.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Scripts\Spots\CamSpot.cs" />
+    <Compile Include="Assets\Scripts\Spots\EscapeSpot.cs" />
+    <Compile Include="Assets\Scripts\Spots\HidingSpot.cs" />
+    <Compile Include="Assets\Scripts\Spots\InterestSpot.cs" />
+    <Compile Include="Assets\Scripts\Spots\PlaceableSpots\PlaceableSpot.cs" />
+    <Compile Include="Assets\Scripts\Spots\PlaceableSpots\PlaceableSpotGraphicsController.cs" />
+    <Compile Include="Assets\Scripts\Spots\PlaceableSpots\SpawnSpot.cs" />
+    <Compile Include="Assets\Scripts\Spots\SpotBase.cs" />
     <Compile Include="Assets\Scripts\TriggerTrap.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

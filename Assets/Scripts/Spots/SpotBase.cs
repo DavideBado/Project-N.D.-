@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HidingSpot : MonoBehaviour
+public abstract class SpotBase : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

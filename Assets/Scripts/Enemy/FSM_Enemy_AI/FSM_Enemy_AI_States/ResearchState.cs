@@ -8,6 +8,7 @@ public class ResearchState : StateMachineBehaviour
     EnemyNavController m_enemyNavController;
     EnemyAI enemyAI;
     NavMeshAgent agent;
+    float savedTime;
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -16,6 +17,7 @@ public class ResearchState : StateMachineBehaviour
         agent = animator.GetComponent<NavMeshAgent>();
         agent.speed = m_enemyNavController.ResearchSpeed;
         m_enemyNavController.graphicsController.LookAroundAnimGObj.SetActive(true);
+        savedTime = Time.time;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -24,9 +26,12 @@ public class ResearchState : StateMachineBehaviour
         if (m_enemyNavController.VisibleTarget)
         {
             m_enemyNavController.OldVisibleTarget = m_enemyNavController.VisibleTarget;
-
-            m_enemyNavController.Counter += m_enemyNavController.ModCounters[m_enemyNavController.visibleTargetArea] * Time.deltaTime;
-            agent.destination = m_enemyNavController.VisibleTarget.position;
+            if (Time.time - savedTime >= m_enemyNavController.CounterUpdateTime)
+            {
+                m_enemyNavController.Counter += m_enemyNavController.ModCounter(m_enemyNavController.transform, m_enemyNavController.VisibleTarget);
+                savedTime = Time.time;
+            }
+                agent.destination = m_enemyNavController.VisibleTarget.position;
             if (m_enemyNavController.Counter >= m_enemyNavController.Counter_Research_MaxValue) enemyAI.ResearchStateMaxCounter?.Invoke();
         }
         else

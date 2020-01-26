@@ -23,7 +23,8 @@ public class ExecutionPhaseState : StateMachineBehaviour
         GameManager.instance.Player.SpotCameraScreen.enabled = true;
         GameManager.instance.Drone.DroneCamera.Priority = 0;
 
-        GameManager.instance.Player.transform.position = GameManager.instance.Player.ResetPosition;
+        GameManager.instance.Player.transform.position = GameManager.instance.CurrentStartSpot.SpawnPosition.position;
+        GameManager.instance.Player.ResetPosition = GameManager.instance.CurrentStartSpot.SpawnPosition.position;
         GameManager.instance.Player.GetComponent<NavMeshObstacle>().enabled = true;
         GameManager.instance.Player.currentSpeed = GameManager.instance.Player.walkSpeed;
         GameManager.instance.Player.isCrouching = false;
@@ -46,6 +47,7 @@ public class ExecutionPhaseState : StateMachineBehaviour
             _enemyAI.AI_FSM.SetTrigger("ToExePhase");
             _enemyAI.GetComponent<CapsuleCollider>().enabled = true;
         }
+        GameManager.instance.OnExePhaseAction?.Invoke();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

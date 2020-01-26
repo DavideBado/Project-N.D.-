@@ -18,11 +18,17 @@ public class GameManager : MonoBehaviour
 
     public Action PlayerCaught;
     public Action PlayerGoal;
+    public Action OnExePhaseAction;
 
     [HideInInspector]
     public bool OnExePhase = false;
     [HideInInspector]
     public bool OnPlanPhase = false;
+
+
+    public SpawnSpot CurrentStartSpot;
+    public EscapeSpot CurrentEscapeSpot;
+
 
     private void OnEnable()
     {

@@ -38,8 +38,8 @@ public class EnemyNavController : MonoBehaviour
     float rotTimer;
     public float GameOverDist;
 
-    [Range(0, 5)]
-    public List<float> ModCounters = new List<float>();
+    //[Range(0, 5)]
+    //public List<float> ModCounters = new List<float>();
 
     public float Counter_Patrol_MaxValue;
 
@@ -55,8 +55,25 @@ public class EnemyNavController : MonoBehaviour
 
     [HideInInspector]
     public float Counter;
+    public float CounterUpdateTime;
 
     public Vector3 IdlePosition;
     public Vector3 IdleTriggerTrapPosition;
     public Vector3 IdleTriggerTrapDim;
+
+    public float ModCounter(Transform _enemy, Transform _player)
+    {
+        return DistCounter(_enemy.position, _player.position) * SinCounter(_enemy, _player);
+    }
+
+    private float DistCounter(Vector3 _origin, Vector3 _player)
+    {
+        return 1 - (Vector3.Distance(_origin, _player) / fieldOfView.viewRadius);
+    }
+
+    private float SinCounter(Transform _origin, Transform _player)
+    {
+        return Mathf.Sin(Mathf.Deg2Rad * Vector3.Angle(_origin.transform.position - _player.transform.position, _origin.transform.right));
+    }
+
 }
