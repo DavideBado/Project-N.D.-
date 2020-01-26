@@ -53,10 +53,12 @@ public class PlayerMovController : MonoBehaviour
     [HideInInspector]
     public float GraphSpeed;
     public CameraMovement m_camera;
-    
+
     public Vector3 ResetPosition;
 
     bool InputActive = true;
+
+    public Camera MainCamera;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +66,7 @@ public class PlayerMovController : MonoBehaviour
         currentSpeed = walkSpeed;
         ChangeCamSpot(0);
         //gates = FindObjectsOfType<Gate>().ToList();
-       // if (camSpots.Count == 0) SpotCameraScreen.enabled = false;
+        // if (camSpots.Count == 0) SpotCameraScreen.enabled = false;
     }
 
     // Update is called once per frame
@@ -75,7 +77,7 @@ public class PlayerMovController : MonoBehaviour
         {
             float translationVertical = Input.GetAxis("Vertical") * currentSpeed;
             float HorizontalTranslation = Input.GetAxis("Horizontal") * currentSpeed;
-      
+
 
             GraphSpeed = translationVertical;
 
@@ -86,9 +88,10 @@ public class PlayerMovController : MonoBehaviour
             Transform movementTransform = Camera.main.transform;
             movementTransform.eulerAngles = new Vector3(0, movementTransform.eulerAngles.y, movementTransform.eulerAngles.z);
 
-            if (Input.GetAxis("Vertical") != 0) transform.rotation = movementTransform.rotation;
-      
-                    if (translationVertical > 0)
+            if (Input.GetAxis("Vertical") != 0)
+                transform.rotation = movementTransform.rotation;
+
+            if (translationVertical > 0)
             {
                 if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.forward, 0.5f, WallMask)) transform.Translate(new Vector3(0, 0, translationVertical), movementTransform);
             }
@@ -107,8 +110,8 @@ public class PlayerMovController : MonoBehaviour
                     transform.Translate(new Vector3(HorizontalTranslation, 0, 0), movementTransform);
                     Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
                 }
-            
-            
+
+
             //transform.Rotate(0, rotation, 0);
 
             Crouch();
@@ -122,9 +125,9 @@ public class PlayerMovController : MonoBehaviour
             if (currentSpeed == runningSpeed && Input.GetAxis("Vertical") != 0)
             {
                 Noise.MakeNoiseDelegate(runDimensionMod, runDuration, NoiseController.NoiseType.Run);
-            } 
+            }
 
-            if(Input.GetKeyDown(interact) && haveTheKey)
+            if (Input.GetKeyDown(interact) && haveTheKey)
             {
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f))
@@ -144,7 +147,7 @@ public class PlayerMovController : MonoBehaviour
         }
 
 
-        if(Input.GetKeyDown(NextSpotCam))
+        if (Input.GetKeyDown(NextSpotCam))
         {
             currentSpotCameraIndex++;
             if (currentSpotCameraIndex >= camSpots.Count) currentSpotCameraIndex = 0;
@@ -154,7 +157,7 @@ public class PlayerMovController : MonoBehaviour
         if (Input.GetKeyDown(PrevSpotCam))
         {
             currentSpotCameraIndex--;
-            if (currentSpotCameraIndex < 0) currentSpotCameraIndex = camSpots.Count-1;
+            if (currentSpotCameraIndex < 0) currentSpotCameraIndex = camSpots.Count - 1;
 
             ChangeCamSpot(currentSpotCameraIndex);
         }
@@ -248,7 +251,7 @@ public class PlayerMovController : MonoBehaviour
         Graphics.SetActive(x);
         Collider.enabled = x;
         rb.useGravity = x;
-        if(GameManager.instance.OnExePhase) ObstacleNav.enabled = x;
+        if (GameManager.instance.OnExePhase) ObstacleNav.enabled = x;
     }
 
     public void TurnOnOffThePlayer(bool x)
@@ -278,7 +281,7 @@ public class PlayerMovController : MonoBehaviour
             {
                 camSpots[i].GetComponent<CinemachineVirtualCamera>().Priority = 0;
             }
-            if(camSpots.Count > _index) camSpots[_index].GetComponent<CinemachineVirtualCamera>().Priority = 50;
+            if (camSpots.Count > _index) camSpots[_index].GetComponent<CinemachineVirtualCamera>().Priority = 50;
 
         }
     }
