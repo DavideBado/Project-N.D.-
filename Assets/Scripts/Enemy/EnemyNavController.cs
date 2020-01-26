@@ -76,4 +76,8 @@ public class EnemyNavController : MonoBehaviour
         return Mathf.Sin(Mathf.Deg2Rad * Vector3.Angle(_origin.transform.position - _player.transform.position, _origin.transform.right));
     }
 
+    private void OnEnable()
+    {
+        IdlePosition = transform.position;
+    }
 }

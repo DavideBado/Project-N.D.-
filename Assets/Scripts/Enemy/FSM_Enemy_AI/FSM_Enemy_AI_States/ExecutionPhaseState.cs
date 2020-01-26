@@ -46,6 +46,8 @@ public class ExecutionPhaseState : StateMachineBehaviour
             //_enemyAI.AI_FSM.SetTrigger("ChangePhase");
             _enemyAI.AI_FSM.SetTrigger("ToExePhase");
             _enemyAI.GetComponent<CapsuleCollider>().enabled = true;
+
+            enemyController.IdleTriggerTrapPosition = GameManager.instance.CurrentStartSpot.SpawnPosition.position;
         }
         GameManager.instance.OnExePhaseAction?.Invoke();
     }
