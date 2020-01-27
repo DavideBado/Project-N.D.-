@@ -8,7 +8,7 @@ using System.Linq;
 
 public class PlayerMovController : MonoBehaviour
 {
-    public Capsulo capsulo = null;
+    public Capsulo GoldenlEgg = null;
     int currentSpotCameraIndex = 0;
     public List<CamSpot> camSpots = new List<CamSpot>();
     public Camera SpotCamera;
@@ -257,6 +257,7 @@ public class PlayerMovController : MonoBehaviour
 
     public void TurnOnOffThePlayer(bool x)
     {
+        SpotCameraScreen.enabled = x;
         Graphics.SetActive(x);
         InputActive = x;
     }

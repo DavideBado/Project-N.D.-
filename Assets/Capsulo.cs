@@ -9,7 +9,8 @@ public class Capsulo : MonoBehaviour
     {
         if (GameManager.instance.OnExePhase) if (collision.transform.GetComponent<PlayerMovController>())
             {
-                collision.transform.GetComponent<PlayerMovController>().capsulo = this;
+                collision.transform.GetComponent<PlayerMovController>().GoldenlEgg = this;
+                GameManager.instance.PostObjective?.Invoke();
                 Graphics.SetActive(false);
             }
     }

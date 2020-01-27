@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -49,6 +49,8 @@ public class EnemyNavController : MonoBehaviour
 
     public float Counter_Pursue_MaxValue;
 
+    public float PostObjectivePatrolCounterValue;
+   
     public float WalkSpeed;
     public float ResearchSpeed;
     public float RunSpeed;
@@ -79,5 +81,16 @@ public class EnemyNavController : MonoBehaviour
     private void OnEnable()
     {
         IdlePosition = transform.position;
+        GameManager.instance.PostObjective += SetPostObjectiveCounter;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.instance.PostObjective -= SetPostObjectiveCounter;
+    }
+
+    private void SetPostObjectiveCounter()
+    {
+        if (Counter < PostObjectivePatrolCounterValue) Counter = PostObjectivePatrolCounterValue;
     }
 }

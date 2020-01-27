@@ -505,7 +505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1446396042954925850
 Transform:
   m_ObjectHideFlags: 0
@@ -764,18 +764,16 @@ MonoBehaviour:
   fieldOfView: {fileID: 803927139432897166}
   TimeForLookAround: 3
   GameOverDist: 1.5
-  ModCounters:
-  - 0.5
-  - 1
-  - 1.5
-  Counter_Patrol_MaxValue: 0.5
-  Counter_Alert_MaxValue: 0.75
-  Counter_Research_MaxValue: 1.6
-  Counter_Pursue_MaxValue: 1.5
+  Counter_Patrol_MaxValue: 0.7
+  Counter_Alert_MaxValue: 0.7
+  Counter_Research_MaxValue: 1.1
+  Counter_Pursue_MaxValue: 1
+  PostObjectivePatrolCounterValue: 0.69
   WalkSpeed: 1.8
   ResearchSpeed: 2.75
   RunSpeed: 7
   Counter: 0
+  CounterUpdateTime: 0.5
   IdlePosition: {x: 8, y: 1, z: 9}
   IdleTriggerTrapPosition: {x: 7, y: 1, z: 0}
   IdleTriggerTrapDim: {x: 5, y: 2, z: 5}
@@ -791,10 +789,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55bcbd182980db4da1b5268c0b18b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 3
+  viewRadius: 7
   viewAngle:
-  - 40
-  - 80
   - 110
   targetMask:
     serializedVersion: 2
@@ -823,7 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9531e565a5f647744b16285fd7f8b9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HearingRadius: 4
+  HearingRadius: 10
   targetMask:
     serializedVersion: 2
     m_Bits: 4096
@@ -947,7 +943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1741436650917161248
 Transform:
   m_ObjectHideFlags: 0

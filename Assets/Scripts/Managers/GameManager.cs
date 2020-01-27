@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Action PlayerCaught;
     public Action PlayerGoal;
     public Action OnExePhaseAction;
+    public Action PostObjective;
 
     [HideInInspector]
     public bool OnExePhase = false;

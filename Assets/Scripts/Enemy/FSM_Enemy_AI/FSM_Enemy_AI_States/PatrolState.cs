@@ -17,7 +17,8 @@ public class PatrolState : StateMachineBehaviour
         enemyAI = animator.GetComponent<EnemyAI>();
         agent = animator.GetComponent<NavMeshAgent>();
         agent.speed = m_enemyNavController.WalkSpeed;
-        m_enemyNavController.Counter = 0;
+        if (GameManager.instance.Player.GoldenlEgg == null) m_enemyNavController.Counter = 0;
+        else m_enemyNavController.Counter = m_enemyNavController.PostObjectivePatrolCounterValue;
 
         enemyAI.CurrentTrigger = enemyAI.PatrolTrigger;
         //agent.speed = enemyNavController.WalkSpeed;
