@@ -14,6 +14,7 @@ public class LockRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = PlayerCamera.transform.rotation;
+        if (PlayerCamera) transform.rotation = PlayerCamera.transform.rotation;
+        else PlayerCamera = Camera.main;
     }
 }

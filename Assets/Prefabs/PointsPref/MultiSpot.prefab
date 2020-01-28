@@ -191,8 +191,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColliderForRayCast: {fileID: 6287276513838271725}
   Graphics: {fileID: 2076713063636986962}
-  SpotType: 4
-  SpotTypesForMulti: 0200000003000000
+  PlanObj: {fileID: 1766044210041146596}
+  SpotType: 5
+  SpotTypesForMulti: 0300000004000000
   SpotsForMulti:
   - {fileID: 4303944071835479838}
   - {fileID: 24790219770703532}
@@ -502,16 +503,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8487022117499470142}
     m_Modifications:
-    - target: {fileID: 7882941871094653978, guid: 7dbc2443a957518498955f0089e2e23d,
-        type: 3}
-      propertyPath: m_Name
-      value: HidingSpot
-      objectReference: {fileID: 0}
-    - target: {fileID: 7882941871094653978, guid: 7dbc2443a957518498955f0089e2e23d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7882941871094653981, guid: 7dbc2443a957518498955f0089e2e23d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -565,6 +556,16 @@ PrefabInstance:
     - target: {fileID: 7882941871094653981, guid: 7dbc2443a957518498955f0089e2e23d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7882941871094653978, guid: 7dbc2443a957518498955f0089e2e23d,
+        type: 3}
+      propertyPath: m_Name
+      value: HidingSpot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7882941871094653978, guid: 7dbc2443a957518498955f0089e2e23d,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

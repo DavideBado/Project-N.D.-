@@ -396,7 +396,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColliderForRayCast: {fileID: 8254240529489837936}
   Graphics: {fileID: 8254240529489837943}
-  SpotType: 1
+  PlanObj: {fileID: 8254240528575323922}
+  SpotType: 2
   SpawnPosition: {fileID: 8254240529408012143}
 --- !u!114 &8254240529489837943
 MonoBehaviour:

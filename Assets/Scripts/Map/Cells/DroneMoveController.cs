@@ -140,6 +140,7 @@ public class DroneMoveController : MonoBehaviour
                     if(CheckDronePlacingselection())
                     {
                         SwitchSpotTypes(Currenthit.transform.GetComponent<PlaceableSpot>().SpotType);
+                        CurrentSpotType = 0;
                     }
                     else
                     if (Input.GetAxis("DroneSelect") != 0)
@@ -177,11 +178,11 @@ public class DroneMoveController : MonoBehaviour
                                 ObjectsSpot _objectsSpot = Currenthit.transform.GetComponent<ObjectsSpot>();
                                 for (int i = 0; i < _objectsSpot.SpotTypesForMulti.Count; i++)
                                 {
-                                    if (_objectsSpot.SpotTypesForMulti[i] == CurrentSpotType)
-                                    {
+                                    //if (_objectsSpot.SpotTypesForMulti[i] == CurrentSpotType)
+                                    //{
                                         _objectsSpot.SpotsForMulti[i].SetActive(false);
                                         _objectsSpot.Graphics.SetSelectedGraphichs(false);
-                                    }
+                                    //}
                                 }
                                 break;
                             default:
@@ -206,61 +207,70 @@ public class DroneMoveController : MonoBehaviour
             case PlaceableSpot.PlaceableSpotType.Null:               
                 break;
             case PlaceableSpot.PlaceableSpotType.EscapePoint:
-                if (GameManager.instance.CurrentEscapeSpot != null)
+                if (!m_isSelectionAxisInUse)
                 {
-                    GameManager.instance.CurrentEscapeSpot.Graphics.SetSelectedGraphichs(false);
-                    GameManager.instance.CurrentEscapeSpot = null;
-                    RemEsc++;
+                    if (GameManager.instance.CurrentEscapeSpot != null)
+                    {
+                        GameManager.instance.CurrentEscapeSpot.Graphics.SetSelectedGraphichs(false);
+                        GameManager.instance.CurrentEscapeSpot = null;
+                        RemEsc++;
+                    }
+                    if (RemEsc > 0)
+                    {
+                        EscapeSpot _EscapeSpot = Currenthit.transform.GetComponent<EscapeSpot>();
+                        GameManager.instance.CurrentEscapeSpot = _EscapeSpot;
+                        _EscapeSpot.Graphics.SetSelectedGraphichs(true);
+                        RemEsc--;
+                    }
                 }
-                if (RemEsc > 0)
-                {
-                    EscapeSpot _EscapeSpot = Currenthit.transform.GetComponent<EscapeSpot>();
-                    GameManager.instance.CurrentEscapeSpot = _EscapeSpot;
-                    _EscapeSpot.Graphics.SetSelectedGraphichs(true);
-                    RemEsc--;
-                }
-                break;
+                    break;
             case PlaceableSpot.PlaceableSpotType.StartinPoint:
-                if (GameManager.instance.CurrentStartSpot != null)
+                if (!m_isSelectionAxisInUse)
                 {
-                    GameManager.instance.CurrentStartSpot.Graphics.SetSelectedGraphichs(false);
-                    GameManager.instance.CurrentStartSpot = null;
-                    RemStart++;
-                }
-                if (RemStart > 0)
-                {
-                    SpawnSpot _SpawnSpot = Currenthit.transform.GetComponent<SpawnSpot>();
-                    GameManager.instance.CurrentStartSpot = _SpawnSpot;
-                    _SpawnSpot.Graphics.SetSelectedGraphichs(true);
-                    RemStart--;
+                    if (GameManager.instance.CurrentStartSpot != null)
+                    {
+                        GameManager.instance.CurrentStartSpot.Graphics.SetSelectedGraphichs(false);
+                        GameManager.instance.CurrentStartSpot = null;
+                        RemStart++;
+                    }
+                    if (RemStart > 0)
+                    {
+                        SpawnSpot _SpawnSpot = Currenthit.transform.GetComponent<SpawnSpot>();
+                        GameManager.instance.CurrentStartSpot = _SpawnSpot;
+                        _SpawnSpot.Graphics.SetSelectedGraphichs(true);
+                        RemStart--;
+                    }
                 }
                 break;
             case PlaceableSpot.PlaceableSpotType.Hiding:
-                if (RemHiding > 0)
-                {
-                    HidingSpot _HidingSpot = Currenthit.transform.GetComponent<HidingSpot>();
-                    _HidingSpot.Graphics.SetSelectedGraphichs(true);
-                    RemHiding--;
-                }
+                //if (RemHiding > 0)
+                //{
+                //    HidingSpot _HidingSpot = Currenthit.transform.GetComponent<HidingSpot>();
+                //    _HidingSpot.Graphics.SetSelectedGraphichs(true);
+                //    RemHiding--;
+                //}
                 break;
             case PlaceableSpot.PlaceableSpotType.Cam:
-                if (RemCams > 0)
-                {
-                    CamSpot _CamSpot = Currenthit.transform.GetComponent<CamSpot>();
-                    _CamSpot.Graphics.SetSelectedGraphichs(true);
-                    RemCams--;
-                }
+                //if (RemCams > 0)
+                //{
+                //    CamSpot _CamSpot = Currenthit.transform.GetComponent<CamSpot>();
+                //    _CamSpot.Graphics.SetSelectedGraphichs(true);
+                //    RemCams--;
+                //}
                 break;
             case PlaceableSpot.PlaceableSpotType.Multi:
-                ObjectsSpot _objectsSpot = Currenthit.transform.GetComponent<ObjectsSpot>();
-                /*if(CurrentSpotType != 0) */_objectsSpot.Graphics.SetSelectedGraphichs(true);
-                for (int i = 0; i < _objectsSpot.SpotTypesForMulti.Count; i++)
+                if (CurrentSpotType != 0)
                 {
-                    if (_objectsSpot.SpotTypesForMulti[i] == CurrentSpotType)
+                    ObjectsSpot _objectsSpot = Currenthit.transform.GetComponent<ObjectsSpot>();
+                    _objectsSpot.Graphics.SetSelectedGraphichs(true);
+                    for (int i = 0; i < _objectsSpot.SpotTypesForMulti.Count; i++)
                     {
-                        _objectsSpot.SpotsForMulti[i].SetActive(true);
+                        if (_objectsSpot.SpotTypesForMulti[i] == CurrentSpotType)
+                        {
+                            _objectsSpot.SpotsForMulti[i].SetActive(true);
+                        }
+                        else _objectsSpot.SpotsForMulti[i].SetActive(false);
                     }
-                    else _objectsSpot.SpotsForMulti[i].SetActive(false);
                 }
                 break;
             default:
