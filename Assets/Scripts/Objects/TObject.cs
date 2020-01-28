@@ -13,19 +13,22 @@ public class TObject : MonoBehaviour
     bool onUpgrade = false;
     bool onAir = false;
     public MeshRenderer MyRenderer;
+    public bool CanTObj;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            if(!onAir)
-        {
-            onAir = true;
-            parabolaController.FollowParabola();
-            NoiseController.Reset();
-            MyCollider.enabled = true;
+        if (Input.GetAxisRaw("ThrowObject") != 0)
+            if (!onAir && CanTObj)
+            {
+                Graphic.ParabolaLocked = true;
+                CanTObj = false;
+                onAir = true;
+                parabolaController.FollowParabola();
+                NoiseController.Reset();
+                MyCollider.enabled = true;
                 MyRenderer.enabled = true;
-            onUpgrade = false;
-        }
+                onUpgrade = false;
+            }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +38,7 @@ public class TObject : MonoBehaviour
             onUpgrade = true;
             onAir = false;
             Graphic.lineRenderer.enabled = false;
+            Graphic.ParabolaLocked = false;
             MyRenderer.enabled = false;
             NoiseController.MakeNoiseDelegate(NoiseAreaMod, NoiseDuration, NoiseController.NoiseType.Object);
         }

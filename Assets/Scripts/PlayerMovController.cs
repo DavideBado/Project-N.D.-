@@ -22,12 +22,12 @@ public class PlayerMovController : MonoBehaviour
 
     public CinemachineFreeLook freeLookCamera;
 
-    public KeyCode interact;
-    public KeyCode crouch;
-    public KeyCode run;
+    //public KeyCode interact;
+    //public KeyCode crouch;
+    //public KeyCode run;
 
-    public KeyCode NextSpotCam;
-    public KeyCode PrevSpotCam;
+    //public KeyCode NextSpotCam;
+    //public KeyCode PrevSpotCam;
 
     Collision Wall;
     public LayerMask WallMask;
@@ -72,6 +72,7 @@ public class PlayerMovController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AxisDownCheck();
         //if (camSpots.Count == 0) SpotCameraScreen.enabled = false;
         if (InputActive)
         {
@@ -127,8 +128,9 @@ public class PlayerMovController : MonoBehaviour
                 Noise.MakeNoiseDelegate(runDimensionMod, runDuration, NoiseController.NoiseType.Run);
             }
 
-            if (Input.GetKeyDown(interact) && haveTheKey)
+            if (Input.GetAxisRaw("Interact") != 0 && haveTheKey && !m_axisDown)
             {
+                m_axisDown = true;
                 RaycastHit hit;
                 if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f))
                 {
@@ -146,16 +148,17 @@ public class PlayerMovController : MonoBehaviour
             }
         }
 
-
-        if (Input.GetKeyDown(NextSpotCam))
+        if (Input.GetAxisRaw("NextSpotCam") != 0 && !m_axisDown)
         {
+            m_axisDown = true;
             currentSpotCameraIndex++;
             if (currentSpotCameraIndex >= camSpots.Count) currentSpotCameraIndex = 0;
 
             ChangeCamSpot(currentSpotCameraIndex);
         }
-        if (Input.GetKeyDown(PrevSpotCam))
+        if (Input.GetAxisRaw("PrevSpotCam") != 0 && !m_axisDown)
         {
+            m_axisDown = true;
             currentSpotCameraIndex--;
             if (currentSpotCameraIndex < 0) currentSpotCameraIndex = camSpots.Count - 1;
 
@@ -163,15 +166,18 @@ public class PlayerMovController : MonoBehaviour
         }
 
     }
+    bool m_axisDown = false;
     void Crouch()
     {
-        if (Input.GetKeyDown(crouch) && isCrouching == false && isHiding == false)
+        if (Input.GetAxisRaw("Crouch") != 0 && isCrouching == false && isHiding == false && !m_axisDown)
         {
+            m_axisDown = true;
             currentSpeed = crouchingSpeed;
             isCrouching = true;
         }
-        else if (Input.GetKeyDown(crouch) && isCrouching == true && isHiding == false)
+        else if (Input.GetAxisRaw("Crouch") != 0 && isCrouching == true && isHiding == false && !m_axisDown)
         {
+            m_axisDown = true;
             currentSpeed = walkSpeed;
             isCrouching = false;
         }
@@ -179,14 +185,16 @@ public class PlayerMovController : MonoBehaviour
 
     void Run()
     {
-        if (Input.GetKeyDown(run) && isRunning == false && isHiding == false)
+        if (Input.GetAxisRaw("Run") != 0 && isRunning == false && isHiding == false && !m_axisDown)
         {
+            m_axisDown = true;
             currentSpeed = runningSpeed;
             isCrouching = false;
             isRunning = true;
         }
-        else if (Input.GetKeyDown(run) && isRunning == true && isHiding == false)
+        else if (Input.GetAxisRaw("Run") != 0 && isRunning == true && isHiding == false && !m_axisDown)
         {
+            m_axisDown = true;
             currentSpeed = walkSpeed;
             isCrouching = false;
             isRunning = false;
@@ -198,8 +206,9 @@ public class PlayerMovController : MonoBehaviour
     public float HidingSpotMaxDistance = 1.5f;
     private void DetectHidingPoint()
     {
-        if (Input.GetKeyDown(interact) && !MenuSelector.InMapView)
+        if (Input.GetAxisRaw("Interact") != 0 && !MenuSelector.InMapView && !m_axisDown)
         {
+            m_axisDown = true;
             if (isHiding == false)
             {
                 RaycastHit hit;
@@ -286,5 +295,11 @@ public class PlayerMovController : MonoBehaviour
             if (camSpots.Count > _index) camSpots[_index].GetComponent<CinemachineVirtualCamera>().Priority = 50;
 
         }
+    }
+
+    private void AxisDownCheck()
+    {
+        if(Input.GetAxisRaw("Interact") == 0 && Input.GetAxisRaw("NextSpotCam") == 0 && Input.GetAxisRaw("PrevSpotCam") == 0 && Input.GetAxisRaw("Crouch") == 0 && Input.GetAxisRaw("Run") == 0)
+        m_axisDown = false;
     }
 }

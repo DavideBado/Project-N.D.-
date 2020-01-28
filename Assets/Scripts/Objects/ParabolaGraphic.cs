@@ -10,17 +10,25 @@ public class ParabolaGraphic : MonoBehaviour
     public LayerMask ObstacleLayer;
     Vector3 ParabolaDestDefaultPoint = new Vector3();
     bool x = false;
-
+    public TObject TObj;
     private void Start()
     {
         ParabolaDestDefaultPoint = ParabolaEndPoint.transform.localPosition;
     }
+    public bool ParabolaLocked = false;
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButton(1))
+        if(Input.GetAxisRaw("ThrowingPreview") != 0 && !ParabolaLocked)
+        {
         DrawParabola(parabolaController.gizmo, parabolaController.ParabolaRoot);
-        if(Input.GetMouseButtonUp(1)) lineRenderer.enabled = false;
+        TObj.CanTObj = true;
+        }
+        if (Input.GetAxisRaw("ThrowingPreview") == 0) 
+        {
+            lineRenderer.enabled = false;
+            TObj.CanTObj = false;
+        }
     }
 
     void DrawParabola(ParabolaController.ParabolaFly gizmo, GameObject ParabolaRoot)
