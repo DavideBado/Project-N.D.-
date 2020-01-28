@@ -10,6 +10,7 @@ public class PlaceableSpot : SpotBase
      
     public enum PlaceableSpotType
     {
+        Null,
         EscapePoint,
         StartinPoint,
         Hiding,

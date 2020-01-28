@@ -124,9 +124,9 @@ public class DroneMoveController : MonoBehaviour
     //    if (Input.GetKeyDown(SecondAllSpotPosTypes)) CurrentIspotType = AllSpotPosTypes[1];
     //}
 
+    private bool m_isPlacingAxisInUse = false, m_isSelectionAxisInUse = false;
     void CheckSpots()
     {
-
         LayerMask layerMask = ~WallMask;
         if (Physics.Raycast(DroneCamera.transform.position, Pointer.transform.position - DroneCamera.transform.position, out Currenthit, 500000f, layerMask))
         {
@@ -137,6 +137,11 @@ public class DroneMoveController : MonoBehaviour
 
                 if (Currenthit.transform.GetComponent<PlaceableSpot>() != null)
                 {
+                    if(CheckDronePlacingselection())
+                    {
+                        SwitchSpotTypes(Currenthit.transform.GetComponent<PlaceableSpot>().SpotType);
+                    }
+                    else
                     if (Input.GetAxis("DroneSelect") != 0)
                     {
                         SwitchSpotTypes(Currenthit.transform.GetComponent<PlaceableSpot>().SpotType);
@@ -198,6 +203,8 @@ public class DroneMoveController : MonoBehaviour
     {
         switch (_type)
         {
+            case PlaceableSpot.PlaceableSpotType.Null:               
+                break;
             case PlaceableSpot.PlaceableSpotType.EscapePoint:
                 if (GameManager.instance.CurrentEscapeSpot != null)
                 {
@@ -246,7 +253,7 @@ public class DroneMoveController : MonoBehaviour
                 break;
             case PlaceableSpot.PlaceableSpotType.Multi:
                 ObjectsSpot _objectsSpot = Currenthit.transform.GetComponent<ObjectsSpot>();
-                _objectsSpot.Graphics.SetSelectedGraphichs(true);
+                /*if(CurrentSpotType != 0) */_objectsSpot.Graphics.SetSelectedGraphichs(true);
                 for (int i = 0; i < _objectsSpot.SpotTypesForMulti.Count; i++)
                 {
                     if (_objectsSpot.SpotTypesForMulti[i] == CurrentSpotType)
@@ -259,5 +266,35 @@ public class DroneMoveController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private bool CheckDronePlacingselection()
+    {
+        bool _canPlace = false;
+        if (!m_isSelectionAxisInUse)
+        {
+            if (Input.GetAxisRaw("DronePlaceHiding") != 0)
+            {
+                m_isSelectionAxisInUse = true;
+                CurrentSpotType = PlaceableSpot.PlaceableSpotType.Hiding;
+                _canPlace = true;
+            }
+            else if (Input.GetAxisRaw("DronePlaceCamera") != 0)
+            {
+                m_isSelectionAxisInUse = true;
+                CurrentSpotType = PlaceableSpot.PlaceableSpotType.Cam;
+                _canPlace = true;
+            }
+        }
+        else if (Input.GetAxisRaw("DronePlaceHiding") == 0 && Input.GetAxisRaw("DronePlaceCamera") == 0)
+        {
+            m_isSelectionAxisInUse = false;
+        }
+        return _canPlace;
+    }
+
+    private bool CheckDronePlacingInput()
+    {
+        return Input.GetAxisRaw("DronePlaceHiding") != 0 || Input.GetAxisRaw("DronePlaceCamera") != 0;
     }
 }
