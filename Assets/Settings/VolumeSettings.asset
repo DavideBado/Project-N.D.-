@@ -60,17 +60,17 @@ MonoBehaviour:
     max: 4
   cascadeShadowSplit0:
     m_OverrideState: 1
-    m_Value: 0.005
+    m_Value: 0.01
     min: 0
     max: 1
   cascadeShadowSplit1:
     m_OverrideState: 1
-    m_Value: 0.015
+    m_Value: 0.254
     min: 0
     max: 1
   cascadeShadowSplit2:
     m_OverrideState: 1
-    m_Value: 0.3
+    m_Value: 0.757
     min: 0
     max: 1
   cascadeShadowBorder0:
@@ -203,7 +203,7 @@ MonoBehaviour:
     max: 5
   skyTint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0.8301887, g: 0.5366171, b: 0.5286579, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
