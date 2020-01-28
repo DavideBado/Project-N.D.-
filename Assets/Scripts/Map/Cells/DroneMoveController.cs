@@ -27,7 +27,7 @@ public class DroneMoveController : MonoBehaviour
 
     private void Start()
     {
-       if(AllSpotPosTypes.Count > 0) CurrentIspotType = AllSpotPosTypes[0];
+        if (AllSpotPosTypes.Count > 0) CurrentIspotType = AllSpotPosTypes[0];
     }
 
     private void Update()
@@ -54,28 +54,28 @@ public class DroneMoveController : MonoBehaviour
         //VerticalTranslation *= Time.deltaTime;
         //HorizontalTranslation *= Time.deltaTime;
 
-            //if (VerticalTranslation > 0)
-            //{
-            //    if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.forward, 0.5f, WallMask)) transform.Translate(0, 0, VerticalTranslation);
-            //}
-            //else if (VerticalTranslation < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.forward, 0.5f, WallMask))
-            //    {
-            //        transform.Translate(0, 0, VerticalTranslation);
-            //        Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
-            //    }
+        //if (VerticalTranslation > 0)
+        //{
+        //    if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.forward, 0.5f, WallMask)) transform.Translate(0, 0, VerticalTranslation);
+        //}
+        //else if (VerticalTranslation < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.forward, 0.5f, WallMask))
+        //    {
+        //        transform.Translate(0, 0, VerticalTranslation);
+        //        Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
+        //    }
 
-            //if (HorizontalTranslation > 0)
-            //{
-            //    if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.right, 0.5f, WallMask)) transform.Translate(HorizontalTranslation, 0, 0);
-            //}
-            //else if (HorizontalTranslation < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.right, 0.5f, WallMask))
-            //    {
-            //        transform.Translate(HorizontalTranslation, 0, 0);
-            //        Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
-            //    }
+        //if (HorizontalTranslation > 0)
+        //{
+        //    if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.right, 0.5f, WallMask)) transform.Translate(HorizontalTranslation, 0, 0);
+        //}
+        //else if (HorizontalTranslation < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.right, 0.5f, WallMask))
+        //    {
+        //        transform.Translate(HorizontalTranslation, 0, 0);
+        //        Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
+        //    }
     }
     RaycastHit Currenthit;
-        RaycastHit Oldhit;
+    RaycastHit Oldhit;
     //void CheckCells()
     //{
 
@@ -132,7 +132,7 @@ public class DroneMoveController : MonoBehaviour
         {
             Debug.DrawLine(Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 10)), Currenthit.point, Color.red, 100f);
             if (Currenthit.transform.GetComponent<SpotBase>() != null)
-            {                
+            {
                 Oldhit = Currenthit;
 
                 if (Currenthit.transform.GetComponent<PlaceableSpot>() != null)
@@ -140,30 +140,29 @@ public class DroneMoveController : MonoBehaviour
                     if (Input.GetAxis("DroneSelect") != 0)
                     {
                         SwitchSpotTypes(Currenthit.transform.GetComponent<PlaceableSpot>().SpotType);
-                      
+
                     }
                     else if (Input.GetAxis("DroneRemove") != 0)
                     {
                         switch (Currenthit.transform.GetComponent<PlaceableSpot>().SpotType)
                         {
                             case PlaceableSpot.PlaceableSpotType.EscapePoint:
-                               
-                                EscapeSpot _EscapeSpot = Currenthit.transform.GetComponent<EscapeSpot>();
-                                if(GameManager.instance.CurrentEscapeSpot == _EscapeSpot)
-                                {
-                                    GameManager.instance.CurrentEscapeSpot = null;
-                                    _EscapeSpot.Graphics.SetSelectedGraphichs(false);
-                                    RemEsc++;
-                                }
+                                //EscapeSpot _EscapeSpot = Currenthit.transform.GetComponent<EscapeSpot>();
+                                //if (GameManager.instance.CurrentEscapeSpot == _EscapeSpot)
+                                //{
+                                //    GameManager.instance.CurrentEscapeSpot = null;
+                                //    _EscapeSpot.Graphics.SetSelectedGraphichs(false);
+                                //    RemEsc++;
+                                //}
                                 break;
                             case PlaceableSpot.PlaceableSpotType.StartinPoint:
-                                SpawnSpot _SpawnSpot = Currenthit.transform.GetComponent<SpawnSpot>();
-                                if (GameManager.instance.CurrentStartSpot == _SpawnSpot)
-                                {
-                                    GameManager.instance.CurrentStartSpot = null;
-                                    _SpawnSpot.Graphics.SetSelectedGraphichs(false);
-                                    RemStart++;
-                                }
+                                //SpawnSpot _SpawnSpot = Currenthit.transform.GetComponent<SpawnSpot>();
+                                //if (GameManager.instance.CurrentStartSpot == _SpawnSpot)
+                                //{
+                                //    GameManager.instance.CurrentStartSpot = null;
+                                //    _SpawnSpot.Graphics.SetSelectedGraphichs(false);
+                                //    RemStart++;
+                                //}
                                 break;
                             case PlaceableSpot.PlaceableSpotType.Hiding:
                                 break;
@@ -200,6 +199,12 @@ public class DroneMoveController : MonoBehaviour
         switch (_type)
         {
             case PlaceableSpot.PlaceableSpotType.EscapePoint:
+                if (GameManager.instance.CurrentEscapeSpot != null)
+                {
+                    GameManager.instance.CurrentEscapeSpot.Graphics.SetSelectedGraphichs(false);
+                    GameManager.instance.CurrentEscapeSpot = null;
+                    RemEsc++;
+                }
                 if (RemEsc > 0)
                 {
                     EscapeSpot _EscapeSpot = Currenthit.transform.GetComponent<EscapeSpot>();
@@ -209,6 +214,12 @@ public class DroneMoveController : MonoBehaviour
                 }
                 break;
             case PlaceableSpot.PlaceableSpotType.StartinPoint:
+                if (GameManager.instance.CurrentStartSpot != null)
+                {
+                    GameManager.instance.CurrentStartSpot.Graphics.SetSelectedGraphichs(false);
+                    GameManager.instance.CurrentStartSpot = null;
+                    RemStart++;
+                }
                 if (RemStart > 0)
                 {
                     SpawnSpot _SpawnSpot = Currenthit.transform.GetComponent<SpawnSpot>();
@@ -240,7 +251,7 @@ public class DroneMoveController : MonoBehaviour
                 {
                     if (_objectsSpot.SpotTypesForMulti[i] == CurrentSpotType)
                     {
-                        _objectsSpot.SpotsForMulti[i].SetActive(true);                        
+                        _objectsSpot.SpotsForMulti[i].SetActive(true);
                     }
                     else _objectsSpot.SpotsForMulti[i].SetActive(false);
                 }
