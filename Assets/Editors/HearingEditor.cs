@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if  UNITY_EDITOR
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -13,3 +14,4 @@ public class HearingEditor : Editor
         Handles.DrawWireArc(fow.transform.position, Vector3.up, Vector3.forward, 360, fow.HearingRadius);
     }
 }
+#endif
