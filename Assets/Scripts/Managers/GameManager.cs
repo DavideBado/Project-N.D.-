@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public DroneMoveController Drone;
     public string ChangePhaseTrigger, GameOverTrigger, WinTrigger, MainMenuTrigger;
 
-    public KeyCode ChangePhaseKey;
+    //public KeyCode ChangePhaseKey;
 
     public Action PlayerCaught;
     public Action PlayerGoal;
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(ChangePhaseKey) && OnPlanPhase) ChangePhase();
+        if (Input.GetAxisRaw("ChangePhase") != 0 && OnPlanPhase) ChangePhase();
     }
 
     public void Setup()

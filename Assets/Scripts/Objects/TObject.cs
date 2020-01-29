@@ -11,7 +11,7 @@ public class TObject : MonoBehaviour
     public GameObject Player;
     public ParabolaGraphic Graphic;
     bool onUpgrade = false;
-    bool onAir = false;
+    public bool onAir = false;
     public MeshRenderer MyRenderer;
     public bool CanTObj;
     // Update is called once per frame

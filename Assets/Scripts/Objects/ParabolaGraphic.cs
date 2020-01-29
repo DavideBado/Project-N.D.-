@@ -24,7 +24,7 @@ public class ParabolaGraphic : MonoBehaviour
         DrawParabola(parabolaController.gizmo, parabolaController.ParabolaRoot);
         TObj.CanTObj = true;
         }
-        if (Input.GetAxisRaw("ThrowingPreview") == 0) 
+        if (Input.GetAxisRaw("ThrowingPreview") == 0 && !TObj.onAir) 
         {
             lineRenderer.enabled = false;
             TObj.CanTObj = false;
