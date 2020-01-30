@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Treasure
+  m_Name: M_Planning_Treasure
   m_Shader: {fileID: 4800000, guid: f941d650441a19e4d9295cc930de5bd6, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
