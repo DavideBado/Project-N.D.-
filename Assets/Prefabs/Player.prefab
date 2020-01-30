@@ -366,6 +366,7 @@ MonoBehaviour:
   NoiseDuration: 0.1
   Player: {fileID: 7770718416607954401}
   Graphic: {fileID: 4822000795218352916}
+  onAir: 0
   MyRenderer: {fileID: 4822000795218352926}
   CanTObj: 0
 --- !u!114 &4822000795218352914
@@ -436,7 +437,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8e6a8004fa9497489e2c8fb74802ef1, type: 2}
+  - {fileID: 2100000, guid: d09c340755f847942bfbbd6e76257124, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -756,15 +757,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7770718416607954407}
     m_Modifications:
-    - target: {fileID: 4289652681222108418, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
-        type: 3}
-      propertyPath: m_Name
-      value: Noise
-      objectReference: {fileID: 0}
     - target: {fileID: 2885326239926359771, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
         type: 3}
       propertyPath: Speed
       value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289652681222108418, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
+        type: 3}
+      propertyPath: m_Name
+      value: Noise
       objectReference: {fileID: 0}
     - target: {fileID: 7507576654658707199, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
         type: 3}
@@ -912,7 +913,7 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: 127832f84c068de41a88aecb1828d0d5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e1e01d144e311ce4687128c16bf12cd9, type: 2}
+      objectReference: {fileID: 2100000, guid: 937da18f525d1934486fc636983d8b9f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 127832f84c068de41a88aecb1828d0d5, type: 3}
 --- !u!95 &4822000795434481915 stripped

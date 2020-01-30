@@ -1027,10 +1027,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 803927139432897161}
     m_Modifications:
-    - target: {fileID: 100114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
-      propertyPath: m_Name
-      value: SK_Enemy_Walking_01 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 400114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1075,6 +1071,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
+      propertyPath: m_Name
+      value: SK_Enemy_Walking_01 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_Controller
       value: 
@@ -1082,7 +1082,7 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6a03634b13d4e42469d308829aa5f2da, type: 2}
+      objectReference: {fileID: 2100000, guid: cc35747f1e75aa440811a00c3d0ff244, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
 --- !u!1 &252471278303103323 stripped

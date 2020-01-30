@@ -1439,10 +1439,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.81
+    value: 0.59
   color:
     overrideState: 1
-    value: {r: 0.254717, g: 0.06367925, b: 0.20629895, a: 1}
+    value: {r: 0.2780431, g: 0.07262371, b: 0.3018868, a: 1}
   ambientOnly:
     overrideState: 0
     value: 1
@@ -1457,10 +1457,10 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 1.37
+    value: 1.4
   directLightingStrength:
     overrideState: 1
-    value: 0.088
+    value: 0.46
   radius:
     overrideState: 0
     value: 0.25
@@ -1485,12 +1485,12 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.25
+    value: 2.72
   threshold:
     overrideState: 1
     value: 0.9
   softKnee:
-    overrideState: 0
+    overrideState: 1
     value: 0.5
   clamp:
     overrideState: 0

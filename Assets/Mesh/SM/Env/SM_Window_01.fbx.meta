@@ -10,7 +10,17 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: SM_Window_01
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Base_Wall_03
+    second: {fileID: 2100000, guid: 976b52627fea3d54d9bd66d3be4b5bc0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Frame_03
+    second: {fileID: 2100000, guid: d6d56f3ce5110b54b8ecb3a449452807, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
