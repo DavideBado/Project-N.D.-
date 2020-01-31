@@ -229,7 +229,6 @@ GameObject:
   - component: {fileID: 7808304595723474303}
   - component: {fileID: 7808304595723474302}
   - component: {fileID: 7808304595723474300}
-  - component: {fileID: 7808304595723474301}
   m_Layer: 10
   m_Name: CM_ThirdPerson
   m_TagString: Untagged
@@ -385,19 +384,6 @@ MonoBehaviour:
   m_Damping: 7
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
---- !u!114 &7808304595723474301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7808304595723474273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7b20adbe9578164ea48361e3815c2a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CM_ThirdPerson: {fileID: 7808304595723474302}
 --- !u!1 &7808304595785200090
 GameObject:
   m_ObjectHideFlags: 0

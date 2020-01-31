@@ -34,6 +34,7 @@ public class PlaceableSpot : SpotBase
     private void DisableCollider()
     {
         if (ColliderForRayCast) ColliderForRayCast.enabled = false;
+        else GetComponent<Collider>().enabled = false;
     }
     private void DisablePlanGraphics()
     {

@@ -21,7 +21,7 @@ public class PlayerMovController : MonoBehaviour
     public float rotationSpeed;
 
     public CinemachineFreeLook freeLookCamera;
-
+    public CinemachineVirtualCamera ResetCamera;
     //public KeyCode interact;
     //public KeyCode crouch;
     //public KeyCode run;
@@ -31,6 +31,7 @@ public class PlayerMovController : MonoBehaviour
 
     Collision Wall;
     public LayerMask WallMask;
+    public LayerMask DroneMask;
     [HideInInspector]
     public bool isCrouching = false;
     bool isRunning = false;
@@ -82,79 +83,83 @@ public class PlayerMovController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CameraReset();
         AxisDownCheck();
         //if (camSpots.Count == 0) SpotCameraScreen.enabled = false;
         if (InputActive)
         {
-            float translationVertical = Input.GetAxis("Vertical") * currentSpeed;
-            float HorizontalTranslation = Input.GetAxis("Horizontal") * currentSpeed;
-
-
-            GraphSpeed = translationVertical;
-
-            translationVertical *= Time.deltaTime;
-            HorizontalTranslation *= Time.deltaTime;
-
-            //MoveToCameraForward();
-            Transform movementTransform = Camera.main.transform;
-            movementTransform.eulerAngles = new Vector3(0, movementTransform.eulerAngles.y, movementTransform.eulerAngles.z);
-
-            if (Input.GetAxis("Vertical") != 0)
-                transform.rotation = movementTransform.rotation;
-
-            if (translationVertical > 0)
-            {
-                if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.forward, 0.5f, WallMask)) transform.Translate(new Vector3(0, 0, translationVertical), movementTransform);
-            }
-            else if (translationVertical < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.forward, 0.5f, WallMask))
-                {
-                    transform.Translate(new Vector3(0, 0, translationVertical), movementTransform);
-                    Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
-                }
-
-            if (HorizontalTranslation > 0)
-            {
-                if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.right, 0.5f, WallMask)) transform.Translate(new Vector3(HorizontalTranslation, 0, 0), movementTransform);
-            }
-            else if (HorizontalTranslation < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.right, 0.5f, WallMask))
-                {
-                    transform.Translate(new Vector3(HorizontalTranslation, 0, 0), movementTransform);
-                    Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
-                }
-
-
-            //transform.Rotate(0, rotation, 0);
-
-            Crouch();
-            Run();
             DetectHidingPoint();
+            if (!isHiding)
+            {
+                float translationVertical = Input.GetAxis("Vertical") * currentSpeed;
+                float HorizontalTranslation = Input.GetAxis("Horizontal") * currentSpeed;
 
-            if (currentSpeed == walkSpeed && Input.GetAxis("Vertical") != 0)
-            {
-                Noise.MakeNoiseDelegate(walkDimensionMod, walkDuration, NoiseController.NoiseType.Walk);
-            }
-            if (currentSpeed == runningSpeed && Input.GetAxis("Vertical") != 0)
-            {
-                Noise.MakeNoiseDelegate(runDimensionMod, runDuration, NoiseController.NoiseType.Run);
-            }
 
-            if (Input.GetAxisRaw("Interact") != 0 && haveTheKey && !m_axisDown)
-            {
-                m_axisDown = true;
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f))
+                GraphSpeed = translationVertical;
+
+                translationVertical *= Time.deltaTime;
+                HorizontalTranslation *= Time.deltaTime;
+
+                //MoveToCameraForward();
+                Transform movementTransform = Camera.main.transform;
+                movementTransform.eulerAngles = new Vector3(0, movementTransform.eulerAngles.y, movementTransform.eulerAngles.z);
+
+                if (Input.GetAxis("Vertical") != 0)
+                    transform.rotation = movementTransform.rotation;
+
+                if (translationVertical > 0)
                 {
-                    if (hit.transform.GetComponent<Gate>() != null)
-                    {
-                        //for (int i = 0; i < gates.Count; i++)
-                        //{
-                        //    gates[i].GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
-                        //}
-
-                        hit.transform.GetComponent<Gate>().TheOtherHalf.GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
-                        hit.transform.GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
-                    }
+                    if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.forward, 0.5f, WallMask)) transform.Translate(new Vector3(0, 0, translationVertical), movementTransform);
                 }
+                else if (translationVertical < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.forward, 0.5f, WallMask))
+                    {
+                        transform.Translate(new Vector3(0, 0, translationVertical), movementTransform);
+                        Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
+                    }
+
+                if (HorizontalTranslation > 0)
+                {
+                    if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.right, 0.5f, WallMask)) transform.Translate(new Vector3(HorizontalTranslation, 0, 0), movementTransform);
+                }
+                else if (HorizontalTranslation < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.right, 0.5f, WallMask))
+                    {
+                        transform.Translate(new Vector3(HorizontalTranslation, 0, 0), movementTransform);
+                        Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
+                    }
+
+
+                //transform.Rotate(0, rotation, 0);
+
+                Crouch();
+                Run();
+
+                if (currentSpeed == walkSpeed && Input.GetAxis("Vertical") != 0)
+                {
+                    Noise.MakeNoiseDelegate(walkDimensionMod, walkDuration, NoiseController.NoiseType.Walk);
+                }
+                if (currentSpeed == runningSpeed && Input.GetAxis("Vertical") != 0)
+                {
+                    Noise.MakeNoiseDelegate(runDimensionMod, runDuration, NoiseController.NoiseType.Run);
+                }
+
+                if (Input.GetAxisRaw("Interact") != 0 && haveTheKey && !m_axisDown)
+                {
+                    m_axisDown = true;
+                    RaycastHit hit;
+                    if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f))
+                    {
+                        if (hit.transform.GetComponent<Gate>() != null)
+                        {
+                            //for (int i = 0; i < gates.Count; i++)
+                            //{
+                            //    gates[i].GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
+                            //}
+
+                            hit.transform.GetComponent<Gate>().TheOtherHalf.GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
+                            hit.transform.GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
+                        }
+                    }
+                } 
             }
         }
 
@@ -216,13 +221,14 @@ public class PlayerMovController : MonoBehaviour
     public float HidingSpotMaxDistance = 1.5f;
     private void DetectHidingPoint()
     {
-        if (Input.GetAxisRaw("Interact") != 0 && !MenuSelector.InMapView && !m_axisDown)
+        if (Input.GetAxisRaw("Interact") != 0 )
+            if ( /*!MenuSelector.InMapView && */!m_axisDown)
         {
             m_axisDown = true;
             if (isHiding == false)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.forward, out hit, HidingSpotMaxDistance))
+                if (Physics.Raycast(transform.position, transform.forward, out hit, HidingSpotMaxDistance, DroneMask))
                 {
                     if (hit.collider.gameObject.tag == "HidingSpot")
                     {
@@ -317,5 +323,22 @@ public class PlayerMovController : MonoBehaviour
     {
         if (camSpots.Count == 0) SpotCameraScreen.enabled = false;
         else SpotCameraScreen.enabled = true;
+    }
+
+    private void CameraReset()
+    {
+        if(Input.GetButton("ResetCamera"))
+        {
+            ResetCamera.enabled = true;
+            freeLookCamera.enabled = false;
+            StartCoroutine("Wait");          
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return 0;
+        freeLookCamera.enabled = true;
+        ResetCamera.enabled = false;
     }
 }

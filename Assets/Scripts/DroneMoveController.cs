@@ -27,6 +27,7 @@ public class DroneMoveController : MonoBehaviour
 
     private void Start()
     {
+        CurrentSpotType = PlaceableSpot.PlaceableSpotType.Hiding;
         if (AllSpotPosTypes.Count > 0) CurrentIspotType = AllSpotPosTypes[0];
     }
 
@@ -40,6 +41,7 @@ public class DroneMoveController : MonoBehaviour
     }
     void CheckInput()
     {
+        SelectSpotTypeKeyBoard();
         Vector3 VerticalTranslation = Input.GetAxis("Vertical") * speed * Time.deltaTime * transform.forward;
         Vector3 HorizontalTranslation = Input.GetAxis("Horizontal") * speed * Time.deltaTime * transform.right;
 
@@ -306,5 +308,11 @@ public class DroneMoveController : MonoBehaviour
     private bool CheckDronePlacingInput()
     {
         return Input.GetAxisRaw("DronePlaceHiding") != 0 || Input.GetAxisRaw("DronePlaceCamera") != 0;
+    }
+
+    public void SelectSpotTypeKeyBoard()
+    {
+        if (Input.GetButtonDown("SelectHiding")) CurrentSpotType = PlaceableSpot.PlaceableSpotType.Hiding;
+        else if (Input.GetButtonDown("SelectCam")) CurrentSpotType = PlaceableSpot.PlaceableSpotType.Cam;
     }
 }
