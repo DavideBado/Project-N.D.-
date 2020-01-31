@@ -18,8 +18,9 @@ public class PlanningPhaseState : StateMachineBehaviour
         GameManager.instance.Setup();
         GameManager.instance.OnExePhase = false;
         GameManager.instance.OnPlanPhase = true;
-        GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(true);
-        GameManager.instance.UI_Manager.PhaseTxt.text = "PlanningPhase";
+        //GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(true);
+        //GameManager.instance.UI_Manager.PhaseTxt.text = "PlanningPhase";
+        GameManager.instance.UI_Manager.PlanningUI.SetActive(true);
         //GameManager.instance.Player.transform.position = GameManager.instance.Player.ResetPosition;
         //GameManager.instance.Player.GetComponent<NavMeshObstacle>().enabled = false;
         //GameManager.instance.Player.currentSpeed = GameManager.instance.Player.walkSpeed;
@@ -57,7 +58,8 @@ public class PlanningPhaseState : StateMachineBehaviour
         }
         GameManager.instance.OnPlanPhase = false;
         //SceneManager.sceneLoaded -= StartLevel;
-        GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(false);
+        //GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(false);
+        GameManager.instance.UI_Manager.PlanningUI.SetActive(false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

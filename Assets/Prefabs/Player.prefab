@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 4822000795218352917}
   - component: {fileID: 4822000795218352916}
   - component: {fileID: 4822000795218352919}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: TObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +683,7 @@ GameObject:
   - component: {fileID: 7770718416607954404}
   - component: {fileID: 7770718416607954402}
   - component: {fileID: 4613984821559995814}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,15 +925,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7770718416607954407}
     m_Modifications:
-    - target: {fileID: 2885326239926359771, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
-        type: 3}
-      propertyPath: Speed
-      value: 17.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4289652681222108418, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
         type: 3}
       propertyPath: m_Name
       value: Noise
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289652681222108418, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7507576654658707199, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
         type: 3}
@@ -989,6 +989,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885326239926359771, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
+        type: 3}
+      propertyPath: Speed
+      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 6694766596954357767, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
         type: 3}

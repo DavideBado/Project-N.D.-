@@ -795,12 +795,12 @@ MonoBehaviour:
   - 110
   targetMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 8192
   obstacleMask:
     serializedVersion: 2
     m_Bits: 4096
   visibleTarget: {fileID: 0}
-  meshResolution: 1
+  meshResolution: 0
   edgeResolveIteration: 4
   edgeDstThreshold: 0.5
   viewMeshFilters:
@@ -823,7 +823,7 @@ MonoBehaviour:
   HearingRadius: 10
   targetMask:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 16384
   navController: {fileID: 803927139432897172}
 --- !u!54 &803927139432897167
 Rigidbody:

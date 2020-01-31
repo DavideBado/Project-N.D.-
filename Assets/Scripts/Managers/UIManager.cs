@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     public TMP_Text PhaseTxt;
     public GameObject GameOverPanel;
     public GameObject Win;
+    public GameObject PlanningUI;
+    public GameObject ExeUI;
     
     public GameObject ReloadButtonGameOver;
     public GameObject MainMenuButtonGameOver;

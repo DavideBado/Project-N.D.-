@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Testing/Bado/TestUI.unity
-=======
-- path: Assets/Scenes/Definitive/3DBlockout.unity
->>>>>>> develop
+- path: Assets/Scenes/Definitive/MainMenu.unity
   isLoaded: 1
   isActive: 1
