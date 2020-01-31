@@ -798,7 +798,7 @@ MonoBehaviour:
     m_Bits: 1024
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 4096
   visibleTarget: {fileID: 0}
   meshResolution: 1
   edgeResolveIteration: 4
@@ -1027,6 +1027,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 803927139432897161}
     m_Modifications:
+    - target: {fileID: 100114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
+      propertyPath: m_Name
+      value: SK_Enemy_Walking_01 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 400114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1070,10 +1074,6 @@ PrefabInstance:
     - target: {fileID: 400114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
-      propertyPath: m_Name
-      value: SK_Enemy_Walking_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_Controller
