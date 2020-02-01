@@ -186,6 +186,7 @@ MonoBehaviour:
   viewMeshFilters:
   - {fileID: 5457606817699976427}
   navController: {fileID: 0}
+  DrawFoW: 1
 --- !u!1 &6388470981615632420
 GameObject:
   m_ObjectHideFlags: 0

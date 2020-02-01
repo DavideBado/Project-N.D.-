@@ -50,11 +50,15 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
+    public bool DrawFoW; 
     private void LateUpdate()
     {
-        for (int i = 0; i < viewAngle.Count; i++)
+        if (DrawFoW)
         {
-            DrawFieldOfView(i, i);
+            for (int i = 0; i < viewAngle.Count; i++)
+            {
+                DrawFieldOfView(i, i);
+            } 
         }
     }
     void FindVisibleTargets(int _viewAngleIndex)

@@ -25,6 +25,7 @@ public class DroneMoveController : MonoBehaviour
     public List<PlaceableSpot.PlaceableSpotType> MyPossibleSpotTypes = new List<PlaceableSpot.PlaceableSpotType>();
     public int RemHiding, RemCams, RemEsc, RemStart;
 
+    public CinemachineVirtualCamera PopupsCamera;
     private void Start()
     {
         CurrentSpotType = PlaceableSpot.PlaceableSpotType.Hiding;
@@ -314,5 +315,12 @@ public class DroneMoveController : MonoBehaviour
     {
         if (Input.GetButtonDown("SelectHiding")) CurrentSpotType = PlaceableSpot.PlaceableSpotType.Hiding;
         else if (Input.GetButtonDown("SelectCam")) CurrentSpotType = PlaceableSpot.PlaceableSpotType.Cam;
+    }
+
+    public void SetupPopupsCamera(bool _enabled)
+    {
+        PopupsCamera.transform.position = Camera.main.transform.position;
+        PopupsCamera.transform.rotation = Camera.main.transform.rotation;
+        PopupsCamera.enabled = _enabled;
     }
 }

@@ -800,7 +800,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   visibleTarget: {fileID: 0}
-  meshResolution: 0
+  meshResolution: 1
   edgeResolveIteration: 4
   edgeDstThreshold: 0.5
   viewMeshFilters:
@@ -808,6 +808,7 @@ MonoBehaviour:
   - {fileID: 4579618261448843437}
   - {fileID: 807783768612796295}
   navController: {fileID: 803927139432897172}
+  DrawFoW: 0
 --- !u!114 &6223228630912582806
 MonoBehaviour:
   m_ObjectHideFlags: 0

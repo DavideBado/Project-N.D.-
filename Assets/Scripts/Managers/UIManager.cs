@@ -109,6 +109,7 @@ public class UIManager : MonoBehaviour
 
     public void ClosePopup(GameObject _popup)
     {
+        GameManager.instance.Drone.SetupPopupsCamera(false);
         GameManager.instance.Drone.enabled = true;
         GameManager.instance.Drone.DroneCamera.enabled = true;
         _popup.SetActive(false);

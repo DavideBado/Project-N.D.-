@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckPlanning()
     {
+        Drone.SetupPopupsCamera(true);
         Drone.DroneCamera.enabled = false;
         Drone.enabled = false;
         if (CurrentEscapeSpot == null || CurrentStartSpot == null) UI_Manager.PopupEscapeSpwan.SetActive(true);
