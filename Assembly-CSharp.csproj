@@ -72,6 +72,7 @@
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\ObjSpot.cs" />
     <Compile Include="Assets\playerCamera1Forward.cs" />
+    <Compile Include="Assets\Scripts\Buttons\PopupsButton.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\DroneMoveController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyGraphicsController.cs" />
