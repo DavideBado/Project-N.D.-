@@ -9,7 +9,7 @@ public class ExecutionPhaseState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameManager.instance.Setup();
+        GameManager.instance.Setup();       
         GameManager.instance.OnExePhase = true;
         GameManager.instance.UI_Manager.PhaseTxt.text = "ExecutionPhase";
         GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(true);
@@ -32,6 +32,9 @@ public class ExecutionPhaseState : StateMachineBehaviour
         GameManager.instance.Player.Graphics.SetActive(true);
         GameManager.instance.Player.Collider.enabled = true;
         GameManager.instance.Player.ObstacleNav.enabled = true;
+
+        GameManager.instance.UI_Manager.directionSpriteController.enabled = true;
+
         foreach (EnemyAI _enemyAI in GameManager.instance.Level_Manager.EnemiesAI)
         {
             EnemyNavController enemyController = _enemyAI.GetComponent<EnemyNavController>();
@@ -61,6 +64,8 @@ public class ExecutionPhaseState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        GameManager.instance.UI_Manager.directionSpriteController.DirectionImage.gameObject.SetActive(false);
+        GameManager.instance.UI_Manager.directionSpriteController.enabled = false;
         GameManager.instance.OnExePhase = false;
         GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(false);
     }

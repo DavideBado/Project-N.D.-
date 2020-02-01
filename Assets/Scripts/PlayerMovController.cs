@@ -50,6 +50,7 @@ public class PlayerMovController : MonoBehaviour
     public float runDimensionMod;
     public float walkDuration;
     public float runDuration;
+    public Transform movementTransform;
 
     [HideInInspector]
     public float GraphSpeed;
@@ -57,7 +58,7 @@ public class PlayerMovController : MonoBehaviour
 
     public Vector3 ResetPosition;
 
-    bool InputActive = true;
+    public bool InputActive = true;
 
     public Camera MainCamera;
 
@@ -101,7 +102,8 @@ public class PlayerMovController : MonoBehaviour
                 HorizontalTranslation *= Time.deltaTime;
 
                 //MoveToCameraForward();
-                Transform movementTransform = Camera.main.transform;
+                movementTransform.position = Camera.main.transform.position;
+                movementTransform.rotation = Camera.main.transform.rotation;
                 movementTransform.eulerAngles = new Vector3(0, movementTransform.eulerAngles.y, movementTransform.eulerAngles.z);
 
                 if (Input.GetAxis("Vertical") != 0)

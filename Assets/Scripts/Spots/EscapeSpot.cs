@@ -6,6 +6,8 @@ public class EscapeSpot : PlaceableSpot
 {
     public GameObject InExeSpot, InPlanSpot;
 
+    public GameObject DirectionTarget;
+
     private void OnEnable()
     {
         GameManager.instance.OnExePhaseAction += EnableSpot;

@@ -23,6 +23,9 @@ public class UIManager : MonoBehaviour
     public GameObject MainMenuButtonWin;
     public TMP_Text WinTxt;
 
+    public DirectionSpriteController directionSpriteController;
+    public RectTransform KeyDirection, TreasureDirection, EscapeDirection;
+
     public float TxtFadeSpeed;
 
     bool InGameOver = false;
@@ -91,6 +94,8 @@ public class UIManager : MonoBehaviour
         {
             WinFade();
         }
+
+        SetDirection();
     }
 
 
@@ -113,5 +118,39 @@ public class UIManager : MonoBehaviour
         GameManager.instance.Drone.enabled = true;
         GameManager.instance.Drone.DroneCamera.enabled = true;
         _popup.SetActive(false);
+    }
+
+    public void SetDirection()
+    {
+        if (GameManager.instance.OnExePhase)
+        {
+            if (!GameManager.instance.Player.haveTheKey && GameManager.instance.Key != null)
+            {
+                TreasureDirection.gameObject.SetActive(false);
+                EscapeDirection.gameObject.SetActive(false);
+
+                directionSpriteController.DirectionImage = KeyDirection;
+                directionSpriteController.DirectionTarget = GameManager.instance.Key.DirectionTarget;
+            }
+            else if (GameManager.instance.Player.haveTheKey || GameManager.instance.Key == null)
+            {
+                if (GameManager.instance.Player.GoldenlEgg == null)
+                {
+                    KeyDirection.gameObject.SetActive(false);
+                    EscapeDirection.gameObject.SetActive(false);
+
+                    directionSpriteController.DirectionImage = TreasureDirection;
+                    directionSpriteController.DirectionTarget = GameManager.instance.Treasure.DirectionTarget;
+                }
+                else
+                {
+                    KeyDirection.gameObject.SetActive(false);
+                    TreasureDirection.gameObject.SetActive(false);
+
+                    directionSpriteController.DirectionImage = EscapeDirection;
+                    directionSpriteController.DirectionTarget = GameManager.instance.CurrentEscapeSpot.DirectionTarget;
+                }
+            }
+        }
     }
 }

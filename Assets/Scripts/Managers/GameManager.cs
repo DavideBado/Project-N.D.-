@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public DroneMoveController Drone;
     public string ChangePhaseTrigger, GameOverTrigger, WinTrigger, MainMenuTrigger;
 
+    public KeySpot Key;
+    public Capsulo Treasure;
     //public KeyCode ChangePhaseKey;
 
     public Action PlayerCaught;
@@ -80,6 +82,9 @@ public class GameManager : MonoBehaviour
             if (!Drone) Drone = FindObjectOfType<DroneMoveController>();
        /*     if (Level_Manager.EnemiesAI.Count == 0) */Level_Manager.EnemiesAI = FindObjectsOfType<EnemyAI>().ToList();
             if (!Level_Manager.Level) Level_Manager.Level = FindObjectOfType<PezzaMissingLevel>().gameObject;
+
+            if(!Key) Key = FindObjectOfType<KeySpot>();
+            if(!Treasure) Treasure = FindObjectOfType<Capsulo>();
         }
     }
 
