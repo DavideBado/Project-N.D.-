@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetAxisRaw("ChangePhase") != 0 && OnPlanPhase) ChangePhase();
+        if (Input.GetAxisRaw("ChangePhase") != 0 && OnPlanPhase) CheckPlanning();
     }
 
     public void Setup()
@@ -81,6 +81,21 @@ public class GameManager : MonoBehaviour
        /*     if (Level_Manager.EnemiesAI.Count == 0) */Level_Manager.EnemiesAI = FindObjectsOfType<EnemyAI>().ToList();
             if (!Level_Manager.Level) Level_Manager.Level = FindObjectOfType<PezzaMissingLevel>().gameObject;
         }
+    }
+
+    private void CheckPlanning()
+    {
+        if (CurrentEscapeSpot == null || CurrentEscapeSpot == null) UI_Manager.PopupEscapeSpwan.SetActive(true);
+        else if (CheckHidingCams()) UI_Manager.PopupHidingCam.SetActive(true);
+        else UI_Manager.PopupUltimate.SetActive(true);
+    }
+
+    private bool CheckHidingCams()
+    {
+        List<HidingSpot> _hidingSpots = FindObjectsOfType<HidingSpot>().ToList();
+        List<CamSpot> _camSpots = FindObjectsOfType<CamSpot>().ToList();
+        bool _HpOrCamsActiveInScene = _hidingSpots.Count != 0 || _camSpots.Count != 0;
+        return _HpOrCamsActiveInScene;
     }
 }
 

@@ -619,6 +619,9 @@ MonoBehaviour:
   GameOverPanel: {fileID: 863109629782252755}
   Win: {fileID: 1639189594}
   PlanningUI: {fileID: 3664390771489174146}
+  PopupEscapeSpwan: {fileID: 0}
+  PopupHidingCam: {fileID: 0}
+  PopupUltimate: {fileID: 0}
   ExeUI: {fileID: 0}
   ReloadButtonGameOver: {fileID: 3858953669166926335}
   MainMenuButtonGameOver: {fileID: 2275816994250124743}
@@ -1750,11 +1753,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Drone
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327543014139701298, guid: 36072e42ddc82ad4fb08694bea15b0cd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2327543014139701299, guid: 36072e42ddc82ad4fb08694bea15b0cd,
         type: 3}

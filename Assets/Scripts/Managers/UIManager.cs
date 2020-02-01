@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject GameOverPanel;
     public GameObject Win;
     public GameObject PlanningUI;
+    public GameObject PopupEscapeSpwan, PopupHidingCam, PopupUltimate;
     public GameObject ExeUI;
     
     public GameObject ReloadButtonGameOver;
