@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         Drone.DroneCamera.enabled = false;
         Drone.enabled = false;
         if (CurrentEscapeSpot == null || CurrentStartSpot == null) UI_Manager.PopupEscapeSpwan.SetActive(true);
-        else if (CheckHidingCams()) UI_Manager.PopupHidingCam.SetActive(true);
+        else if (!CheckHidingCams()) UI_Manager.PopupHidingCam.SetActive(true);
         else UI_Manager.PopupUltimate.SetActive(true);
     }
 
@@ -97,8 +97,7 @@ public class GameManager : MonoBehaviour
     {
         List<HidingSpot> _hidingSpots = FindObjectsOfType<HidingSpot>().ToList();
         List<CamSpot> _camSpots = FindObjectsOfType<CamSpot>().ToList();
-        bool _HpOrCamsActiveInScene = _hidingSpots.Count != 0 || _camSpots.Count != 0;
-        return _HpOrCamsActiveInScene;
+        return _hidingSpots.Count != 0 || _camSpots.Count != 0;
     }
 }
 

@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 762
+  controlID: 2991
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 815
+  controlID: 2992
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 224}
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
-  controlID: 816
+  controlID: 2993
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,7 +219,7 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 16}
   m_Selected: 1
-  m_LastSelected: 2
+  m_LastSelected: 3
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -382,9 +382,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3e660000
+      m_SelectedIDs: 20230000
       m_LastClickedID: 0
-      m_ExpandedIDs: d0fbffff
+      m_ExpandedIDs: 2cabfeff2ae3feff9efaffffa6faffffd6fafffff8faffff0efbffff1cfbffff1efbffff24fbffff28fbffff94fbffffaefbffffb2fbffffbefbffffcefbffffd0fbfffff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -543,6 +543,7 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: 1107854611504727328, guid: 0824fcbc5f77dce45a9de9132c48576e, type: 2}
     - {fileID: 1107176689980207902, guid: 0824fcbc5f77dce45a9de9132c48576e, type: 2}
+    - {fileID: 1107035172616218618, guid: 471f79b8c79ec744db80af4f1b83cb69, type: 2}
     m_ValueSerializationHelper:
     - e00: 1.0761261
       e01: 0
@@ -576,14 +577,27 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 0824fcbc5f77dce45a9de9132c48576e,
+  m_AnimatorController: {fileID: 9100000, guid: 471f79b8c79ec744db80af4f1b83cb69,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 1107854611504727328, guid: 0824fcbc5f77dce45a9de9132c48576e,
-      type: 2}
-    m_ScrollPosition: {x: 0, y: 0}
-  - m_Target: {fileID: 1107176689980207902, guid: 0824fcbc5f77dce45a9de9132c48576e,
+  - m_Target: {fileID: 1107035172616218618, guid: 471f79b8c79ec744db80af4f1b83cb69,
       type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
@@ -624,7 +638,7 @@ MonoBehaviour:
     height: 497
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter: main
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -635,19 +649,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Enemy/FSM_Enemy_AI/FSM_Enemy_AI_States
+    - Assets/Scripts/Spots
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Enemy/FSM_Enemy_AI/FSM_Enemy_AI_States
+  - Assets/Scripts/Spots
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\GameDev\GitKraken\Project-N.D.-
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 160}
-    m_SelectedIDs: e2210000
-    m_LastClickedID: 8674
+    scrollPos: {x: 0, y: 272}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
     m_ExpandedIDs: 0000000028150000a0150000b4150000d8150000d81600000c170000aa17000084180000e4190000601a0000821b0000d61b0000dc1b0000f81b0000bc1d0000ec1d0000a21e00006a1f0000c01f0000f61f00001c2100004a220000c823000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HidingSpot : PlaceableSpot
+public class HidingSpot : MonoBehaviour/*PlaceableSpot*/
 {
-    public GameObject Logic;
+//    public GameObject Logic;
 }
