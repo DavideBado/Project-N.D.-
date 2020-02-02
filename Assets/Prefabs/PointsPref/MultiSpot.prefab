@@ -10176,6 +10176,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HidingSpot Plan
       objectReference: {fileID: 0}
+    - target: {fileID: 7882941871094653978, guid: 7dbc2443a957518498955f0089e2e23d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7882941871094653981, guid: 7dbc2443a957518498955f0089e2e23d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10246,6 +10251,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5b000f8d3d08487418705be6ca2badee, type: 2}
+    - target: {fileID: 7882941871094653980, guid: 7dbc2443a957518498955f0089e2e23d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dbc2443a957518498955f0089e2e23d, type: 3}
 --- !u!4 &7878093529618252097 stripped
@@ -10519,7 +10529,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3320907588246052761, guid: cdbc569e6eb09574c8f7a7f31a3a0872,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1617687183418551942, guid: cdbc569e6eb09574c8f7a7f31a3a0872,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b000f8d3d08487418705be6ca2badee, type: 2}
+    - target: {fileID: 469001721346539690, guid: cdbc569e6eb09574c8f7a7f31a3a0872,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b000f8d3d08487418705be6ca2badee, type: 2}
+    - target: {fileID: 469001721346539692, guid: cdbc569e6eb09574c8f7a7f31a3a0872,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
