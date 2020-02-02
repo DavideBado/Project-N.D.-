@@ -14,7 +14,6 @@ public class ExecutionPhaseState : StateMachineBehaviour
         //GameManager.instance.UI_Manager.PhaseTxt.text = "ExecutionPhase";
         //GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(true);
         GameManager.instance.UI_Manager.ExeUI.SetActive(true);
-
         GameManager.instance.Player.camSpots = GameManager.instance.Drone.camSpots;
         GameManager.instance.Player.gameObject.SetActive(true);
 

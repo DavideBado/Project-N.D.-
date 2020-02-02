@@ -27,11 +27,11 @@ public class PlanningPhaseState : StateMachineBehaviour
         //GameManager.instance.Player.isCrouching = false;
         GameManager.instance.Player.freeLookCamera.Priority = 0;
         GameManager.instance.Player.SpotCamera.gameObject.SetActive(false);
-        GameManager.instance.Player.SpotCameraScreen.enabled = false;
+        if(GameManager.instance.Player.SpotCameraScreen) GameManager.instance.Player.SpotCameraScreen.enabled = false;
         GameManager.instance.Drone.DroneCamera.Priority = 50;
 
-     GameManager.instance.Player.gameObject.SetActive(false);
-
+        GameManager.instance.Player.gameObject.SetActive(false);
+        
         GameManager.instance.Drone.gameObject.SetActive(true);
         foreach (EnemyAI _enemyAI in GameManager.instance.Level_Manager.EnemiesAI)
         {

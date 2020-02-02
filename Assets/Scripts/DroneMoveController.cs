@@ -183,7 +183,7 @@ public class DroneMoveController : MonoBehaviour
                                 {
                                     //if (_objectsSpot.SpotTypesForMulti[i] == CurrentSpotType)
                                     //{
-                                        _objectsSpot.SpotsForMulti[i].SetActive(false);
+                                        _objectsSpot.SpotsForMultiExe[i].SetActive(false);
                                         _objectsSpot.Graphics.SetSelectedGraphichs(false);
                                     //}
                                 }
@@ -270,9 +270,14 @@ public class DroneMoveController : MonoBehaviour
                     {
                         if (_objectsSpot.SpotTypesForMulti[i] == CurrentSpotType)
                         {
-                            _objectsSpot.SpotsForMulti[i].SetActive(true);
+                            _objectsSpot.SpotsForMultiExe[i].SetActive(true);
+                            _objectsSpot.SpotsForMultiPlan[i].SetActive(true);
                         }
-                        else _objectsSpot.SpotsForMulti[i].SetActive(false);
+                        else
+                        {
+                            _objectsSpot.SpotsForMultiExe[i].SetActive(false);
+                            _objectsSpot.SpotsForMultiPlan[i].SetActive(false);
+                        }
                     }
                 }
                 break;

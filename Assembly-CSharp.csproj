@@ -71,6 +71,7 @@
     <Compile Include="Assets\LevelDataLoader.cs" />
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\ObjSpot.cs" />
+    <Compile Include="Assets\PlanningEscapeSpawnIconCOntroller.cs" />
     <Compile Include="Assets\playerCamera1Forward.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\DroneMoveController.cs" />
