@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public DroneMoveController Drone;
     public string ChangePhaseTrigger, GameOverTrigger, WinTrigger, MainMenuTrigger;
 
+    public List<KeySpot> AllPossiblekey;
     public KeySpot Key;
     public Capsulo Treasure;
     //public KeyCode ChangePhaseKey;
@@ -83,7 +84,20 @@ public class GameManager : MonoBehaviour
        /*     if (Level_Manager.EnemiesAI.Count == 0) */Level_Manager.EnemiesAI = FindObjectsOfType<EnemyAI>().ToList();
             if (!Level_Manager.Level) Level_Manager.Level = FindObjectOfType<PezzaMissingLevel>().gameObject;
 
-            if(!Key) Key = FindObjectOfType<KeySpot>();
+            if (AllPossiblekey.Count == 0) AllPossiblekey = FindObjectsOfType<KeySpot>().ToList();
+            if (!Key)
+            {
+                int _keyIndex = UnityEngine.Random.Range(0, AllPossiblekey.Count);
+                for (int i = 0; i < AllPossiblekey.Count; i++)
+                {
+                    if (i == _keyIndex)
+                    {
+                        Key = AllPossiblekey[i];
+                        Key.gameObject.SetActive(true);
+                    }
+                    else AllPossiblekey[i].gameObject.SetActive(false);
+                }
+            }
             if(!Treasure) Treasure = FindObjectOfType<Capsulo>();
         }
     }
