@@ -11,6 +11,7 @@ public class KeySpot : MonoBehaviour
         if (other.transform.GetComponent<PlayerMovController>() != null)
         {
             other.transform.GetComponent<PlayerMovController>().haveTheKey = true;
+            GameManager.instance.UI_Manager.KeyIcon.SetActive(true);
             gameObject.SetActive(false);
         }
     }

@@ -11,8 +11,9 @@ public class ExecutionPhaseState : StateMachineBehaviour
     {
         GameManager.instance.Setup();       
         GameManager.instance.OnExePhase = true;
-        GameManager.instance.UI_Manager.PhaseTxt.text = "ExecutionPhase";
-        GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(true);
+        //GameManager.instance.UI_Manager.PhaseTxt.text = "ExecutionPhase";
+        //GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(true);
+        GameManager.instance.UI_Manager.ExeUI.SetActive(true);
 
         GameManager.instance.Player.camSpots = GameManager.instance.Drone.camSpots;
         GameManager.instance.Player.gameObject.SetActive(true);
@@ -20,7 +21,17 @@ public class ExecutionPhaseState : StateMachineBehaviour
         GameManager.instance.Drone.gameObject.SetActive(false);
         GameManager.instance.Player.freeLookCamera.Priority = 50;
         GameManager.instance.Player.SpotCamera.gameObject.SetActive(true);
-        GameManager.instance.Player.SpotCameraScreen.enabled = true;
+
+        GameManager.instance.Player.SpotCameraScreen = GameManager.instance.UI_Manager.SpotCameraScreen;
+        if (GameManager.instance.Player.camSpots.Count == 0)
+        {
+            GameManager.instance.UI_Manager.SpotCameraScreenGObj.SetActive(false);
+        }
+        else
+        {
+            GameManager.instance.UI_Manager.SpotCameraScreenGObj.SetActive(true);
+        }
+
         GameManager.instance.Drone.DroneCamera.Priority = 0;
 
         GameManager.instance.Player.transform.position = GameManager.instance.CurrentStartSpot.SpawnPosition.position;
@@ -67,7 +78,7 @@ public class ExecutionPhaseState : StateMachineBehaviour
         GameManager.instance.UI_Manager.directionSpriteController.DirectionImage.gameObject.SetActive(false);
         GameManager.instance.UI_Manager.directionSpriteController.enabled = false;
         GameManager.instance.OnExePhase = false;
-        GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(false);
+        GameManager.instance.UI_Manager.ExeUI.SetActive(false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

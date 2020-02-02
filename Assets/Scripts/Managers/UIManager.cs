@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class UIManager : MonoBehaviour
     public DirectionSpriteController directionSpriteController;
     public RectTransform KeyDirection, TreasureDirection, EscapeDirection;
 
+
+    public GameObject KeyIcon, TreasureIcon;
+
     public float TxtFadeSpeed;
 
     bool InGameOver = false;
@@ -33,6 +37,9 @@ public class UIManager : MonoBehaviour
 
     public Action StartGameOverFade;
     public Action StartWinFade;
+
+    public RawImage SpotCameraScreen;
+    public GameObject SpotCameraScreenGObj;
 
     private void OnEnable()
     {
@@ -153,4 +160,5 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
 }

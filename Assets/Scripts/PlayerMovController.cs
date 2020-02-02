@@ -61,16 +61,7 @@ public class PlayerMovController : MonoBehaviour
     public bool InputActive = true;
 
     public Camera MainCamera;
-
-    private void OnEnable()
-    {
-        GameManager.instance.OnExePhaseAction += DisablePictureinPict;
-    }
-    
-    private void OnDisable()
-    {
-        GameManager.instance.OnExePhaseAction -= DisablePictureinPict;
-    }
+        
     // Start is called before the first frame update
     void Start()
     {
@@ -159,6 +150,10 @@ public class PlayerMovController : MonoBehaviour
 
                             hit.transform.GetComponent<Gate>().TheOtherHalf.GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
                             hit.transform.GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
+
+                            haveTheKey = false;
+
+                            GameManager.instance.UI_Manager.KeyIcon.SetActive(false);
                         }
                     }
                 } 
@@ -320,13 +315,7 @@ public class PlayerMovController : MonoBehaviour
         if(Input.GetAxisRaw("Interact") == 0 && Input.GetAxisRaw("NextSpotCam") == 0 && Input.GetAxisRaw("PrevSpotCam") == 0 && Input.GetAxisRaw("Crouch") == 0 && Input.GetAxisRaw("Run") == 0)
         m_axisDown = false;
     }
-
-    private void DisablePictureinPict()
-    {
-        if (camSpots.Count == 0) SpotCameraScreen.enabled = false;
-        else SpotCameraScreen.enabled = true;
-    }
-
+       
     private void CameraReset()
     {
         if(Input.GetButton("ResetCamera"))
