@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeySpot : MonoBehaviour
+public class KeySpot : PlaceableSpot
 {
     public GameObject DirectionTarget;
 

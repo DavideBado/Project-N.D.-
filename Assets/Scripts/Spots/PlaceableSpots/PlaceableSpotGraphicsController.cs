@@ -25,8 +25,8 @@ public class PlaceableSpotGraphicsController : MonoBehaviour
 
     private void ActivePlanGraphics(bool _active)
     {
-        NotSelectedPlanGraphicsObj.SetActive(!_active);
-        SelectedPlanGraphicsObj.SetActive(_active);
+        if(NotSelectedPlanGraphicsObj) NotSelectedPlanGraphicsObj.SetActive(!_active);
+        if(SelectedPlanGraphicsObj) SelectedPlanGraphicsObj.SetActive(_active);
     }
 
     private void ActiveExeGraphics(bool _active)
