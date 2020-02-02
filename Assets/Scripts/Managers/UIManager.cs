@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
 
     public DirectionSpriteController directionSpriteController;
     public RectTransform KeyDirection, TreasureDirection, EscapeDirection;
+    public TMP_Text KeyDistance, TreasureDistance, EscapeDistance;
 
 
     public GameObject KeyIcon, TreasureIcon;
@@ -138,6 +139,7 @@ public class UIManager : MonoBehaviour
 
                 directionSpriteController.DirectionImage = KeyDirection;
                 directionSpriteController.DirectionTarget = GameManager.instance.Key.DirectionTarget;
+                directionSpriteController.distanceTxt = KeyDistance;
             }
             else if (GameManager.instance.Player.haveTheKey || GameManager.instance.Key == null)
             {
@@ -148,6 +150,7 @@ public class UIManager : MonoBehaviour
 
                     directionSpriteController.DirectionImage = TreasureDirection;
                     directionSpriteController.DirectionTarget = GameManager.instance.Treasure.DirectionTarget;
+                directionSpriteController.distanceTxt = TreasureDistance;
                 }
                 else
                 {
@@ -156,6 +159,7 @@ public class UIManager : MonoBehaviour
 
                     directionSpriteController.DirectionImage = EscapeDirection;
                     directionSpriteController.DirectionTarget = GameManager.instance.CurrentEscapeSpot.DirectionTarget;
+                directionSpriteController.distanceTxt = EscapeDistance;
                 }
             }
         }

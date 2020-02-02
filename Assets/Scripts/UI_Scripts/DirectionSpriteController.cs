@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DirectionSpriteController : MonoBehaviour
 {
     public RectTransform DirectionImage;
     public GameObject DirectionTarget;
-   
+    public TMP_Text distanceTxt;
 
     // Update is called once per frame
     void Update()
@@ -19,6 +20,7 @@ public class DirectionSpriteController : MonoBehaviour
             {
                 if (dot > 0)
                 {
+                    distanceTxt.text = Mathf.Round(Vector3.Distance(GameManager.instance.Player.transform.position, DirectionTarget.transform.parent.position)).ToString();
                     DirectionImage.gameObject.SetActive(true);
                     Vector2 position = GameManager.instance.Player.MainCamera.WorldToScreenPoint(DirectionTarget.transform.position);
 
