@@ -15,6 +15,9 @@ public class PlanningPhaseState : StateMachineBehaviour
 
     private static void StartLevel(/*Scene scene, LoadSceneMode loadSceneMode*/)
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         GameManager.instance.Setup();
         GameManager.instance.OnExePhase = false;
         GameManager.instance.OnPlanPhase = true;
@@ -60,6 +63,9 @@ public class PlanningPhaseState : StateMachineBehaviour
         //SceneManager.sceneLoaded -= StartLevel;
         //GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(false);
         GameManager.instance.UI_Manager.PlanningUI.SetActive(false);
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

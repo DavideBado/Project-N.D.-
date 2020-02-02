@@ -9,6 +9,9 @@ public class ExecutionPhaseState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
         GameManager.instance.Setup();       
         GameManager.instance.OnExePhase = true;
         //GameManager.instance.UI_Manager.PhaseTxt.text = "ExecutionPhase";
@@ -78,6 +81,9 @@ public class ExecutionPhaseState : StateMachineBehaviour
         GameManager.instance.UI_Manager.directionSpriteController.enabled = false;
         GameManager.instance.OnExePhase = false;
         GameManager.instance.UI_Manager.ExeUI.SetActive(false);
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
