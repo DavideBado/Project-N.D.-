@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
        /*     if (Level_Manager.EnemiesAI.Count == 0) */Level_Manager.EnemiesAI = FindObjectsOfType<EnemyAI>().ToList();
             if (!Level_Manager.Level) Level_Manager.Level = FindObjectOfType<PezzaMissingLevel>().gameObject;
 
-            if (AllPossiblekey.Count == 0) AllPossiblekey = FindObjectsOfType<KeySpot>().ToList();
+            if (AllPossiblekey.Count == 0 || !AllPossiblekey[0]) AllPossiblekey = FindObjectsOfType<KeySpot>().ToList();
             if (!Key)
             {
                 int _keyIndex = UnityEngine.Random.Range(0, AllPossiblekey.Count);
