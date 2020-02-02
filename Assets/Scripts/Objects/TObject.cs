@@ -28,6 +28,7 @@ public class TObject : MonoBehaviour
                 MyCollider.enabled = true;
                 MyRenderer.enabled = true;
                 onUpgrade = false;
+                Graphic.lineRenderer.enabled = false;
             }
     }
 
@@ -35,12 +36,20 @@ public class TObject : MonoBehaviour
     {
         if (other.gameObject != Player && other.transform.parent != Player.transform && !onUpgrade)
         {
-            onUpgrade = true;
-            onAir = false;
-            Graphic.lineRenderer.enabled = false;
-            Graphic.ParabolaLocked = false;
-            MyRenderer.enabled = false;
-            NoiseController.MakeNoiseDelegate(NoiseAreaMod, NoiseDuration, NoiseController.NoiseType.Object);
+            if (other.tag != "OutMap")
+            {
+                onUpgrade = true;
+                onAir = false;
+                Graphic.ParabolaLocked = false;
+                MyRenderer.enabled = false;
+                NoiseController.MakeNoiseDelegate(NoiseAreaMod, NoiseDuration, NoiseController.NoiseType.Object);
+            }
+            else
+            {
+                MyCollider.enabled = false;
+                onAir = false;
+                Graphic.ParabolaLocked = false;
+            }
         }
     }
 }
