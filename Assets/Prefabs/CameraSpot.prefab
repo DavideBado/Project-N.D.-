@@ -307,6 +307,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_cam_LP
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8a53623a74f8ffa4d8298e080f9a1d9d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 8a53623a74f8ffa4d8298e080f9a1d9d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 8a53623a74f8ffa4d8298e080f9a1d9d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8a53623a74f8ffa4d8298e080f9a1d9d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

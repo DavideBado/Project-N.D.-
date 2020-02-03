@@ -53,7 +53,11 @@ public class PlanningPhaseState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (GameManager.instance.Drone.camSpots.Count == 0) GameManager.instance.Drone.camSpots = FindObjectsOfType<CamSpot>().ToList();
+        if (GameManager.instance.Drone.planCamSpots.Count == 0) GameManager.instance.Drone.planCamSpots = FindObjectsOfType<CamSpotPlan>().ToList();
+        for (int i = 0; i < GameManager.instance.Drone.planCamSpots.Count; i++)
+        {
+            GameManager.instance.Drone.camSpots.Add(GameManager.instance.Drone.planCamSpots[i].exeCam);
+        }
         List<Cell3D> cell3Ds = FindObjectsOfType<Cell3D>().ToList();
         for (int i = 0; i < cell3Ds.Count; i++)
         {

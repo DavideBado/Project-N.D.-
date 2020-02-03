@@ -18,6 +18,7 @@ public class DroneMoveController : MonoBehaviour
     public Transform ZminBorder, ZmaxBorder, XminBorder, XmaxBorder;
 
     public List<CamSpot> camSpots = new List<CamSpot>();
+    public List<CamSpotPlan> planCamSpots = new List<CamSpotPlan>();
     float mouseX;
     public float rotationSpeed;
 
