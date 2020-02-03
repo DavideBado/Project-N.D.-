@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55bcbd182980db4da1b5268c0b18b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 3
+  viewRadius: 20
   viewAngle:
   - 70
   targetMask:
