@@ -184,6 +184,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3117136641059852603, guid: e848591130d559e45969f1b9d7e97391,
+        type: 3}
+      propertyPath: PursueColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117136641059852603, guid: e848591130d559e45969f1b9d7e97391,
+        type: 3}
+      propertyPath: ResearchColor.g
+      value: 0.8901961
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e848591130d559e45969f1b9d7e97391, type: 3}
 --- !u!1 &302163467

@@ -65,7 +65,7 @@ public class DirectionSpriteController : MonoBehaviour
                         z = angle.z - 360f;
                     }
 
-                    Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
+                    //Debug.Log(angle + " :::: " + Mathf.Round(x) + " , " + Mathf.Round(y) + " , " + Mathf.Round(z));
 
                     position.y -= Screen.currentResolution.height / 180 * x;
 

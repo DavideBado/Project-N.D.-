@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public Action PlayerGoal;
     public Action OnExePhaseAction;
     public Action PostObjective;
+    public Action CheckEnemiesStateNPosition;
 
     [HideInInspector]
     public bool OnExePhase = false;
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
     public SpawnSpot CurrentStartSpot;
     public EscapeSpot CurrentEscapeSpot;
 
+    public List<EnemyNavController> EnemiesInResearch = new List<EnemyNavController>();
+    public List<EnemyNavController> EnemiesInPursue = new List<EnemyNavController>();
 
     private void OnEnable()
     {

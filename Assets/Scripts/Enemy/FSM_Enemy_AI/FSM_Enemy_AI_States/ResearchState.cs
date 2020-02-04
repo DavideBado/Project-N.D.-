@@ -18,6 +18,9 @@ public class ResearchState : StateMachineBehaviour
         agent.speed = m_enemyNavController.ResearchSpeed;
         m_enemyNavController.graphicsController.LookAroundAnimGObj.SetActive(true);
         savedTime = Time.time;
+
+        GameManager.instance.EnemiesInResearch.Add(m_enemyNavController);
+        GameManager.instance.CheckEnemiesStateNPosition?.Invoke();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -48,6 +51,8 @@ public class ResearchState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        GameManager.instance.EnemiesInResearch.Remove(m_enemyNavController);
+        GameManager.instance.CheckEnemiesStateNPosition?.Invoke();
         m_enemyNavController.graphicsController.LookAroundAnimGObj.SetActive(false);
     }
 

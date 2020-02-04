@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -21,6 +22,9 @@ public class PursueState : StateMachineBehaviour
         //m_enemyNavController.GetComponent<MeshRenderer>().material = m_enemyNavController.graphicsController.PursueMat;
         m_enemyNavController.graphicsController.PursueAnimGObj.SetActive(true);
         agent.speed = m_enemyNavController.RunSpeed;
+
+        GameManager.instance.EnemiesInPursue.Add(m_enemyNavController);
+        GameManager.instance.CheckEnemiesStateNPosition?.Invoke();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -66,6 +70,9 @@ public class PursueState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        GameManager.instance.EnemiesInPursue.Remove(m_enemyNavController);
+        GameManager.instance.CheckEnemiesStateNPosition?.Invoke();
+
         m_enemyNavController.graphicsController.PursueAnimGObj.SetActive(false);
         //m_enemyNavController.GetComponent<MeshRenderer>().material = m_enemyNavController.graphicsController.PatrolMat;
     }
