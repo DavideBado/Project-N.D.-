@@ -6,7 +6,7 @@ public class TObject : MonoBehaviour
 {
     public ParabolaController parabolaController;
     public NoiseController NoiseController;
-    public Collider MyCollider;
+    public SphereCollider MyCollider;
     public float NoiseAreaMod, NoiseDuration;
     public GameObject Player;
     public ParabolaGraphic Graphic;
@@ -18,18 +18,39 @@ public class TObject : MonoBehaviour
     void Update()
     {
         if (Input.GetAxisRaw("ThrowObject") != 0)
+        {
             if (!onAir && CanTObj)
             {
-                Graphic.ParabolaLocked = true;
                 CanTObj = false;
                 onAir = true;
                 parabolaController.FollowParabola();
                 NoiseController.Reset();
-                MyCollider.enabled = true;
+               // MyCollider.enabled = true;
                 MyRenderer.enabled = true;
                 onUpgrade = false;
                 Graphic.lineRenderer.enabled = false;
             }
+        }
+        if (onAir)
+        {
+            RaycastHit[] collisions = Physics.SphereCastAll(transform.position, MyCollider.radius, transform.forward, 1f, transform.parent.gameObject.layer);
+            for (int i = 0; i < collisions.Length; i++)
+            {
+                if (collisions[i].transform.tag != "OutMap")
+                {
+                    onUpgrade = true;
+                    onAir = false;
+                    MyRenderer.enabled = false;
+                    NoiseController.MakeNoiseDelegate(NoiseAreaMod, NoiseDuration, NoiseController.NoiseType.Object);
+                }
+                else
+                {
+                    //  MyCollider.enabled = false;
+                    onAir = false;
+                }
+            } 
+            
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,7 +61,6 @@ public class TObject : MonoBehaviour
             {
                 onUpgrade = true;
                 onAir = false;
-                Graphic.ParabolaLocked = false;
                 MyRenderer.enabled = false;
                 NoiseController.MakeNoiseDelegate(NoiseAreaMod, NoiseDuration, NoiseController.NoiseType.Object);
             }
@@ -48,7 +68,6 @@ public class TObject : MonoBehaviour
             {
                 MyCollider.enabled = false;
                 onAir = false;
-                Graphic.ParabolaLocked = false;
             }
         }
     }

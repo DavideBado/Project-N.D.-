@@ -11,15 +11,16 @@ public class ParabolaGraphic : MonoBehaviour
     Vector3 ParabolaDestDefaultPoint = new Vector3();
     bool x = false;
     public TObject TObj;
+
     private void Start()
     {
         ParabolaDestDefaultPoint = ParabolaEndPoint.transform.localPosition;
     }
-    public bool ParabolaLocked = false;
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxisRaw("ThrowingPreview") != 0 && !ParabolaLocked)
+        if(Input.GetAxisRaw("ThrowingPreview") != 0 && !TObj.onAir)
         {
         DrawParabola(parabolaController.gizmo, parabolaController.ParabolaRoot);
         TObj.CanTObj = true;
