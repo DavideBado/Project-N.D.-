@@ -56,8 +56,8 @@ public class EnemiesDirection : MonoBehaviour
         List<EnemyNavController> _enemies = GameManager.instance.EnemiesInPursue;
         for (int i = 0; i < _enemies.Count; i++)
         {
-            Vector3 dir = _enemies[i].transform.position - _player.transform.position;
-            float _angle = Mathf.Abs(Vector3.Angle(dir, _player.transform.forward) + AngleDir(_player.transform.forward, dir, _player.transform.up));
+            Vector3 dir = _enemies[i].transform.position - _player.movementTransform.position;
+            float _angle = Mathf.Abs(Vector3.Angle(dir, _player.movementTransform.forward) + AngleDir(_player.movementTransform.forward, dir, _player.movementTransform.up));
             int index = (int) (_angle / constArea);
             Icons[index].enabled = true;
             Icons[index].color = PursueColor;
@@ -71,8 +71,8 @@ public class EnemiesDirection : MonoBehaviour
         List<EnemyNavController> _enemies = GameManager.instance.EnemiesInResearch;      
         for (int i = 0; i < _enemies.Count; i++)
         {
-            Vector3 dir = _enemies[i].transform.position - _player.transform.position;
-            float _angle = Mathf.Abs(Vector3.Angle(dir, _player.transform.forward) + AngleDir(_player.transform.forward, dir, _player.transform.up));
+            Vector3 dir = _enemies[i].transform.position - _player.movementTransform.position;
+            float _angle = Mathf.Abs(Vector3.Angle(dir, _player.movementTransform.forward) + AngleDir(_player.movementTransform.forward, dir, _player.movementTransform.up));
             int index = (int)(_angle / constArea);
             if (!areaChecked[index])
             {
