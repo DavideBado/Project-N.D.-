@@ -21,6 +21,8 @@ public class ResearchState : StateMachineBehaviour
         savedTime = Time.time;
 
         GameManager.instance.CheckEnemiesStateNPosition?.Invoke();
+        GameManager.instance.EnemiesInResearch.Add(m_enemyNavController);
+        PlayerWasInFov = true;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -28,8 +30,11 @@ public class ResearchState : StateMachineBehaviour
     {
         if (m_enemyNavController.VisibleTarget)
         {
-            GameManager.instance.EnemiesInResearch.Add(m_enemyNavController);
-            PlayerWasInFov = true;
+            if(!PlayerWasInFov)
+            {
+                GameManager.instance.EnemiesInResearch.Add(m_enemyNavController);
+                PlayerWasInFov = true;
+            }
             m_enemyNavController.OldVisibleTarget = m_enemyNavController.VisibleTarget;
             if (Time.time - savedTime >= m_enemyNavController.CounterUpdateTime)
             {
@@ -46,13 +51,10 @@ public class ResearchState : StateMachineBehaviour
             {
                 
                 agent.SetDestination( new Vector3(m_enemyNavController.NoiseTarget.position.x, m_enemyNavController.transform.position.y, m_enemyNavController.NoiseTarget.position.z));
-                if(m_enemyNavController.currentNoiseType == NoiseController.NoiseType.Walk || m_enemyNavController.currentNoiseType == NoiseController.NoiseType.Run)
+                if(m_enemyNavController.currentNoiseType == NoiseController.NoiseType.Object)
                 {
-                    if(!PlayerWasInFov)
-                    {
-                     GameManager.instance.EnemiesInResearch.Add(m_enemyNavController);
-                     PlayerWasInFov = true;
-                    }
+                     GameManager.instance.EnemiesInResearch.Remove(m_enemyNavController);
+                     PlayerWasInFov = false;
                 }
             }
             else if (agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance < 1f)
