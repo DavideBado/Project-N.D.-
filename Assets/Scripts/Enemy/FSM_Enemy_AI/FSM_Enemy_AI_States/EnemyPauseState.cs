@@ -13,7 +13,7 @@ public class EnemyPauseState : StateMachineBehaviour
         m_enemyNavController = animator.GetComponent<EnemyNavController>();
         agent = animator.GetComponent<NavMeshAgent>();
 
-        agent.isStopped = true;
+        agent.enabled = false;
         m_enemyNavController.graphicsController.gameObject.SetActive(false);
     }
 
@@ -27,7 +27,7 @@ public class EnemyPauseState : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_enemyNavController.graphicsController.gameObject.SetActive(true);
-        agent.isStopped = false;
+        agent.enabled = true;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

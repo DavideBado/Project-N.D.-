@@ -20,8 +20,10 @@ public class AlertState : StateMachineBehaviour
         //m_enemyNavController.GetComponent<MeshRenderer>().material = m_enemyNavController.graphicsController.AlertMat;
         m_enemyNavController.graphicsController.AlertAnimGObj.SetActive(true);
 
-        agent.isStopped = true;
+        agent.speed = 0;
+        agent.enabled = false;
         savedTime = Time.time;
+        
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -47,7 +49,7 @@ public class AlertState : StateMachineBehaviour
                 if (m_enemyNavController.currentNoiseType == NoiseController.NoiseType.Walk)
                 {
                     timer = 2;
-                    m_enemyNavController.transform.LookAt(m_enemyNavController.NoiseTarget.transform.position);
+                   m_enemyNavController.transform.LookAt(m_enemyNavController.NoiseTarget.transform.position);
                 }
                 else if (m_enemyNavController.currentNoiseType == NoiseController.NoiseType.Object)
                 {
@@ -65,7 +67,7 @@ public class AlertState : StateMachineBehaviour
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.isStopped = false;
+        agent.enabled = true;
         m_enemyNavController.graphicsController.AlertAnimGObj.SetActive(false);
         //m_enemyNavController.GetComponent<MeshRenderer>().material = m_enemyNavController.graphicsController.PatrolMat;
     }
