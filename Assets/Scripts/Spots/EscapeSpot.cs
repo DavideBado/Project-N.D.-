@@ -22,5 +22,6 @@ public class EscapeSpot : PlaceableSpot
     {
         if(InPlanSpot)InPlanSpot.SetActive(false);
         if(InExeSpot)InExeSpot.SetActive(true);
+        ColliderForRayCast.enabled = false;
     }
 }

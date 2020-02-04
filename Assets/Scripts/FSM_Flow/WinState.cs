@@ -37,7 +37,10 @@ public class WinState : StateMachineBehaviour
         }
         GameManager.instance.Player.TurnOnOffThePlayer(!GameManager.instance.Player.Graphics.activeSelf);
         GameManager.instance.Level_Manager.Level.SetActive(!GameManager.instance.Level_Manager.Level.activeSelf);
+        
         GameManager.instance.UI_Manager.Win.SetActive(false);
+        GameManager.instance.UI_Manager.KeyIcon.SetActive(false);
+        GameManager.instance.UI_Manager.TreasureIcon.SetActive(false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

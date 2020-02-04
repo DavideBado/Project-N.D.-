@@ -9,6 +9,7 @@ public class ResearchState : StateMachineBehaviour
     EnemyAI enemyAI;
     NavMeshAgent agent;
     float savedTime;
+    bool PlayerWasInFov = false;
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -19,7 +20,6 @@ public class ResearchState : StateMachineBehaviour
         m_enemyNavController.graphicsController.LookAroundAnimGObj.SetActive(true);
         savedTime = Time.time;
 
-        GameManager.instance.EnemiesInResearch.Add(m_enemyNavController);
         GameManager.instance.CheckEnemiesStateNPosition?.Invoke();
     }
 
@@ -28,6 +28,8 @@ public class ResearchState : StateMachineBehaviour
     {
         if (m_enemyNavController.VisibleTarget)
         {
+            GameManager.instance.EnemiesInResearch.Add(m_enemyNavController);
+            PlayerWasInFov = true;
             m_enemyNavController.OldVisibleTarget = m_enemyNavController.VisibleTarget;
             if (Time.time - savedTime >= m_enemyNavController.CounterUpdateTime)
             {
@@ -44,7 +46,14 @@ public class ResearchState : StateMachineBehaviour
             {
                 
                 agent.SetDestination( new Vector3(m_enemyNavController.NoiseTarget.position.x, m_enemyNavController.transform.position.y, m_enemyNavController.NoiseTarget.position.z));
-                Debug.Log(agent.pathStatus);
+                if(m_enemyNavController.currentNoiseType == NoiseController.NoiseType.Walk || m_enemyNavController.currentNoiseType == NoiseController.NoiseType.Run)
+                {
+                    if(!PlayerWasInFov)
+                    {
+                     GameManager.instance.EnemiesInResearch.Add(m_enemyNavController);
+                     PlayerWasInFov = true;
+                    }
+                }
             }
             else if (agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance < 1f)
             {
@@ -56,7 +65,11 @@ public class ResearchState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameManager.instance.EnemiesInResearch.Remove(m_enemyNavController);
+        if (PlayerWasInFov)
+        {
+            GameManager.instance.EnemiesInResearch.Remove(m_enemyNavController);
+            PlayerWasInFov = false;
+        }
         GameManager.instance.CheckEnemiesStateNPosition?.Invoke();
         m_enemyNavController.graphicsController.LookAroundAnimGObj.SetActive(false);
     }

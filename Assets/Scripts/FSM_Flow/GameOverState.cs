@@ -37,6 +37,8 @@ public class GameOverState : StateMachineBehaviour
         if(GameManager.instance.Player)GameManager.instance.Player.TurnOnOffThePlayer(!GameManager.instance.Player.Graphics.activeSelf);
         if (GameManager.instance.Level_Manager.Level) GameManager.instance.Level_Manager.Level.SetActive(!GameManager.instance.Level_Manager.Level.activeSelf);
         GameManager.instance.UI_Manager.GameOverPanel.SetActive(false);
+        GameManager.instance.UI_Manager.KeyIcon.SetActive(false);
+        GameManager.instance.UI_Manager.TreasureIcon.SetActive(false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
