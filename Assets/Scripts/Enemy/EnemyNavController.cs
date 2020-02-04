@@ -22,6 +22,8 @@ public class EnemyNavController : MonoBehaviour
     [HideInInspector]
     public Transform NoiseTarget;
     [HideInInspector]
+    public Vector3 NoisePosition;
+    [HideInInspector]
     public NoiseController.NoiseType currentNoiseType;
     [HideInInspector]
     public NoiseController.NoiseType prevNoiseType;

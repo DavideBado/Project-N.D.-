@@ -62,7 +62,7 @@ public class EnemiesDirection : MonoBehaviour
             Icons[index].enabled = true;
             Icons[index].color = PursueColor;
             areaChecked[index] = true;
-            Debug.Log("Angle: " + _angle + ", Index: " + index);
+           // Debug.Log("Angle: " + _angle + ", Index: " + index);
         }
     }
 
@@ -78,7 +78,7 @@ public class EnemiesDirection : MonoBehaviour
             {
                 Icons[index].enabled = true;
                 Icons[index].color = ResearchColor;
-                Debug.Log("Angle: " + _angle + ", Index: " + index);
+               // Debug.Log("Angle: " + _angle + ", Index: " + index);
             }
         }
     }

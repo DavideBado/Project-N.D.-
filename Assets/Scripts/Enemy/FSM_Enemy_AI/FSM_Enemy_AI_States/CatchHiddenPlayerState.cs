@@ -20,7 +20,8 @@ public class CatchHiddenPlayerState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.destination = m_enemyNavController.HiddenTarget.position;
+        agent.destination = new Vector3(m_enemyNavController.HiddenTarget.position.x, m_enemyNavController.transform.position.y, m_enemyNavController.HiddenTarget.position.z);
+
         if(agent.pathStatus == NavMeshPathStatus.PathComplete || agent.remainingDistance < 2)
         {
             m_enemyNavController.graphicsController.StartAttackAnimation?.Invoke();

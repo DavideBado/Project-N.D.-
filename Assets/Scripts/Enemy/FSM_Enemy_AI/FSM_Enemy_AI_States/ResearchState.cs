@@ -34,7 +34,7 @@ public class ResearchState : StateMachineBehaviour
                 m_enemyNavController.Counter += m_enemyNavController.ModCounter(m_enemyNavController.transform, m_enemyNavController.VisibleTarget);
                 savedTime = Time.time;
             }
-                agent.destination = m_enemyNavController.VisibleTarget.position;
+                agent.destination = new Vector3(m_enemyNavController.VisibleTarget.position.x, m_enemyNavController.transform.position.y, m_enemyNavController.VisibleTarget.position.z);
             if (m_enemyNavController.Counter >= m_enemyNavController.Counter_Research_MaxValue) enemyAI.ResearchStateMaxCounter?.Invoke();
         }
         else
@@ -42,9 +42,14 @@ public class ResearchState : StateMachineBehaviour
             CheckHiddenPlayer();
             if (m_enemyNavController.NoiseTarget)
             {
-                agent.destination = m_enemyNavController.NoiseTarget.position;                
+                
+                agent.SetDestination( new Vector3(m_enemyNavController.NoiseTarget.position.x, m_enemyNavController.transform.position.y, m_enemyNavController.NoiseTarget.position.z));
+                Debug.Log(agent.pathStatus);
             }
-            else if (agent.pathStatus == NavMeshPathStatus.PathComplete) enemyAI.ResearchStateMissPlayer?.Invoke();
+            else if (agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance < 1f)
+            {
+                enemyAI.ResearchStateMissPlayer?.Invoke();
+            }
         }
     }
 
