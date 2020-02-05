@@ -771,9 +771,9 @@ MonoBehaviour:
   Counter_Research_MaxValue: 1.1
   Counter_Pursue_MaxValue: 1
   PostObjectivePatrolCounterValue: 0.69
-  WalkSpeed: 1.8
+  WalkSpeed: 2
   ResearchSpeed: 2.75
-  RunSpeed: 7
+  RunSpeed: 9
   Counter: 0
   CounterUpdateTime: 0.5
   IdlePosition: {x: 8, y: 1, z: 9}
@@ -791,9 +791,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55bcbd182980db4da1b5268c0b18b50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 7
+  viewRadius: 8.5
   viewAngle:
-  - 110
+  - 130
   targetMask:
     serializedVersion: 2
     m_Bits: 8192
@@ -1029,10 +1029,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 803927139432897161}
     m_Modifications:
-    - target: {fileID: 100114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
-      propertyPath: m_Name
-      value: SK_Enemy_Walking_01 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 400114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1076,6 +1072,10 @@ PrefabInstance:
     - target: {fileID: 400114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
+      propertyPath: m_Name
+      value: SK_Enemy_Walking_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_Controller
