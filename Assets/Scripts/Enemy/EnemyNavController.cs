@@ -72,7 +72,7 @@ public class EnemyNavController : MonoBehaviour
 
     private float DistCounter(Vector3 _origin, Vector3 _player)
     {
-        return 1 - (Vector3.Distance(_origin, _player) / fieldOfView.viewRadius);
+        return 1.1f - (Vector3.Distance(_origin, _player) / fieldOfView.viewRadius);
     }
 
     private float SinCounter(Transform _origin, Transform _player)
