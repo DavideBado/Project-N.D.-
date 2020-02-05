@@ -464,6 +464,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8704
   TObj: {fileID: 4822000795218352915}
+  Player: {fileID: 7770718416607954402}
 --- !u!120 &4822000795218352919
 LineRenderer:
   m_ObjectHideFlags: 0
