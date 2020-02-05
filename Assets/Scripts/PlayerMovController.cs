@@ -135,28 +135,29 @@ public class PlayerMovController : MonoBehaviour
                     Noise.MakeNoiseDelegate(runDimensionMod, runDuration, NoiseController.NoiseType.Run);
                 }
 
-                if (Input.GetAxisRaw("Interact") != 0 && haveTheKey && !m_axisDown)
-                {
-                    m_axisDown = true;
-                    RaycastHit hit;
-                    if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f))
+                if (Input.GetButtonDown("Interact") || Input.GetKeyDown(KeyCode.E))
+                    if (haveTheKey)
                     {
-                        if (hit.transform.GetComponent<Gate>() != null)
+                        Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red, 1.5f);
+                        m_axisDown = true;
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f))
                         {
-                            //for (int i = 0; i < gates.Count; i++)
-                            //{
-                            //    gates[i].GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
-                            //}
+                            if (hit.transform.GetComponent<Gate>() != null)
+                            {
+                                //for (int i = 0; i < gates.Count; i++)
+                                //{
+                                //    gates[i].GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
+                                //}
 
-                            hit.transform.GetComponent<Gate>().TheOtherHalf.GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
-                            hit.transform.GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
+                                hit.transform.GetComponent<Gate>().GateAnimator.SetTrigger(OpenTheGateTrigger);
 
-                            haveTheKey = false;
+                               // haveTheKey = false;
 
-                            GameManager.instance.UI_Manager.KeyIcon.SetActive(false);
+                                GameManager.instance.UI_Manager.KeyIcon.SetActive(false);
+                            }
                         }
                     }
-                } 
             }
         }
 
