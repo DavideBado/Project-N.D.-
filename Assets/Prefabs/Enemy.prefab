@@ -757,6 +757,7 @@ MonoBehaviour:
   TargetCurrentHidingState: 0
   HiddenTarget: {fileID: 0}
   NoiseTarget: {fileID: 0}
+  NoisePosition: {x: 0, y: 0, z: 0}
   currentNoiseType: 0
   prevNoiseType: 0
   visibleTargetArea: 0

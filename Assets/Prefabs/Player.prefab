@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4822000794291668702}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7293962, y: -1.88, z: 6.93}
+  m_LocalPosition: {x: 0, y: -1.88, z: 15}
   m_LocalScale: {x: 0.5, y: 0.1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4822000795036917070}
@@ -221,7 +221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4822000794876614382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.67, z: 2.77}
+  m_LocalPosition: {x: 0, y: 1.6, z: 2.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4822000795036917070}
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f4c17880405074d9421c015a7ec6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 8
   ParabolaRoot: {fileID: 4822000795036917057}
   Autostart: 0
   Animation: 1
@@ -1002,6 +1002,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7770718416607954407}
     m_Modifications:
+    - target: {fileID: 2885326239926359771, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
+        type: 3}
+      propertyPath: Speed
+      value: 17.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4289652681222108418, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
         type: 3}
       propertyPath: m_Name
@@ -1011,11 +1016,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 2885326239926359771, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
-        type: 3}
-      propertyPath: Speed
-      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 7507576654658707199, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
         type: 3}
@@ -1104,14 +1104,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7770718416607954407}
     m_Modifications:
-    - target: {fileID: 100084, guid: 127832f84c068de41a88aecb1828d0d5, type: 3}
-      propertyPath: m_Name
-      value: SK_Player_Walking_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 100084, guid: 127832f84c068de41a88aecb1828d0d5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 400084, guid: 127832f84c068de41a88aecb1828d0d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1155,6 +1147,14 @@ PrefabInstance:
     - target: {fileID: 400084, guid: 127832f84c068de41a88aecb1828d0d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100084, guid: 127832f84c068de41a88aecb1828d0d5, type: 3}
+      propertyPath: m_Name
+      value: SK_Player_Walking_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100084, guid: 127832f84c068de41a88aecb1828d0d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 127832f84c068de41a88aecb1828d0d5, type: 3}
       propertyPath: m_Controller
