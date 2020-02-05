@@ -12,6 +12,7 @@ public class ParabolaGraphic : MonoBehaviour
     bool x = false;
     public TObject TObj;
 
+    public PlayerMovController Player;
     private void Start()
     {
         ParabolaDestDefaultPoint = ParabolaEndPoint.transform.localPosition;
@@ -20,7 +21,7 @@ public class ParabolaGraphic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxisRaw("ThrowingPreview") != 0 && !TObj.onAir)
+        if(Input.GetAxisRaw("ThrowingPreview") != 0 && !TObj.onAir && !Player.isHiding)
         {
         DrawParabola(parabolaController.gizmo, parabolaController.ParabolaRoot);
         TObj.CanTObj = true;
