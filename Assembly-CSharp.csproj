@@ -155,6 +155,8 @@
     <Compile Include="Assets\Scripts\Spots\PlaceableSpots\SpawnSpot.cs" />
     <Compile Include="Assets\Scripts\Spots\SpotBase.cs" />
     <Compile Include="Assets\Scripts\TriggerTrap.cs" />
+    <Compile Include="Assets\Scripts\UI_Scripts\Buttons\MainMenuButton.cs" />
+    <Compile Include="Assets\Scripts\UI_Scripts\Buttons\MainMenuButtons_Data.cs" />
     <Compile Include="Assets\Scripts\UI_Scripts\Buttons\PopupsButton.cs" />
     <Compile Include="Assets\Scripts\UI_Scripts\DirectionSpriteController.cs" />
     <Compile Include="Assets\Scripts\UI_Scripts\EnemiesDirection.cs" />
