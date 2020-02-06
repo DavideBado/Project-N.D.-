@@ -34,6 +34,7 @@ public class HearingController : MonoBehaviour
     void SaveNoise(Transform _Target)
     {
         navController.NoiseTarget = _Target;
+        if(_Target) navController.NoisePosition = _Target.position;
         navController.prevNoiseType = navController.currentNoiseType;
         if (_Target)
         {

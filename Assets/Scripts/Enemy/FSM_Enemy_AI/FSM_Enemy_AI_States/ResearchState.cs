@@ -50,7 +50,7 @@ public class ResearchState : StateMachineBehaviour
             if (m_enemyNavController.NoiseTarget)
             {
                 
-                agent.SetDestination( new Vector3(m_enemyNavController.NoiseTarget.position.x, m_enemyNavController.transform.position.y, m_enemyNavController.NoiseTarget.position.z));
+                agent.SetDestination( new Vector3(m_enemyNavController.NoisePosition.x, m_enemyNavController.transform.position.y, m_enemyNavController.NoisePosition.z));
                 if(m_enemyNavController.currentNoiseType == NoiseController.NoiseType.Object)
                 {
                      GameManager.instance.EnemiesInResearch.Remove(m_enemyNavController);

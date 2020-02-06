@@ -14,6 +14,7 @@ public class TObject : MonoBehaviour
     public bool onAir = false;
     public MeshRenderer MyRenderer;
     public bool CanTObj;
+    public LayerMask PlayerLayer;
     // Update is called once per frame
     void Update()
     {
@@ -33,10 +34,10 @@ public class TObject : MonoBehaviour
         }
         if (onAir)
         {
-            RaycastHit[] collisions = Physics.SphereCastAll(transform.position, MyCollider.radius, transform.forward, 1f, transform.parent.gameObject.layer);
+            RaycastHit[] collisions = Physics.SphereCastAll(transform.position, MyCollider.radius, transform.forward, 1f, PlayerLayer);
             for (int i = 0; i < collisions.Length; i++)
             {
-                if (collisions[i].transform.tag != "OutMap")
+                if (collisions[i].transform.tag != "OutMap" && collisions[i].transform.tag != "Player")
                 {
                     onUpgrade = true;
                     onAir = false;

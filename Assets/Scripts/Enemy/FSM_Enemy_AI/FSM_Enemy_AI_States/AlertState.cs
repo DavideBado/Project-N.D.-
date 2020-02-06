@@ -54,7 +54,7 @@ public class AlertState : StateMachineBehaviour
                 if (m_enemyNavController.currentNoiseType == NoiseController.NoiseType.Walk)
                 {
                     timer = 2;
-                   m_enemyNavController.transform.LookAt(m_enemyNavController.NoiseTarget.transform.position);
+                   m_enemyNavController.transform.LookAt(m_enemyNavController.NoisePosition);
                 }
                 else if (m_enemyNavController.currentNoiseType == NoiseController.NoiseType.Object)
                 {
