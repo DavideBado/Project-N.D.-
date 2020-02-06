@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: a388168fbe706cd4cbccdb7608580824, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,8 +152,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f2865a27020d94db37205ce84e3f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColliderForRayCast: {fileID: 0}
-  Graphics: {fileID: 0}
-  PlanObj: {fileID: 0}
-  SpotType: 0
-  Logic: {fileID: 0}
