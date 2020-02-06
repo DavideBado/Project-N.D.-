@@ -42,6 +42,8 @@ public class UIManager : MonoBehaviour
     public RawImage SpotCameraScreen;
     public GameObject SpotCameraScreenGObj;
 
+    public GameObject CommandsScreen;
+
     private void OnEnable()
     {
         StartGameOverFade += GameOverInUpdate;
@@ -104,6 +106,7 @@ public class UIManager : MonoBehaviour
         }
 
         SetDirection();
+        OpenCommandsScreen();
     }
 
 
@@ -165,4 +168,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void OpenCommandsScreen()
+    {
+        if(Input.GetButtonDown("CommandsScreen"))
+        {
+           if(CommandsScreen) if(!CommandsScreen.activeSelf) CommandsScreen.SetActive(true);
+        }
+    }
 }

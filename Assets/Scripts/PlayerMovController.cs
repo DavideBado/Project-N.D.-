@@ -135,7 +135,7 @@ public class PlayerMovController : MonoBehaviour
                     Noise.MakeNoiseDelegate(runDimensionMod, runDuration, NoiseController.NoiseType.Run);
                 }
 
-                if (Input.GetButtonDown("Interact") || Input.GetKeyDown(KeyCode.E))
+                if (Input.GetButtonDown("Interact"))
                     if (haveTheKey)
                     {
                         Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red, 1.5f);

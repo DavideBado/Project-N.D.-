@@ -64,6 +64,7 @@
     <Compile Include="Assets\CameraReset.cs" />
     <Compile Include="Assets\CamSpotPlan.cs" />
     <Compile Include="Assets\Capsulo.cs" />
+    <Compile Include="Assets\CommandsScreen.cs" />
     <Compile Include="Assets\Editors\FieldOfViewEditor.cs" />
     <Compile Include="Assets\Editors\HearingEditor.cs" />
     <Compile Include="Assets\Editors\NavigationEditor.cs" />
