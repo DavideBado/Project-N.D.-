@@ -715,7 +715,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 12
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 800
   m_StoppingDistance: 0
@@ -769,11 +769,11 @@ MonoBehaviour:
   Counter_Patrol_MaxValue: 0.7
   Counter_Alert_MaxValue: 0.7
   Counter_Research_MaxValue: 1.1
-  Counter_Pursue_MaxValue: 1.25
+  Counter_Pursue_MaxValue: 1.75
   PostObjectivePatrolCounterValue: 0.69
   WalkSpeed: 2
   ResearchSpeed: 2.75
-  RunSpeed: 9
+  RunSpeed: 7.5
   Counter: 0
   CounterUpdateTime: 0.5
   IdlePosition: {x: 8, y: 1, z: 9}
