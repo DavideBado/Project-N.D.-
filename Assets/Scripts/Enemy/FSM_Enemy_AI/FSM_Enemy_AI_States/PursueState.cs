@@ -35,7 +35,7 @@ public class PursueState : StateMachineBehaviour
             m_enemyNavController.OldVisibleTarget = m_enemyNavController.VisibleTarget;
 
             savedTarget = m_enemyNavController.VisibleTarget;
-            agent.destination = new Vector3(m_enemyNavController.VisibleTarget.position.x, m_enemyNavController.transform.position.y, m_enemyNavController.VisibleTarget.position.z);
+            if(agent.enabled) agent.destination = new Vector3(m_enemyNavController.VisibleTarget.position.x, m_enemyNavController.transform.position.y, m_enemyNavController.VisibleTarget.position.z);
 
             if (Vector3.Distance(animator.transform.position, m_enemyNavController.VisibleTarget.position) < m_enemyNavController.GameOverDist)
             {

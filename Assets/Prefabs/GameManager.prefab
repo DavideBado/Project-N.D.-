@@ -64,6 +64,7 @@ MonoBehaviour:
   CurrentEscapeSpot: {fileID: 0}
   EnemiesInResearch: []
   EnemiesInPursue: []
+  InCommandsScreen: 0
 --- !u!95 &863109629215031911
 Animator:
   serializedVersion: 3
@@ -195,41 +196,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3523046520912755391, guid: 65346a5783049f14b9110361affda869,
+    - target: {fileID: 7941035760431583910, guid: 65346a5783049f14b9110361affda869,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797153004057016947, guid: 65346a5783049f14b9110361affda869,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 863109629215031905}
     - target: {fileID: 5797153004057016947, guid: 65346a5783049f14b9110361affda869,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 863109629215031905}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangePhase
+      objectReference: {fileID: 0}
     - target: {fileID: 6458957490657183133, guid: 65346a5783049f14b9110361affda869,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 863109629215031905}
-    - target: {fileID: 493865359103139090, guid: 65346a5783049f14b9110361affda869,
+    - target: {fileID: 6458957490657183133, guid: 65346a5783049f14b9110361affda869,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangePhase
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389822849522653302, guid: 65346a5783049f14b9110361affda869,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 863109629990081740}
-    - target: {fileID: 7429696550978028264, guid: 65346a5783049f14b9110361affda869,
+    - target: {fileID: 4389822849522653302, guid: 65346a5783049f14b9110361affda869,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389822849981819293, guid: 65346a5783049f14b9110361affda869,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 863109629990081740}
-    - target: {fileID: 730529123595787418, guid: 65346a5783049f14b9110361affda869,
+    - target: {fileID: 4389822849981819293, guid: 65346a5783049f14b9110361affda869,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 863109629990081740}
-    - target: {fileID: 422028156470343221, guid: 65346a5783049f14b9110361affda869,
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389822849981819293, guid: 65346a5783049f14b9110361affda869,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 863109629990081740}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65346a5783049f14b9110361affda869, type: 3}
 --- !u!4 &863109629904919340 stripped

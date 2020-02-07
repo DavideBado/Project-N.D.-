@@ -10,7 +10,6 @@ public class GameOverState : StateMachineBehaviour
         GameManager.instance.OnExePhase = false;
         GameManager.instance.OnPlanPhase = false;
         GameManager.instance.UI_Manager.GameOverPanel.SetActive(true);
-        GameManager.instance.UI_Manager.StartGameOverFade?.Invoke();
         //GameManager.instance.Level_Manager.Level.SetActive(false);
         foreach (EnemyAI _enemy in GameManager.instance.Level_Manager.EnemiesAI)
         {
