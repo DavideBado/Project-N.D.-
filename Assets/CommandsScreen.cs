@@ -36,7 +36,7 @@ public class CommandsScreen : MonoBehaviour
     {
         if (eventSystem.currentSelectedGameObject != FirstButton)
         {
-            if (Input.GetButtonDown("Submit")) gameObject.SetActive(false);
+            if (Input.GetButtonDown("Submit") || Input.GetButtonDown("CommandsScreen")) gameObject.SetActive(false);
         }
     }
     private void OnDisable()
