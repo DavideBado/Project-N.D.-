@@ -34,7 +34,10 @@ public class PlanningPhaseState : StateMachineBehaviour
         GameManager.instance.Drone.DroneCamera.Priority = 50;
 
         GameManager.instance.Player.gameObject.SetActive(false);
-        
+
+        GameManager.instance.Drone.planCamSpots.Clear();
+        GameManager.instance.Drone.camSpots.Clear();
+
         GameManager.instance.Drone.gameObject.SetActive(true);
         foreach (EnemyAI _enemyAI in GameManager.instance.Level_Manager.EnemiesAI)
         {

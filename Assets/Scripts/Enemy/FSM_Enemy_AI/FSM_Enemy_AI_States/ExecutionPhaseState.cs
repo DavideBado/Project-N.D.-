@@ -17,12 +17,13 @@ public class ExecutionPhaseState : StateMachineBehaviour
         //GameManager.instance.UI_Manager.PhaseTxt.text = "ExecutionPhase";
         //GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(true);
         GameManager.instance.UI_Manager.ExeUI.SetActive(true);
+        GameManager.instance.Player.camSpots.Clear();
         GameManager.instance.Player.camSpots = GameManager.instance.Drone.camSpots;
         GameManager.instance.Player.gameObject.SetActive(true);
 
         GameManager.instance.Drone.gameObject.SetActive(false);
         GameManager.instance.Player.freeLookCamera.Priority = 50;
-        GameManager.instance.Player.SpotCamera.gameObject.SetActive(true);
+       
 
         GameManager.instance.Player.SpotCameraScreen = GameManager.instance.UI_Manager.SpotCameraScreen;
         if (GameManager.instance.Player.camSpots.Count == 0)
@@ -32,6 +33,8 @@ public class ExecutionPhaseState : StateMachineBehaviour
         else
         {
             GameManager.instance.UI_Manager.SpotCameraScreenGObj.SetActive(true);
+            GameManager.instance.UI_Manager.SpotCameraScreen.enabled = true;
+            GameManager.instance.Player.SpotCamera.gameObject.SetActive(true);
         }
 
         GameManager.instance.Drone.DroneCamera.Priority = 0;
