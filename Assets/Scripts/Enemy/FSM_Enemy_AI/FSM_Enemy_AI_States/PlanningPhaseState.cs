@@ -31,6 +31,7 @@ public class PlanningPhaseState : StateMachineBehaviour
         GameManager.instance.Player.freeLookCamera.Priority = 0;
         GameManager.instance.Player.SpotCamera.gameObject.SetActive(false);
         if(GameManager.instance.Player.SpotCameraScreen) GameManager.instance.Player.SpotCameraScreen.enabled = false;
+       
         GameManager.instance.Drone.DroneCamera.Priority = 50;
 
         GameManager.instance.Player.gameObject.SetActive(false);

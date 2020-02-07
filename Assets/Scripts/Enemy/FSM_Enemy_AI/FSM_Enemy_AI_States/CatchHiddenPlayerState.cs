@@ -16,15 +16,18 @@ public class CatchHiddenPlayerState : StateMachineBehaviour
         enemyAI = animator.GetComponent<EnemyAI>();
         agent = animator.GetComponent<NavMeshAgent>();
         agent.speed = m_enemyNavController.RunSpeed;
+
+        GameManager.instance.Player.currentSpeed = 0;
+        GameManager.instance.Player.enabled = false;
     }
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent.destination = new Vector3(m_enemyNavController.HiddenTarget.position.x, m_enemyNavController.transform.position.y, m_enemyNavController.HiddenTarget.position.z);
 
-        if(agent.pathStatus == NavMeshPathStatus.PathComplete || agent.remainingDistance < 2)
+        if(agent.pathStatus == NavMeshPathStatus.PathComplete && m_enemyNavController.VisibleTarget != null)
         {
-            m_enemyNavController.graphicsController.StartAttackAnimation?.Invoke();
+           m_enemyNavController.graphicsController.StartAttackAnimation?.Invoke();
             //GameManager.instance.PlayerCaught?.Invoke();
         }
     }

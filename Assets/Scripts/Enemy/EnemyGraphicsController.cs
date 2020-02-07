@@ -53,7 +53,7 @@ public class EnemyGraphicsController : MonoBehaviour
     public void PlayerCaught()
     {
         EnemyController.agent.enabled = true;
-        if (Vector3.Distance(EnemyController.transform.position, EnemyController.VisibleTarget.transform.position) <= EnemyController.GameOverDist)
+        if ((Vector3.Distance(EnemyController.transform.position, GameManager.instance.Player.transform.position) <= EnemyController.GameOverDist) || GameManager.instance.Player.isHiding)
             GameManager.instance.PlayerCaught?.Invoke();
     }
 }

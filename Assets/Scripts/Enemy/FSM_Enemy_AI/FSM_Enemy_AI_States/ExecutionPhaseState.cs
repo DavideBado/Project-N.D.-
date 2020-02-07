@@ -22,6 +22,9 @@ public class ExecutionPhaseState : StateMachineBehaviour
         GameManager.instance.Player.gameObject.SetActive(true);
 
         GameManager.instance.Drone.gameObject.SetActive(false);
+        GameManager.instance.Drone.DroneCamera.gameObject.SetActive(false);
+
+        GameManager.instance.Player.freeLookCamera.enabled = true;
         GameManager.instance.Player.freeLookCamera.Priority = 50;
        
 
