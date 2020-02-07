@@ -21,7 +21,7 @@ public class EscapeSpot : PlaceableSpot
     private void EnableSpot()
     {
         if(InPlanSpot)InPlanSpot.SetActive(false);
-        if(InExeSpot)InExeSpot.SetActive(true);
+        if(this == GameManager.instance.CurrentEscapeSpot) if(InExeSpot)InExeSpot.SetActive(true);
         ColliderForRayCast.enabled = false;
     }
 }

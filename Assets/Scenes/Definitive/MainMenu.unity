@@ -724,6 +724,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GoToMainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 6923440065384084828, guid: e848591130d559e45969f1b9d7e97391,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1866773286}
+    - target: {fileID: 6923440065384084828, guid: e848591130d559e45969f1b9d7e97391,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065106974344044531, guid: e848591130d559e45969f1b9d7e97391,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1866773286}
+    - target: {fileID: 8065106974344044531, guid: e848591130d559e45969f1b9d7e97391,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e848591130d559e45969f1b9d7e97391, type: 3}
 --- !u!1 &302163467
@@ -1378,3 +1398,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1866773286 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 863109629990081740, guid: e848591130d559e45969f1b9d7e97391,
+    type: 3}
+  m_PrefabInstance: {fileID: 200184244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b788a20a8eec914f82d25e9a91ccf7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

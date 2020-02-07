@@ -6,9 +6,8 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetAxisRaw("Interact") != 0)
             if (GameManager.instance.OnExePhase)
                 if (other.transform.GetComponent<PlayerMovController>() && other.transform.GetComponent<PlayerMovController>().GoldenlEgg != null)
                 {
