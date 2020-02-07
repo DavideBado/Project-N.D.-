@@ -715,7 +715,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 12
   avoidancePriority: 50
   m_AngularSpeed: 800
   m_StoppingDistance: 0
@@ -765,11 +765,11 @@ MonoBehaviour:
   FermatiAGuardare: 1
   fieldOfView: {fileID: 803927139432897166}
   TimeForLookAround: 3
-  GameOverDist: 1.5
+  GameOverDist: 1.75
   Counter_Patrol_MaxValue: 0.7
   Counter_Alert_MaxValue: 0.7
   Counter_Research_MaxValue: 1.1
-  Counter_Pursue_MaxValue: 1
+  Counter_Pursue_MaxValue: 1.25
   PostObjectivePatrolCounterValue: 0.69
   WalkSpeed: 2
   ResearchSpeed: 2.75
@@ -809,7 +809,7 @@ MonoBehaviour:
   - {fileID: 4579618261448843437}
   - {fileID: 807783768612796295}
   navController: {fileID: 803927139432897172}
-  DrawFoW: 0
+  DrawFov: 0
 --- !u!114 &6223228630912582806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,6 +1029,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 803927139432897161}
     m_Modifications:
+    - target: {fileID: 100114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
+      propertyPath: m_Name
+      value: SK_Enemy_Walking_01 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 400114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1072,10 +1076,6 @@ PrefabInstance:
     - target: {fileID: 400114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
-      propertyPath: m_Name
-      value: SK_Enemy_Walking_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_Controller
