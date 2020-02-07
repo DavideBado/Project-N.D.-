@@ -11,6 +11,8 @@ public class MainMenuButton : Button
 
     protected override void Awake()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         _data = GetComponent<MainMenuButtons_Data>();    
     }
 

@@ -35,14 +35,18 @@ public class DroneMoveController : MonoBehaviour
 
     private void Update()
     {
-        CheckInput();
-        //CheckCells();
-        //SelectCurrentSpotType();
-        //ActiveSpot();
-        CheckSpots();
+        if (!GameManager.instance.InCommandsScreen)
+        {
+            CheckInput();
+            //CheckCells();
+            //SelectCurrentSpotType();
+            //ActiveSpot();
+            CheckSpots();
+        }
     }
     void CheckInput()
     {
+
         SelectSpotTypeKeyBoard();
         Vector3 VerticalTranslation = Input.GetAxis("Vertical") * speed * Time.deltaTime * transform.forward;
         Vector3 HorizontalTranslation = Input.GetAxis("Horizontal") * speed * Time.deltaTime * transform.right;
@@ -77,6 +81,7 @@ public class DroneMoveController : MonoBehaviour
         //        transform.Translate(HorizontalTranslation, 0, 0);
         //        Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
         //    }
+
     }
     RaycastHit Currenthit;
     RaycastHit Oldhit;
@@ -141,7 +146,7 @@ public class DroneMoveController : MonoBehaviour
 
                 if (Currenthit.transform.GetComponent<PlaceableSpot>() != null)
                 {
-                    if(CheckDronePlacingselection())
+                    if (CheckDronePlacingselection())
                     {
                         SwitchSpotTypes(Currenthit.transform.GetComponent<PlaceableSpot>().SpotType);
                         CurrentSpotType = 0;
@@ -184,8 +189,8 @@ public class DroneMoveController : MonoBehaviour
                                 {
                                     //if (_objectsSpot.SpotTypesForMulti[i] == CurrentSpotType)
                                     //{
-                                        _objectsSpot.SpotsForMultiExe[i].SetActive(false);
-                                        _objectsSpot.Graphics.SetSelectedGraphichs(false);
+                                    _objectsSpot.SpotsForMultiExe[i].SetActive(false);
+                                    _objectsSpot.Graphics.SetSelectedGraphichs(false);
                                     //}
                                 }
                                 break;
@@ -208,7 +213,7 @@ public class DroneMoveController : MonoBehaviour
     {
         switch (_type)
         {
-            case PlaceableSpot.PlaceableSpotType.Null:               
+            case PlaceableSpot.PlaceableSpotType.Null:
                 break;
             case PlaceableSpot.PlaceableSpotType.EscapePoint:
                 if (!m_isSelectionAxisInUse)
@@ -227,7 +232,7 @@ public class DroneMoveController : MonoBehaviour
                         RemEsc--;
                     }
                 }
-                    break;
+                break;
             case PlaceableSpot.PlaceableSpotType.StartinPoint:
                 if (!m_isSelectionAxisInUse)
                 {

@@ -4594,6 +4594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07065f4b5947831428ca281842a31622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FirstButton: {fileID: 4543947909194442564}
 --- !u!1 &6321038047082971453
 GameObject:
   m_ObjectHideFlags: 0
@@ -9338,11 +9339,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4923325376316150526}
     m_Modifications:
-    - target: {fileID: 566742407716418225, guid: 9f526fce4d7f07c42b85b89d9e019673,
-        type: 3}
-      propertyPath: m_Name
-      value: DirectionTreasure
-      objectReference: {fileID: 0}
     - target: {fileID: 3800835350588274948, guid: 9f526fce4d7f07c42b85b89d9e019673,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9447,6 +9443,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 566742407716418225, guid: 9f526fce4d7f07c42b85b89d9e019673,
+        type: 3}
+      propertyPath: m_Name
+      value: DirectionTreasure
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f526fce4d7f07c42b85b89d9e019673, type: 3}
@@ -9633,16 +9634,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7941035760431583910}
     m_Modifications:
-    - target: {fileID: 2362210445579231204, guid: 054e7df93024f7047b140f0a394f6a7e,
+    - target: {fileID: 2860971522425020252, guid: 054e7df93024f7047b140f0a394f6a7e,
         type: 3}
-      propertyPath: m_Name
-      value: Drone
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362210445579231204, guid: 054e7df93024f7047b140f0a394f6a7e,
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7941035760344356932}
+    - target: {fileID: 2859506209017762940, guid: 054e7df93024f7047b140f0a394f6a7e,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2859506209017762940, guid: 054e7df93024f7047b140f0a394f6a7e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7941035760344356932}
     - target: {fileID: 2362210445579231205, guid: 054e7df93024f7047b140f0a394f6a7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9748,21 +9754,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2860971522425020252, guid: 054e7df93024f7047b140f0a394f6a7e,
+    - target: {fileID: 2362210445579231204, guid: 054e7df93024f7047b140f0a394f6a7e,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 7941035760344356932}
-    - target: {fileID: 2859506209017762940, guid: 054e7df93024f7047b140f0a394f6a7e,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      propertyPath: m_Name
+      value: Drone
       objectReference: {fileID: 0}
-    - target: {fileID: 2859506209017762940, guid: 054e7df93024f7047b140f0a394f6a7e,
+    - target: {fileID: 2362210445579231204, guid: 054e7df93024f7047b140f0a394f6a7e,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 7941035760344356932}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3350200743710124946, guid: 054e7df93024f7047b140f0a394f6a7e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -9883,16 +9884,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4923325376316150526}
     m_Modifications:
-    - target: {fileID: 1509953406384908759, guid: de29af5936b8a5e47a75118be5642358,
-        type: 3}
-      propertyPath: m_Name
-      value: DirectionEscape
-      objectReference: {fileID: 0}
-    - target: {fileID: 1509953406384908759, guid: de29af5936b8a5e47a75118be5642358,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2852555606650200674, guid: de29af5936b8a5e47a75118be5642358,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9997,6 +9988,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509953406384908759, guid: de29af5936b8a5e47a75118be5642358,
+        type: 3}
+      propertyPath: m_Name
+      value: DirectionEscape
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509953406384908759, guid: de29af5936b8a5e47a75118be5642358,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de29af5936b8a5e47a75118be5642358, type: 3}

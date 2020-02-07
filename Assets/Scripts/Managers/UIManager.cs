@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     public GameObject PlanningUI;
     public GameObject PopupEscapeSpwan, PopupHidingCam, PopupUltimate;
     public GameObject ExeUI;
-    
+
     public GameObject ReloadButtonGameOver;
     public GameObject MainMenuButtonGameOver;
     public TMP_Text GameOverTxt;
@@ -153,7 +153,7 @@ public class UIManager : MonoBehaviour
 
                     directionSpriteController.DirectionImage = TreasureDirection;
                     directionSpriteController.DirectionTarget = GameManager.instance.Treasure.DirectionTarget;
-                directionSpriteController.distanceTxt = TreasureDistance;
+                    directionSpriteController.distanceTxt = TreasureDistance;
                 }
                 else
                 {
@@ -162,7 +162,7 @@ public class UIManager : MonoBehaviour
 
                     directionSpriteController.DirectionImage = EscapeDirection;
                     directionSpriteController.DirectionTarget = GameManager.instance.CurrentEscapeSpot.DirectionTarget;
-                directionSpriteController.distanceTxt = EscapeDistance;
+                    directionSpriteController.distanceTxt = EscapeDistance;
                 }
             }
         }
@@ -170,9 +170,14 @@ public class UIManager : MonoBehaviour
 
     private void OpenCommandsScreen()
     {
-        if(Input.GetButtonDown("CommandsScreen"))
+        if (Input.GetButtonDown("CommandsScreen"))
         {
-           if(CommandsScreen) if(!CommandsScreen.activeSelf) CommandsScreen.SetActive(true);
+            if (PopupsOff()) if (CommandsScreen) if (!CommandsScreen.activeSelf) CommandsScreen.SetActive(true);
         }
+    }
+
+    private bool PopupsOff()
+    {
+        return !PopupEscapeSpwan.activeSelf && !PopupHidingCam.activeSelf && !PopupUltimate.activeSelf;
     }
 }

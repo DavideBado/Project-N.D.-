@@ -75,109 +75,112 @@ public class PlayerMovController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CameraReset();
-        AxisDownCheck();
-        //if (camSpots.Count == 0) SpotCameraScreen.enabled = false;
-        if (InputActive)
+        if (!GameManager.instance.InCommandsScreen)
         {
-            DetectHidingPoint();
-            if (!isHiding)
+            CameraReset();
+            AxisDownCheck();
+            //if (camSpots.Count == 0) SpotCameraScreen.enabled = false;
+            if (InputActive)
             {
-                float translationVertical = Input.GetAxis("Vertical") * currentSpeed;
-                float HorizontalTranslation = Input.GetAxis("Horizontal") * currentSpeed;
-
-
-                GraphSpeed = translationVertical;
-
-                translationVertical *= Time.deltaTime;
-                HorizontalTranslation *= Time.deltaTime;
-
-                //MoveToCameraForward();
-                movementTransform.position = Camera.main.transform.position;
-                movementTransform.rotation = Camera.main.transform.rotation;
-                movementTransform.eulerAngles = new Vector3(0, movementTransform.eulerAngles.y, movementTransform.eulerAngles.z);
-
-                if (Input.GetAxis("Vertical") != 0)
-                    transform.rotation = movementTransform.rotation;
-
-                if (translationVertical > 0)
+                DetectHidingPoint();
+                if (!isHiding)
                 {
-                    if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.forward, 0.5f, WallMask)) transform.Translate(new Vector3(0, 0, translationVertical), movementTransform);
-                }
-                else if (translationVertical < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.forward, 0.5f, WallMask))
+                    float translationVertical = Input.GetAxis("Vertical") * currentSpeed;
+                    float HorizontalTranslation = Input.GetAxis("Horizontal") * currentSpeed;
+
+
+                    GraphSpeed = translationVertical;
+
+                    translationVertical *= Time.deltaTime;
+                    HorizontalTranslation *= Time.deltaTime;
+
+                    //MoveToCameraForward();
+                    movementTransform.position = Camera.main.transform.position;
+                    movementTransform.rotation = Camera.main.transform.rotation;
+                    movementTransform.eulerAngles = new Vector3(0, movementTransform.eulerAngles.y, movementTransform.eulerAngles.z);
+
+                    if (Input.GetAxis("Vertical") != 0)
+                        transform.rotation = movementTransform.rotation;
+
+                    if (translationVertical > 0)
                     {
-                        transform.Translate(new Vector3(0, 0, translationVertical), movementTransform);
-                        Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
+                        if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.forward, 0.5f, WallMask)) transform.Translate(new Vector3(0, 0, translationVertical), movementTransform);
                     }
-
-                if (HorizontalTranslation > 0)
-                {
-                    if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.right, 0.5f, WallMask)) transform.Translate(new Vector3(HorizontalTranslation, 0, 0), movementTransform);
-                }
-                else if (HorizontalTranslation < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.right, 0.5f, WallMask))
-                    {
-                        transform.Translate(new Vector3(HorizontalTranslation, 0, 0), movementTransform);
-                        Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
-                    }
-
-
-                //transform.Rotate(0, rotation, 0);
-
-                Crouch();
-                Run();
-
-                if (currentSpeed == walkSpeed && Input.GetAxis("Vertical") != 0)
-                {
-                    Noise.MakeNoiseDelegate(walkDimensionMod, walkDuration, NoiseController.NoiseType.Walk);
-                }
-                if (currentSpeed == runningSpeed && Input.GetAxis("Vertical") != 0)
-                {
-                    Noise.MakeNoiseDelegate(runDimensionMod, runDuration, NoiseController.NoiseType.Run);
-                }
-
-                if (Input.GetButtonDown("Interact"))
-                    if (haveTheKey)
-                    {
-                        Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red, 1.5f);
-                        m_axisDown = true;
-                        RaycastHit hit;
-                        if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f))
+                    else if (translationVertical < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.forward, 0.5f, WallMask))
                         {
-                            if (hit.transform.GetComponent<Gate>() != null)
+                            transform.Translate(new Vector3(0, 0, translationVertical), movementTransform);
+                            Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
+                        }
+
+                    if (HorizontalTranslation > 0)
+                    {
+                        if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), transform.right, 0.5f, WallMask)) transform.Translate(new Vector3(HorizontalTranslation, 0, 0), movementTransform);
+                    }
+                    else if (HorizontalTranslation < 0) if (!Physics.Raycast(new Vector3(transform.position.x, 0.2f, transform.position.z), -transform.right, 0.5f, WallMask))
+                        {
+                            transform.Translate(new Vector3(HorizontalTranslation, 0, 0), movementTransform);
+                            Debug.DrawLine(transform.position, -transform.forward, Color.red, 1);
+                        }
+
+
+                    //transform.Rotate(0, rotation, 0);
+
+                    Crouch();
+                    Run();
+
+                    if (currentSpeed == walkSpeed && Input.GetAxis("Vertical") != 0)
+                    {
+                        Noise.MakeNoiseDelegate(walkDimensionMod, walkDuration, NoiseController.NoiseType.Walk);
+                    }
+                    if (currentSpeed == runningSpeed && Input.GetAxis("Vertical") != 0)
+                    {
+                        Noise.MakeNoiseDelegate(runDimensionMod, runDuration, NoiseController.NoiseType.Run);
+                    }
+
+                    if (Input.GetButtonDown("Interact"))
+                        if (haveTheKey)
+                        {
+                            Debug.DrawLine(transform.position, transform.position + transform.forward, Color.red, 1.5f);
+                            m_axisDown = true;
+                            RaycastHit hit;
+                            if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f))
                             {
-                                //for (int i = 0; i < gates.Count; i++)
-                                //{
-                                //    gates[i].GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
-                                //}
+                                if (hit.transform.GetComponent<Gate>() != null)
+                                {
+                                    //for (int i = 0; i < gates.Count; i++)
+                                    //{
+                                    //    gates[i].GetComponent<Animator>().SetTrigger(OpenTheGateTrigger);
+                                    //}
 
-                                hit.transform.GetComponent<Gate>().GateAnimator.SetTrigger(OpenTheGateTrigger);
+                                    hit.transform.GetComponent<Gate>().GateAnimator.SetTrigger(OpenTheGateTrigger);
 
-                               // haveTheKey = false;
+                                    // haveTheKey = false;
 
-                                GameManager.instance.UI_Manager.KeyIcon.SetActive(false);
+                                    GameManager.instance.UI_Manager.KeyIcon.SetActive(false);
+                                }
                             }
                         }
-                    }
+                }
             }
+
+            if (Input.GetAxisRaw("NextSpotCam") != 0 && !m_axisDown)
+            {
+                m_axisDown = true;
+                currentSpotCameraIndex++;
+                if (currentSpotCameraIndex >= camSpots.Count) currentSpotCameraIndex = 0;
+
+                ChangeCamSpot(currentSpotCameraIndex);
+            }
+            if (Input.GetAxisRaw("PrevSpotCam") != 0 && !m_axisDown)
+            {
+                m_axisDown = true;
+                currentSpotCameraIndex--;
+                if (currentSpotCameraIndex < 0) currentSpotCameraIndex = camSpots.Count - 1;
+
+                ChangeCamSpot(currentSpotCameraIndex);
+            }
+
         }
-
-        if (Input.GetAxisRaw("NextSpotCam") != 0 && !m_axisDown)
-        {
-            m_axisDown = true;
-            currentSpotCameraIndex++;
-            if (currentSpotCameraIndex >= camSpots.Count) currentSpotCameraIndex = 0;
-
-            ChangeCamSpot(currentSpotCameraIndex);
-        }
-        if (Input.GetAxisRaw("PrevSpotCam") != 0 && !m_axisDown)
-        {
-            m_axisDown = true;
-            currentSpotCameraIndex--;
-            if (currentSpotCameraIndex < 0) currentSpotCameraIndex = camSpots.Count - 1;
-
-            ChangeCamSpot(currentSpotCameraIndex);
-        }
-
     }
     bool m_axisDown = false;
     void Crouch()

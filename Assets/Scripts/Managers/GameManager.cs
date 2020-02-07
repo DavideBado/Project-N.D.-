@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public List<EnemyNavController> EnemiesInResearch = new List<EnemyNavController>();
     public List<EnemyNavController> EnemiesInPursue = new List<EnemyNavController>();
 
+    public bool InCommandsScreen = false;
     private void OnEnable()
     {
         PlayerCaught += GameOver;
@@ -74,7 +75,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetAxisRaw("ChangePhase") != 0 && OnPlanPhase) CheckPlanning();
+        if (Input.GetAxisRaw("ChangePhase") != 0 && OnPlanPhase && !InCommandsScreen) CheckPlanning();
     }
 
     public void Setup()

@@ -50,10 +50,10 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    public bool DrawFoW; 
+    public bool DrawFov; 
     private void LateUpdate()
     {
-        if (DrawFoW)
+        if (DrawFov)
         {
             for (int i = 0; i < viewAngle.Count; i++)
             {

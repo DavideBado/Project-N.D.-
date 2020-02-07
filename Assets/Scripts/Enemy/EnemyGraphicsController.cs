@@ -47,10 +47,13 @@ public class EnemyGraphicsController : MonoBehaviour
     void SetAttackAnimation()
     {
         animator.SetFloat("Attack", 5);
+        EnemyController.agent.enabled = false;
     }
 
     public void PlayerCaught()
     {
-        GameManager.instance.PlayerCaught?.Invoke();
+        EnemyController.agent.enabled = true;
+        if (Vector3.Distance(EnemyController.transform.position, EnemyController.VisibleTarget.transform.position) <= EnemyController.GameOverDist)
+            GameManager.instance.PlayerCaught?.Invoke();
     }
 }

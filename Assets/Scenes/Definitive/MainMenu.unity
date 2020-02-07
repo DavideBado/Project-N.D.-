@@ -719,6 +719,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8421626911637358675, guid: e848591130d559e45969f1b9d7e97391,
+        type: 3}
+      propertyPath: FirstButton
+      value: 
+      objectReference: {fileID: 1461656450}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e848591130d559e45969f1b9d7e97391, type: 3}
 --- !u!1 &302163467
@@ -1023,6 +1028,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1461656450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6539509085692601389, guid: e848591130d559e45969f1b9d7e97391,
+    type: 3}
+  m_PrefabInstance: {fileID: 200184244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1613766102
 GameObject:
   m_ObjectHideFlags: 0
