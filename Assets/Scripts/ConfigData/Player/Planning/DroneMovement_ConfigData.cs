@@ -6,11 +6,15 @@ using UnityEngine;
 public class DroneMovement_ConfigData : ScriptableObject
 {
     public float SpeedMaxValue;
-    public float StartTilAt;
+
 
     public float decel_m;
     public float decel_k;
 
     public float Acceleration_Z;
     public float Acceleration_X;
+
+    public float StartTilAtSpeed;
+    public float EndTilAtSpeed;
+    public float MaxAngleTilt;
 }
