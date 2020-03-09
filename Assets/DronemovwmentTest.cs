@@ -21,6 +21,12 @@ public class DronemovwmentTest : MonoBehaviour
 
     // Camera Rotation
     public Transform TiltCamera;
+    public Transform _Camera;
+
+    public float MinAngle;
+    public float MaxAngle;
+    public float CameraSpeed;
+    float mouseY;
     //################
 
 
@@ -64,9 +70,18 @@ public class DronemovwmentTest : MonoBehaviour
 
         Vector3 _Vtilt = new Vector3(Mathf.Clamp01(_Direction.z), 0, -_Direction.x);
 
-
         TiltCamera.localRotation = Quaternion.Euler(_Vtilt.normalized * _TiltAngle);
 
         //############ END TILT ########################
+
+        //############ CAMERA ########################
+
+        mouseY += Input.GetAxis("Mouse Y") * CameraSpeed;
+
+        mouseY = Mathf.Clamp(mouseY, MinAngle, MaxAngle);
+
+        _Camera.localRotation = Quaternion.Euler(mouseY, 0, 0);
+
+        //############ END CAMERA ########################
     }
 }
