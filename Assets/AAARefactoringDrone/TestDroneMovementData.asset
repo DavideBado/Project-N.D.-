@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeedMaxValue: 20
   StartTilAt: 10
-  DecelerationTime: 1
-  Acceleration_Z: 8
-  Acceleration_X: 7
-  LastDirection: {x: 1, y: 0, z: 0}
+  decel_m: 0.7
+  decel_k: 0.34
+  Acceleration_Z: 17
+  Acceleration_X: 15

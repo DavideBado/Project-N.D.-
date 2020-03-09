@@ -18,21 +18,21 @@ public class DroneDecelerationState : DroneMoveState
         SetupDecelData();
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        Deceleration();
+    //// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    //Deceleration();
 
-        if (SetDirection() == Vector3.zero)
-            Move(data.LastDirection);
-        else drone.InputMovementReceived?.Invoke();
-    }
+    //    //if (SetDirection() == Vector3.zero)
+    //        //Move(data.LastDirection);
+    //    else drone.InputMovementReceived?.Invoke();
+    //}
     
     public void Deceleration()
     {
         if (drone.CurrentSpeed > 0)
         {
-            drone.CurrentSpeed -= fromSpeed / data.DecelerationTime * Time.deltaTime;
+            //drone.CurrentSpeed -= fromSpeed / data.DecelerationTime * Time.deltaTime;
         }
         else 
         {
