@@ -70,7 +70,7 @@ public class DronemovwmentTest : MonoBehaviour
 
         Vector3 _Vtilt = new Vector3(Mathf.Clamp01(_Direction.z), 0, -_Direction.x);
 
-        TiltCamera.localRotation = Quaternion.Euler(_Vtilt.normalized * _TiltAngle);
+        _Camera.localRotation = Quaternion.Euler(_Vtilt.normalized * _TiltAngle);
 
         //############ END TILT ########################
 
@@ -80,7 +80,7 @@ public class DronemovwmentTest : MonoBehaviour
 
         mouseY = Mathf.Clamp(mouseY, MinAngle, MaxAngle);
 
-        _Camera.localRotation = Quaternion.Euler(mouseY, 0, 0);
+        TiltCamera.localRotation = Quaternion.Euler(mouseY, 0, 0);
 
         //############ END CAMERA ########################
     }
