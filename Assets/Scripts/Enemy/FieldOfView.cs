@@ -23,6 +23,9 @@ public class FieldOfView : MonoBehaviour
 
     public EnemyNavController navController;
 
+    public bool DrawFov;
+    public bool FindTarget;
+
     private void Start()
     {
         for (int i = 0; i < viewMeshFilters.Count; i++)
@@ -35,7 +38,7 @@ public class FieldOfView : MonoBehaviour
             viewMeshFilters[i].mesh = viewMeshes[i];
         }
 
-        StartCoroutine("FindTargetsWithDElay", .2f);
+        if(FindTarget) StartCoroutine("FindTargetsWithDElay", .2f);
     }
 
     IEnumerator FindTargetsWithDElay(float delay)
@@ -50,7 +53,7 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    public bool DrawFov; 
+   
     private void LateUpdate()
     {
         if (DrawFov)
@@ -61,6 +64,7 @@ public class FieldOfView : MonoBehaviour
             } 
         }
     }
+
     void FindVisibleTargets(int _viewAngleIndex)
     {
         visibleTarget = null;

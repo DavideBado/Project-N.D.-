@@ -10,7 +10,7 @@ public class DroneMoveController : MonoBehaviour
     public float speed;
     public LayerMask WallMask;
     public GameObject Pointer;
-    public CinemachineFreeLook DroneCamera;
+    public CinemachineVirtualCamera DroneCamera;
     public List<CellTypeBase> AllSpotPosTypes = new List<CellTypeBase>();
     [HideInInspector]
     public CellTypeBase CurrentIspotType;
@@ -48,17 +48,17 @@ public class DroneMoveController : MonoBehaviour
     {
 
         SelectSpotTypeKeyBoard();
-        Vector3 VerticalTranslation = Input.GetAxis("Vertical") * speed * Time.deltaTime * transform.forward;
-        Vector3 HorizontalTranslation = Input.GetAxis("Horizontal") * speed * Time.deltaTime * transform.right;
+        //Vector3 VerticalTranslation = Input.GetAxis("Vertical") * speed * Time.deltaTime * transform.forward;
+        //Vector3 HorizontalTranslation = Input.GetAxis("Horizontal") * speed * Time.deltaTime * transform.right;
 
-        mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
-        transform.rotation = Quaternion.Euler(0, mouseX, 0);
-        transform.position += VerticalTranslation + HorizontalTranslation;
+        //mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
+        //transform.rotation = Quaternion.Euler(0, mouseX, 0);
+        //transform.position += VerticalTranslation + HorizontalTranslation;
 
-        if (transform.position.x < XminBorder.position.x) transform.position = new Vector3(XminBorder.position.x, transform.position.y, transform.position.z);
-        if (transform.position.x > XmaxBorder.position.x) transform.position = new Vector3(XmaxBorder.position.x, transform.position.y, transform.position.z);
-        if (transform.position.z < ZminBorder.position.z) transform.position = new Vector3(transform.position.x, transform.position.y, ZminBorder.position.z);
-        if (transform.position.z > ZmaxBorder.position.z) transform.position = new Vector3(transform.position.x, transform.position.y, ZmaxBorder.position.z);
+        //if (transform.position.x < XminBorder.position.x) transform.position = new Vector3(XminBorder.position.x, transform.position.y, transform.position.z);
+        //if (transform.position.x > XmaxBorder.position.x) transform.position = new Vector3(XmaxBorder.position.x, transform.position.y, transform.position.z);
+        //if (transform.position.z < ZminBorder.position.z) transform.position = new Vector3(transform.position.x, transform.position.y, ZminBorder.position.z);
+        //if (transform.position.z > ZmaxBorder.position.z) transform.position = new Vector3(transform.position.x, transform.position.y, ZmaxBorder.position.z);
         //VerticalTranslation *= Time.deltaTime;
         //HorizontalTranslation *= Time.deltaTime;
 
@@ -137,7 +137,7 @@ public class DroneMoveController : MonoBehaviour
     void CheckSpots()
     {
         LayerMask layerMask = ~WallMask;
-        if (Physics.Raycast(DroneCamera.transform.position, Pointer.transform.position - DroneCamera.transform.position, out Currenthit, 500000f, layerMask))
+        if (Physics.Raycast(DroneCamera.transform.position, DroneCamera.transform.forward /*Pointer.transform.position - DroneCamera.transform.position*/, out Currenthit, 500000f, layerMask))
         {
             Debug.DrawLine(Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 10)), Currenthit.point, Color.red, 100f);
             if (Currenthit.transform.GetComponent<SpotBase>() != null)

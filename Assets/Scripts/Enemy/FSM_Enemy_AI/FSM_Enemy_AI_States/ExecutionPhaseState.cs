@@ -45,8 +45,8 @@ public class ExecutionPhaseState : StateMachineBehaviour
         GameManager.instance.Player.transform.position = GameManager.instance.CurrentStartSpot.SpawnPosition.position;
         GameManager.instance.Player.ResetPosition = GameManager.instance.CurrentStartSpot.SpawnPosition.position;
         GameManager.instance.Player.GetComponent<NavMeshObstacle>().enabled = true;
-        GameManager.instance.Player.currentSpeed = GameManager.instance.Player.walkSpeed;
-        GameManager.instance.Player.isCrouching = false;
+        GameManager.instance.Player.currentSpeed = GameManager.instance.Player.crouchingSpeed;
+        GameManager.instance.Player.isCrouching = true;
         GameManager.instance.Player.Noise.GetComponent<NoiseController>().Reset?.Invoke();
         GameManager.instance.Player.Graphics.SetActive(true);
         GameManager.instance.Player.Collider.enabled = true;

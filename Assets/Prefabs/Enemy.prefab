@@ -810,6 +810,7 @@ MonoBehaviour:
   - {fileID: 807783768612796295}
   navController: {fileID: 803927139432897172}
   DrawFov: 0
+  FindTarget: 1
 --- !u!114 &6223228630912582806
 MonoBehaviour:
   m_ObjectHideFlags: 0

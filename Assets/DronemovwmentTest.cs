@@ -12,6 +12,7 @@ public class DronemovwmentTest : MonoBehaviour
     // Movement 
     Vector3 OldDirection = Vector3.zero;
     Vector3 CurrentDirection = new Vector3();
+    public float StopDecelAt;
     //#########
 
     // Rotation
@@ -39,7 +40,7 @@ public class DronemovwmentTest : MonoBehaviour
             float _decelValue = Mathf.Clamp((data.decel_k * OldDirection.magnitude) / data.decel_m, 0, OldDirection.magnitude);
             float _decel = Mathf.Round((OldDirection.magnitude - _decelValue * Time.deltaTime) * 10f) / 10f;
 
-            if (_inputDirection == Vector3.zero && _decel < 4) _decel = 0;
+            if (_inputDirection == Vector3.zero && _decel < StopDecelAt) _decel = 0;
 
             OldDirection = OldDirection.normalized * _decel;
         }
@@ -52,7 +53,7 @@ public class DronemovwmentTest : MonoBehaviour
 
         CurrentDirection = CurrentDirection.normalized * Mathf.Clamp(CurrentDirection.magnitude, 0, data.SpeedMaxValue);
 
-        SpeedTxt.text = ("Speed: " + CurrentDirection.magnitude.ToString("F2")).ToUpper();
+        if(SpeedTxt) SpeedTxt.text = ("Speed: " + CurrentDirection.magnitude.ToString("F2")).ToUpper();
 
         DroneCharaCtrl.Move(CurrentDirection * Time.deltaTime);
         OldDirection = CurrentDirection;
