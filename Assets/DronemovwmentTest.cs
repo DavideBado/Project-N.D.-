@@ -77,7 +77,7 @@ public class DronemovwmentTest : MonoBehaviour
 
         //############ CAMERA ########################
 
-        mouseY += Input.GetAxis("Mouse Y") * CameraSpeed;
+        mouseY += -Input.GetAxis("Mouse Y") * CameraSpeed;
 
         mouseY = Mathf.Clamp(mouseY, MinAngle, MaxAngle);
 
