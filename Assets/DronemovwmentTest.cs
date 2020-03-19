@@ -22,6 +22,7 @@ public class DronemovwmentTest : MonoBehaviour
 
     // Camera Rotation
     public Transform TiltCamera;
+    Vector3 _TiltDirection = new Vector3();
     public Transform _Camera;
 
     public float MinAngle;
@@ -34,7 +35,8 @@ public class DronemovwmentTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 _inputDirection = Quaternion.Euler(0, transform.eulerAngles.y, 0) * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 _input = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 _inputDirection = Quaternion.Euler(0, transform.eulerAngles.y, 0) * _input;
         if (OldDirection != Vector3.zero)
         {
             float _decelValue = Mathf.Clamp((data.decel_k * OldDirection.magnitude) / data.decel_m, 0, OldDirection.magnitude);
@@ -67,9 +69,9 @@ public class DronemovwmentTest : MonoBehaviour
 
         float _TiltAngle = Mathf.Lerp(0, data.MaxAngleTilt, _t);
 
-        Vector3 _Direction = transform.InverseTransformDirection(CurrentDirection);
+        if(_input != Vector3.zero) _TiltDirection = _input;
 
-        Vector3 _Vtilt = new Vector3(Mathf.Clamp01(_Direction.z), 0, -_Direction.x);
+        Vector3 _Vtilt = new Vector3(Mathf.Clamp01(_TiltDirection.z), 0, -_TiltDirection.x);
 
         _Camera.localRotation = Quaternion.Euler(_Vtilt.normalized * _TiltAngle);
 

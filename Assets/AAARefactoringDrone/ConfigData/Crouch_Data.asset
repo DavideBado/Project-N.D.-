@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd3b0da0a9a79f4aa688911639e1c42, type: 3}
+  m_Name: Crouch_Data
+  m_EditorClassIdentifier: 
+  Cam: {fileID: 1178333967893924720, guid: 19934ea5fc4927f41b297b5288636796, type: 3}
+  Speed: 4

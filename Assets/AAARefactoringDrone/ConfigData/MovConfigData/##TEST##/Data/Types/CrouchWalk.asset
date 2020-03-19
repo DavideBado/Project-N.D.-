@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd3b0da0a9a79f4aa688911639e1c42, type: 3}
+  m_Name: CrouchWalk
+  m_EditorClassIdentifier: 
+  GraphicsData: {fileID: 11400000, guid: 53cd489dc360ece48951237fc2af4c93, type: 2}
+  LogicData: {fileID: 11400000, guid: 3b22a0cce6c2d3a4583a3e6aec27059b, type: 2}
