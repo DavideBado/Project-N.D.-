@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4b036e2cdf73843a3e8ed916a7d6ed, type: 3}
   m_Name: RunGraphics
   m_EditorClassIdentifier: 
-  m_VirtualCamera: {fileID: 0}
+  m_VirtualCamera: {fileID: 1178333967893924720, guid: 19934ea5fc4927f41b297b5288636796,
+    type: 3}
   m_Animation: {fileID: 7400002, guid: 9397f8a5a7231bf409c717a4a1bdbef3, type: 3}

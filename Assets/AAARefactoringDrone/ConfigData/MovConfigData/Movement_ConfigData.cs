@@ -7,6 +7,7 @@ using UnityEngine;
 public class Movement_ConfigData : ScriptableObject
 {
     public CharacterMovType_ConfigData[] characterMovType_Datas;
+    public MovementLogic_ConfigData LogicData;
     public MovementAnimation_ConfigData AnimationData;
 
     public void Init(Animator _GObjAnimator)
