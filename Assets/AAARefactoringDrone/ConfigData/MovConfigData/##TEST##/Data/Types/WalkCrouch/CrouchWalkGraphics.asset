@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4b036e2cdf73843a3e8ed916a7d6ed, type: 3}
   m_Name: CrouchWalkGraphics
   m_EditorClassIdentifier: 
-  m_VirtualCamera: {fileID: 1178333967893924720, guid: 19934ea5fc4927f41b297b5288636796,
+  CameraPrefab: {fileID: 8629597290724367391, guid: e34d4f7066e15994a9667e096babe77e,
     type: 3}
+  m_VirtualCamera: {fileID: 0}
   m_Animation: {fileID: 7400000, guid: f8f1b60a89c3ce040ac2e117708a4c01, type: 3}

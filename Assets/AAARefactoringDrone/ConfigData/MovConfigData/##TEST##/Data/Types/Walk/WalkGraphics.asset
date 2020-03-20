@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4b036e2cdf73843a3e8ed916a7d6ed, type: 3}
   m_Name: WalkGraphics
   m_EditorClassIdentifier: 
-  m_VirtualCamera: {fileID: 1178333967893924720, guid: 19934ea5fc4927f41b297b5288636796,
+  CameraPrefab: {fileID: 8829020619626037018, guid: d76ea067e3341b243b696ff30a8fb8d0,
     type: 3}
+  m_VirtualCamera: {fileID: 0}
   m_Animation: {fileID: 7400002, guid: 127832f84c068de41a88aecb1828d0d5, type: 3}

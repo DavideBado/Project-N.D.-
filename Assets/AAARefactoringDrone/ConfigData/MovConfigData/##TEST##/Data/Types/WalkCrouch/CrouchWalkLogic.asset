@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CrouchWalkLogic
   m_EditorClassIdentifier: 
   Speed: 4
-  Height: -1
+  Height: -2

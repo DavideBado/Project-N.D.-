@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CrouchLogic
   m_EditorClassIdentifier: 
   Speed: 0
-  Height: -1
+  Height: -2

@@ -18,9 +18,12 @@ public class InputControllerTest : MonoBehaviour
     public float acceleration;
     public float friction;
 
+    public float RotationSpeed;
+
     public CharacterController CharacterController;
     public BlendTreeTEST Graphics;
     public Animator animator;
+    public Transform movementTransform;
     #endregion
     
 

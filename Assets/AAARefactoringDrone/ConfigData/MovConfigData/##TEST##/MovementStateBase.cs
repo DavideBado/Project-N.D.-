@@ -15,7 +15,7 @@ public class MovementStateBase : StateMachineBehaviour
     protected float currentSpeed;
     protected float height;
     protected MovementLogic_ConfigData.MoveType myType;
-    CharacterController character;
+    protected CharacterController character;
     Vector3 OldDirection;
     Vector3 CurrentDirection;
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
@@ -32,7 +32,13 @@ public class MovementStateBase : StateMachineBehaviour
         m_inputController.Move += Move;
     }
 
-   
+    public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    {
+        m_inputController.ChangeType -= SetMovementType;
+        m_inputController.Move -= Move;
+    }
+
+
     protected virtual void SetMovementType(int _x)
     {
         for (int i = 0; i < movementData.characterMovType_Datas.Length; i++)
@@ -50,7 +56,7 @@ public class MovementStateBase : StateMachineBehaviour
         _myMovType.GraphicsData.m_VirtualCamera.Priority = 50;
     }
 
-    private void Move(Vector3 _direction)
+    protected virtual void Move(Vector3 _direction)
     {
         Vector3 _inputDirection = Quaternion.Euler(0, character.transform.eulerAngles.y, 0) * _direction;
 
@@ -61,6 +67,7 @@ public class MovementStateBase : StateMachineBehaviour
         CurrentDirection = OldDirection + _inputDirection;
 
         CurrentDirection = CurrentDirection.normalized * Mathf.Clamp(CurrentDirection.magnitude, 0, m_maxSpeed);
+        character.Move(CurrentDirection * Time.deltaTime);
         currentSpeed = CurrentDirection.magnitude;
 
         treeTEST.Speed = currentSpeed;

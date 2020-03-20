@@ -97,6 +97,7 @@
     <Compile Include="Assets\Gate.cs" />
     <Compile Include="Assets\KeySpot.cs" />
     <Compile Include="Assets\LevelDataLoader.cs" />
+    <Compile Include="Assets\Loading.cs" />
     <Compile Include="Assets\Movement.cs" />
     <Compile Include="Assets\ObjSpot.cs" />
     <Compile Include="Assets\PlanningEscapeSpawnIconCOntroller.cs" />

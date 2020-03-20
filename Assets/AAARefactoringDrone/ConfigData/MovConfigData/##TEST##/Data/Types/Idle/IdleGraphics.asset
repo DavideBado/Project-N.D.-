@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4b036e2cdf73843a3e8ed916a7d6ed, type: 3}
   m_Name: IdleGraphics
   m_EditorClassIdentifier: 
-  m_VirtualCamera: {fileID: 5212266416206234726, guid: bcd353fc8202bad4691e816406b2c7dc,
+  CameraPrefab: {fileID: 5212266416206234745, guid: bcd353fc8202bad4691e816406b2c7dc,
     type: 3}
+  m_VirtualCamera: {fileID: 0}
   m_Animation: {fileID: 7400000, guid: ddf57aa404577c447b9bc5bf123685bf, type: 3}
