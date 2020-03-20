@@ -164,7 +164,7 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: 1.25
+    m_Value: 0.29
   multiplier:
     m_OverrideState: 1
     m_Value: 1
@@ -198,12 +198,12 @@ MonoBehaviour:
     max: 10
   atmosphereThickness:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.66
     min: 0
     max: 5
   skyTint:
     m_OverrideState: 1
-    m_Value: {r: 0.8301887, g: 0.5366171, b: 0.5286579, a: 1}
+    m_Value: {r: 0.24854614, g: 0.21035066, b: 0.2735849, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
