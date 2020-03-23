@@ -22,5 +22,12 @@ public class EnemiesManager : MonoBehaviour
         }
 
         Array.Sort(_distances, _enemies);
+
+        _enemies[0].EmenyAloneHeardObj?.Invoke();
+
+        for (int i = 1; i < _enemies.Length; i++)
+        {
+            if (_enemies[i]) _enemies[i].EmenyHeardWalk?.Invoke();
+        }
     }
 }

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class NoiseController : MonoBehaviour
 {
-    public SphereCollider NoiseArea;
+    public SphereCollider[] NoiseArea;
     public float Speed;
     float noiseOriginalRadius;
     [HideInInspector]
     public NoiseType Type;
+    int m_currentColliderIndex;
     #region DelegatesDef
     public delegate void NoiseDelegate(float dimensionMod, float duration, NoiseType _type);
     #endregion
@@ -21,73 +22,56 @@ public class NoiseController : MonoBehaviour
     public Action Reset;
     #endregion
 
-    private void Start()
-    {
-        noiseOriginalRadius = NoiseArea.radius;
-    }
+    
     private void OnEnable()
     {
         MakeNoiseDelegate += MakeNoise;
-        Reset += ResetNoise;
     }
 
     private void OnDisable()
     {
         MakeNoiseDelegate -= MakeNoise;
-        Reset -= ResetNoise;
     }
 
-    private void MakeNoise(float dimensionMod, float duration, NoiseType _type)
-    {
-        StopCoroutine("NoiseLife");
-        Type = _type;
-        NoiseArea.radius = noiseOriginalRadius;
-        NoiseArea.enabled = true;
-        //NoiseArea.radius += dimensionMod * Speed * Time.deltaTime;
-        //StartCoroutine(NoiseUp(dimensionMod, duration));
-        m_dimensionMod = dimensionMod;
-        m_duration = duration;
-        test = true;
-        //if (NoiseArea.radius >= noiseOriginalRadius * dimensionMod)
-        //{
-        //    StartCoroutine("NoiseLife", duration);
-        //}
-    }
-    bool test = false;
-    float m_dimensionMod, m_duration;
     private void Update()
     {
-        if(test)
-        {
-            NoiseArea.radius += m_dimensionMod * Speed * Time.deltaTime;
-            if (NoiseArea.radius >= noiseOriginalRadius * m_dimensionMod)
-            {
-                StartCoroutine("NoiseLife", m_duration);
-                test = false;
-            }
-        }
-    }
-    void ResetNoise()
-    {
-        StopCoroutine("NoiseLife");
-        NoiseArea.radius = noiseOriginalRadius;
-        Type = 0;
+        if (Input.GetKeyDown(KeyCode.Space)) MakeNoise(10, 1, NoiseType.Object);    
     }
 
-    IEnumerator NoiseUp(float dimensionMod, float duration)
+    private void MakeNoise(float _radius, float _duration, NoiseType _type)
     {
-        while (NoiseArea.radius < noiseOriginalRadius * dimensionMod)
+        StopAllCoroutines();
+        m_currentColliderIndex = (m_currentColliderIndex + 1) % NoiseArea.Length;
+        Type = _type;
+        if (_type == NoiseType.Object) TestEnemies(_duration);
+        else
         {
-            NoiseArea.radius += dimensionMod * Speed * Time.deltaTime;
+
+            NoiseArea[m_currentColliderIndex].radius = _radius;
+            NoiseArea[m_currentColliderIndex].enabled = true;
+            StartCoroutine(NoiseLife(_duration, m_currentColliderIndex));
         }
-        StartCoroutine("NoiseLife", duration);
-        yield return 0;
     }
 
-    IEnumerator NoiseLife(float duration)
+    //########## TEST
+    public LayerMask layerMask;
+    public EnemiesManager enemiesManager;
+    private void TestEnemies(float _radius)
+    {
+       Collider[] enemies = Physics.OverlapSphere(transform.position, _radius, layerMask);
+        EnemyAI[] enemyAIs = new EnemyAI[enemies.Length];
+            for (int i = 0; i < enemies.Length; i++)
+        {
+           if(enemies[i].GetComponent<EnemyAI>()) enemyAIs[i] = enemies[i].GetComponent<EnemyAI>();
+        }
+        enemiesManager.SortEnemiesByNoiseDist(enemyAIs, transform.position);
+    }
+    //###############
+
+    IEnumerator NoiseLife(float duration, int index)
     {
         yield return new WaitForSeconds(duration);
-        NoiseArea.enabled = false;
+        NoiseArea[index].enabled = false;
     }
 
     public enum NoiseType
