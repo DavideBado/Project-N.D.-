@@ -33,6 +33,9 @@ public class InputControllerTest : MonoBehaviour
         UpdateMoveDirection();
 
         ChangeMoveType();
+
+
+        if (Input.GetKeyDown(KeyCode.Escape)) UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     private void UpdateMoveDirection()

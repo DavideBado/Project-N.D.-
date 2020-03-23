@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamSpot : MonoBehaviour /*PlaceableSpot*/
+public class CamSpot : MultiSpotItemBase /*PlaceableSpot*/
 {
     //// Start is called before the first frame update
     //void Start()

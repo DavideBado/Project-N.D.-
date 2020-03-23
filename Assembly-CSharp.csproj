@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AAARefactoringDrone\ConfigData\CheckpointConfigData\PlanningCheckPoint_ConfigData.cs" />
     <Compile Include="Assets\AAARefactoringDrone\ConfigData\GameConfigData.cs" />
     <Compile Include="Assets\AAARefactoringDrone\ConfigData\MovConfigData\##TEST##\BlendTreeTEST.cs" />
     <Compile Include="Assets\AAARefactoringDrone\ConfigData\MovConfigData\##TEST##\InputControllerTest.cs" />
@@ -78,9 +79,12 @@
     <Compile Include="Assets\AAARefactoringDrone\DroneDecelerationState.cs" />
     <Compile Include="Assets\AAARefactoringDrone\DroneIdleMovementState.cs" />
     <Compile Include="Assets\AAARefactoringDrone\DroneMoveState.cs" />
+    <Compile Include="Assets\AAARefactoringDrone\Enemies\EnemiesManager.cs" />
+    <Compile Include="Assets\AAARefactoringDrone\MultiSpotItemBase.cs" />
     <Compile Include="Assets\AAARefactoringDrone\PlayerCharacterController.cs" />
     <Compile Include="Assets\AAARefactoringDrone\PlayerExeLoadingState.cs" />
     <Compile Include="Assets\AAARefactoringDrone\PlayerPlanningLoadingState.cs" />
+    <Compile Include="Assets\AAARefactoringDrone\SceneExplorer.cs" />
     <Compile Include="Assets\Attributes\DraggablePoint.cs" />
     <Compile Include="Assets\CameraReset.cs" />
     <Compile Include="Assets\CamSpotPlan.cs" />
@@ -195,6 +199,7 @@
     <Compile Include="Assets\Scripts\UI_Scripts\Buttons\PopupsButton.cs" />
     <Compile Include="Assets\Scripts\UI_Scripts\DirectionSpriteController.cs" />
     <Compile Include="Assets\Scripts\UI_Scripts\EnemiesDirection.cs" />
+    <Compile Include="Assets\TempButtonController.cs" />
     <Compile Include="Assets\TestDecel.cs" />
     <Compile Include="Assets\TestMoveMoveState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />

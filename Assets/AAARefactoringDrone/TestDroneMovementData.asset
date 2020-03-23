@@ -19,4 +19,4 @@ MonoBehaviour:
   Acceleration_X: 15
   StartTilAtSpeed: 10
   EndTilAtSpeed: 20
-  MaxAngleTilt: 10
+  MaxAngleTilt: 45
