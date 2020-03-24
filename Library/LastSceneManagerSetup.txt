@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Testing/Bado/EnemiesSoundToby.unity
+- path: Assets/Scenes/Definitive/New_VillageBlockout.unity
   isLoaded: 1
   isActive: 1
