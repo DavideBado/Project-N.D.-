@@ -46,6 +46,30 @@ ModelImporter:
     100080: mixamorig:Spine2
     100082: SK_Player_01
     100084: //RootNode
+    100086: mixamorig:LeftHandMiddle1
+    100088: mixamorig:LeftHandMiddle2
+    100090: mixamorig:LeftHandMiddle3
+    100092: mixamorig:LeftHandMiddle4
+    100094: mixamorig:LeftHandPinky1
+    100096: mixamorig:LeftHandPinky2
+    100098: mixamorig:LeftHandPinky3
+    100100: mixamorig:LeftHandPinky4
+    100102: mixamorig:LeftHandRing1
+    100104: mixamorig:LeftHandRing2
+    100106: mixamorig:LeftHandRing3
+    100108: mixamorig:LeftHandRing4
+    100110: mixamorig:RightHandMiddle1
+    100112: mixamorig:RightHandMiddle2
+    100114: mixamorig:RightHandMiddle3
+    100116: mixamorig:RightHandMiddle4
+    100118: mixamorig:RightHandPinky1
+    100120: mixamorig:RightHandPinky2
+    100122: mixamorig:RightHandPinky3
+    100124: mixamorig:RightHandPinky4
+    100126: mixamorig:RightHandRing1
+    100128: mixamorig:RightHandRing2
+    100130: mixamorig:RightHandRing3
+    100132: mixamorig:RightHandRing4
     400000: mixamorig:Head
     400002: mixamorig:HeadTop_End
     400004: mixamorig:Hips
@@ -89,7 +113,32 @@ ModelImporter:
     400080: mixamorig:Spine2
     400082: SK_Player_01
     400084: //RootNode
+    400086: mixamorig:LeftHandMiddle1
+    400088: mixamorig:LeftHandMiddle2
+    400090: mixamorig:LeftHandMiddle3
+    400092: mixamorig:LeftHandMiddle4
+    400094: mixamorig:LeftHandPinky1
+    400096: mixamorig:LeftHandPinky2
+    400098: mixamorig:LeftHandPinky3
+    400100: mixamorig:LeftHandPinky4
+    400102: mixamorig:LeftHandRing1
+    400104: mixamorig:LeftHandRing2
+    400106: mixamorig:LeftHandRing3
+    400108: mixamorig:LeftHandRing4
+    400110: mixamorig:RightHandMiddle1
+    400112: mixamorig:RightHandMiddle2
+    400114: mixamorig:RightHandMiddle3
+    400116: mixamorig:RightHandMiddle4
+    400118: mixamorig:RightHandPinky1
+    400120: mixamorig:RightHandPinky2
+    400122: mixamorig:RightHandPinky3
+    400124: mixamorig:RightHandPinky4
+    400126: mixamorig:RightHandRing1
+    400128: mixamorig:RightHandRing2
+    400130: mixamorig:RightHandRing3
+    400132: mixamorig:RightHandRing4
     2100000: lambert1
+    2100002: lambert2
     4300000: SK_Player_01
     7400000: Player_Crouch_Idle
     9500000: //RootNode

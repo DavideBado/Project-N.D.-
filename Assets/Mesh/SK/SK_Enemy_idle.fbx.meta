@@ -62,6 +62,15 @@ ModelImporter:
     100112: mixamorig:Spine2
     100114: //RootNode
     100116: SM_Monster_LP
+    100118: mixamorig:LeftHandPinky1
+    100120: mixamorig:LeftHandPinky2
+    100122: mixamorig:LeftHandPinky3
+    100124: mixamorig:LeftHandPinky4
+    100126: mixamorig:RightHandPinky1
+    100128: mixamorig:RightHandPinky2
+    100130: mixamorig:RightHandPinky3
+    100132: mixamorig:RightHandPinky4
+    100134: SK_Enemy_01
     400000: mixamorig:Head
     400002: mixamorig:HeadTop_End
     400004: mixamorig:Hips
@@ -121,11 +130,24 @@ ModelImporter:
     400112: mixamorig:Spine2
     400114: //RootNode
     400116: SM_Monster_LP
+    400118: mixamorig:LeftHandPinky1
+    400120: mixamorig:LeftHandPinky2
+    400122: mixamorig:LeftHandPinky3
+    400124: mixamorig:LeftHandPinky4
+    400126: mixamorig:RightHandPinky1
+    400128: mixamorig:RightHandPinky2
+    400130: mixamorig:RightHandPinky3
+    400132: mixamorig:RightHandPinky4
+    400134: SK_Enemy_01
     2100000: lambert1
+    2100002: M_Enemy_01
+    2100004: M_Feathers_01
     4300000: SM_Monster_LP
+    4300002: SK_Enemy_01
     7400000: Take 001
     9500000: //RootNode
     13700000: SM_Monster_LP
+    13700002: SK_Enemy_01
   externalObjects: {}
   materials:
     importMaterials: 1
