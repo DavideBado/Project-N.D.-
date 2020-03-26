@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NoiseController : MonoBehaviour
@@ -35,15 +36,15 @@ public class NoiseController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) MakeNoise(10, 1, NoiseType.Object);    
+        if (Input.GetKeyDown(KeyCode.Space)) MakeNoise(100, 1, NoiseType.Object);    
     }
 
     private void MakeNoise(float _radius, float _duration, NoiseType _type)
     {
         StopAllCoroutines();
-        m_currentColliderIndex = (m_currentColliderIndex + 1) % NoiseArea.Length;
+      //  m_currentColliderIndex = (m_currentColliderIndex + 1) % NoiseArea.Length;
         Type = _type;
-        if (_type == NoiseType.Object) TestEnemies(_duration);
+        if (_type == NoiseType.Object) TestEnemies(_radius);
         else
         {
 
@@ -58,13 +59,14 @@ public class NoiseController : MonoBehaviour
     public EnemiesManager enemiesManager;
     private void TestEnemies(float _radius)
     {
-       Collider[] enemies = Physics.OverlapSphere(transform.position, _radius, layerMask);
-        EnemyAI[] enemyAIs = new EnemyAI[enemies.Length];
-            for (int i = 0; i < enemies.Length; i++)
+        Collider[] enemies = Physics.OverlapSphere(transform.position, _radius, layerMask);
+        List<EnemyAI> enemyAIs = new List<EnemyAI>();
+        for (int i = 0; i < enemies.Length; i++)
         {
-           if(enemies[i].GetComponent<EnemyAI>()) enemyAIs[i] = enemies[i].GetComponent<EnemyAI>();
+            if (enemies[i].GetComponent<EnemyAI>()) enemyAIs.Add(enemies[i].GetComponent<EnemyAI>());
         }
-        enemiesManager.SortEnemiesByNoiseDist(enemyAIs, transform.position);
+        EnemyAI[] _enemies = enemyAIs.ToArray();
+        enemiesManager.SortEnemiesByNoiseDist(_enemies, transform.position);
     }
     //###############
 

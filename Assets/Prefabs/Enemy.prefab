@@ -662,7 +662,7 @@ GameObject:
   - component: {fileID: 8819177305256081164}
   - component: {fileID: 4286471553901204620}
   - component: {fileID: 8361139210829773451}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1030,10 +1030,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 803927139432897161}
     m_Modifications:
-    - target: {fileID: 100114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
-      propertyPath: m_Name
-      value: SK_Enemy_Walking_01 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 400114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1077,6 +1073,10 @@ PrefabInstance:
     - target: {fileID: 400114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100114, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
+      propertyPath: m_Name
+      value: SK_Enemy_Walking_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 795b130562e0d764bb6826b0ac030213, type: 3}
       propertyPath: m_Controller
