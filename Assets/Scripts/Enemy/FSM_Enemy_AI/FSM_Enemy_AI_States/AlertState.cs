@@ -15,6 +15,9 @@ public class AlertState : StateMachineBehaviour
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //#####TEST#####
+        timer = 2;
+        //##############
         m_enemyNavController = animator.GetComponent<EnemyNavController>();
         enemyAI = animator.GetComponent<EnemyAI>();
         agent = animator.GetComponent<NavMeshAgent>();
@@ -58,6 +61,7 @@ public class AlertState : StateMachineBehaviour
                 }
                 else if (m_enemyNavController.currentNoiseType == NoiseController.NoiseType.Object)
                 {
+                    m_enemyNavController.transform.LookAt(m_enemyNavController.NoisePosition);
                     enemyAI.EmenyAloneHeardObj?.Invoke();
                 }
             }

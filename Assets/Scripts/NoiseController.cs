@@ -66,7 +66,7 @@ public class NoiseController : MonoBehaviour
             if (enemies[i].GetComponent<EnemyAI>()) enemyAIs.Add(enemies[i].GetComponent<EnemyAI>());
         }
         EnemyAI[] _enemies = enemyAIs.ToArray();
-        enemiesManager.SortEnemiesByNoiseDist(_enemies, transform.position);
+        enemiesManager.SortEnemiesByNoiseDist(_enemies, transform);
     }
     //###############
 
