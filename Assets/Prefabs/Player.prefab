@@ -44,9 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6de9f97923a0140b42d378ad5d60b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NoiseArea: {fileID: 6774152507074936254}
+  NoiseArea:
+  - {fileID: 0}
   Speed: 5.2
   Type: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  enemiesManager: {fileID: 0}
 --- !u!135 &6774152507074936254
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1050,11 +1055,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 14
       objectReference: {fileID: 0}
-    - target: {fileID: 2885326239926359771, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
-        type: 3}
-      propertyPath: Speed
-      value: 17.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7507576654658707199, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1109,6 +1109,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885326239926359771, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
+        type: 3}
+      propertyPath: Speed
+      value: 17.5
       objectReference: {fileID: 0}
     - target: {fileID: 6694766596954357767, guid: 04cd64c9f0e63de4bbb7cfc276cc7fe7,
         type: 3}
@@ -1239,7 +1244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ef54b15f53e9440479da7950fb5fad9b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ef54b15f53e9440479da7950fb5fad9b, type: 3}
       propertyPath: m_LocalPosition.x

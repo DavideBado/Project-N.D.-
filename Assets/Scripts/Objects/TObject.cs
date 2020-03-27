@@ -63,7 +63,8 @@ public class TObject : MonoBehaviour
                 onUpgrade = true;
                 onAir = false;
                 MyRenderer.enabled = false;
-                NoiseController.MakeNoiseDelegate(NoiseAreaMod, NoiseDuration, NoiseController.NoiseType.Object);
+                // NoiseController.MakeNoiseDelegate(NoiseAreaMod, NoiseDuration, NoiseController.NoiseType.Object);
+                NoiseController.MakeNoise(20, 1, NoiseController.NoiseType.Object);
             }
             else
             {

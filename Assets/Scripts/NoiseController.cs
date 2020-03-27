@@ -34,12 +34,12 @@ public class NoiseController : MonoBehaviour
         MakeNoiseDelegate -= MakeNoise;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) MakeNoise(100, 1, NoiseType.Object);    
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space)) MakeNoise(100, 1, NoiseType.Object);    
+    //}
 
-    private void MakeNoise(float _radius, float _duration, NoiseType _type)
+    public void MakeNoise(float _radius, float _duration, NoiseType _type)
     {
         StopAllCoroutines();
       //  m_currentColliderIndex = (m_currentColliderIndex + 1) % NoiseArea.Length;
