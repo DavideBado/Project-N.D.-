@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenuTestingDemo.unity
     guid: d1d91bbf47291c84a94f21949dbb23e9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Definitive/3DBlockout.unity
     guid: fdc441f282a9d6e40b017a09b81b4fd1
   - enabled: 1
