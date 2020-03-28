@@ -85,14 +85,14 @@ MonoBehaviour:
     showEyeDropper: 1
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 8.95
+    m_Value: 10
     min: 1
   baseHeight:
     m_OverrideState: 1
     m_Value: 0
   meanHeight:
     m_OverrideState: 1
-    m_Value: 3.4
+    m_Value: 3.86
     min: 1
   anisotropy:
     m_OverrideState: 1
@@ -235,7 +235,7 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: -1.2
+    m_Value: 0
   multiplier:
     m_OverrideState: 1
     m_Value: 0.86
@@ -259,22 +259,22 @@ MonoBehaviour:
     m_Value: 0
   sunSize:
     m_OverrideState: 1
-    m_Value: 0.04
+    m_Value: 0.028
     min: 0
     max: 1
   sunSizeConvergence:
     m_OverrideState: 1
-    m_Value: 8.36
+    m_Value: 10
     min: 1
     max: 10
   atmosphereThickness:
     m_OverrideState: 1
-    m_Value: 1.25
+    m_Value: 0.7
     min: 0
     max: 5
   skyTint:
     m_OverrideState: 1
-    m_Value: {r: 0.6981132, g: 0.08232466, b: 0.2717982, a: 1}
+    m_Value: {r: 0.29015005, g: 0.8207547, b: 0.28261834, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
