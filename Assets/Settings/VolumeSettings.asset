@@ -113,7 +113,7 @@ MonoBehaviour:
     showEyeDropper: 1
   density:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.294
     min: 0
     max: 1
   mipFogMaxMip:
@@ -164,10 +164,10 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: 0.29
+    m_Value: -2.77
   multiplier:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.86
     min: 0
   upperHemisphereLuxValue:
     m_OverrideState: 0
@@ -193,23 +193,23 @@ MonoBehaviour:
     max: 1
   sunSizeConvergence:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 8.36
     min: 1
     max: 10
   atmosphereThickness:
     m_OverrideState: 1
-    m_Value: 0.66
+    m_Value: 1.25
     min: 0
     max: 5
   skyTint:
     m_OverrideState: 1
-    m_Value: {r: 0.24854614, g: 0.21035066, b: 0.2735849, a: 1}
+    m_Value: {r: 0.6981132, g: 0.08232466, b: 0.2717982, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
   groundColor:
     m_OverrideState: 1
-    m_Value: {r: 0.59927905, g: 0.6172068, b: 0.6320754, a: 1}
+    m_Value: {r: 0.2830189, g: 0.19891421, b: 0.21774885, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
