@@ -12,7 +12,7 @@ public class EnemiesManager : MonoBehaviour
     //    enemiesForTObj.Clear();
     //}
 
-   
+
     public void SortEnemiesByNoiseDist(EnemyAI[] _enemies, Transform _target)
     {
         Vector2[] _distances = new Vector2[_enemies.Length];
@@ -27,12 +27,14 @@ public class EnemiesManager : MonoBehaviour
         _distances = _distances.OrderBy(v => v.y).ToArray<Vector2>();
         //Array.Sort(_distances, _enemies);
 
-        _enemies[(int)_distances[0].x].EmenyAloneHeardObj?.Invoke();
-        SetTarget(_enemies[(int)_distances[0].x], _target);
-        for (int i = 1; i < _distances.Length; i++)
+        if (_enemies[(int)_distances[0].x]) _enemies[(int)_distances[0].x].EmenyAloneHeardObj?.Invoke();
         {
-            if (_enemies[(int)_distances[i].x]) _enemies[(int)_distances[i].x].EmenyHeardWalk?.Invoke();
-            SetTarget(_enemies[(int)_distances[i].x], _target);
+            SetTarget(_enemies[(int)_distances[0].x], _target);
+            for (int i = 1; i < _distances.Length; i++)
+            {
+                if (_enemies[(int)_distances[i].x]) _enemies[(int)_distances[i].x].EmenyHeardWalk?.Invoke();
+                SetTarget(_enemies[(int)_distances[i].x], _target);
+            }
         }
     }
 

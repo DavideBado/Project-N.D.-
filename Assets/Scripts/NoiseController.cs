@@ -44,14 +44,14 @@ public class NoiseController : MonoBehaviour
         StopAllCoroutines();
       //  m_currentColliderIndex = (m_currentColliderIndex + 1) % NoiseArea.Length;
         Type = _type;
-        if (_type == NoiseType.Object) TestEnemies(_radius);
-        else
-        {
+  /*      if (_type == NoiseType.Object)*/ TestEnemies(_radius);
+        //else
+        //{
 
-            NoiseArea[m_currentColliderIndex].radius = _radius;
-            NoiseArea[m_currentColliderIndex].enabled = true;
-            StartCoroutine(NoiseLife(_duration, m_currentColliderIndex));
-        }
+        //    NoiseArea[m_currentColliderIndex].radius = _radius;
+        //    NoiseArea[m_currentColliderIndex].enabled = true;
+        //    StartCoroutine(NoiseLife(_duration, m_currentColliderIndex));
+        //}
     }
 
     //########## TEST
