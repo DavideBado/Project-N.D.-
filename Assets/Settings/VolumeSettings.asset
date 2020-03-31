@@ -92,7 +92,7 @@ MonoBehaviour:
     m_Value: 0
   meanHeight:
     m_OverrideState: 1
-    m_Value: 3.86
+    m_Value: 6.26
     min: 1
   anisotropy:
     m_OverrideState: 1
@@ -235,10 +235,10 @@ MonoBehaviour:
     m_Value: 0
   exposure:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: -1.52
   multiplier:
     m_OverrideState: 1
-    m_Value: 0.86
+    m_Value: 2.38
     min: 0
   upperHemisphereLuxValue:
     m_OverrideState: 0
@@ -255,11 +255,11 @@ MonoBehaviour:
     m_Value: 0
     min: 0
   includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   sunSize:
     m_OverrideState: 1
-    m_Value: 0.028
+    m_Value: 0.043
     min: 0
     max: 1
   sunSizeConvergence:
@@ -269,12 +269,12 @@ MonoBehaviour:
     max: 10
   atmosphereThickness:
     m_OverrideState: 1
-    m_Value: 0.7
+    m_Value: 0.77
     min: 0
     max: 5
   skyTint:
     m_OverrideState: 1
-    m_Value: {r: 0.29015005, g: 0.8207547, b: 0.28261834, a: 1}
+    m_Value: {r: 0.25643507, g: 0.8207547, b: 0, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1

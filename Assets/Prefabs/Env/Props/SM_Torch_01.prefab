@@ -135,8 +135,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 6.3661976
-  m_Range: 16.323503
+  m_Intensity: 15.915494
+  m_Range: 13.565723
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -154,10 +154,10 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 2
   m_ColorTemperature: 3269
   m_UseColorTemperature: 1
   m_ShadowRadius: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   useOldInspector: 0
   featuresFoldout: 1
   showAdditionalSettings: 0
-  displayLightIntensity: 80
+  displayLightIntensity: 200
   displayAreaLightEmissiveMesh: 0
   lightLayers: 1
   shadowNearPlane: 0.1

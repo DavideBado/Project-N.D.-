@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Definitive/MainMenu.unity
     guid: a390d8de641befc4b871ad144704c42b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Definitive/3DBlockout.unity
     guid: fdc441f282a9d6e40b017a09b81b4fd1
   - enabled: 0
     path: Assets/Scenes/Definitive/Blockout Scene.unity
     guid: d98657d01ca091042a2eed62550869ea
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Definitive/New_VillageBlockout.unity
     guid: 92a9c7afc6b943644b4872c0136f78e2
   m_configObjects: {}
