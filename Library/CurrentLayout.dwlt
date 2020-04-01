@@ -113,7 +113,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 474}
   m_MaxSize: {x: 14002, y: 14024}
   vertical: 1
-  controlID: 2888
+  controlID: 812
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 681, y: 474}
   m_MaxSize: {x: 14002, y: 14024}
   vertical: 0
-  controlID: 2889
+  controlID: 813
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 474}
   m_MaxSize: {x: 10000, y: 14024}
   vertical: 1
-  controlID: 2890
+  controlID: 814
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 224}
   m_MaxSize: {x: 8004, y: 4024}
   vertical: 0
-  controlID: 2891
+  controlID: 815
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_MaximizeOnPlay: 1
   m_Gizmos: 0
-  m_Stats: 0
+  m_Stats: 1
   m_SelectedSizes: 07000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_TargetDisplay: 0
   m_ZoomArea:
@@ -409,9 +409,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: f21d0100
-      m_LastClickedID: 73202
-      m_ExpandedIDs: 502dfdff5279fdffc2c6fdffca12feff948dffff64faffff18700000
+      m_SelectedIDs: 8ebb0000
+      m_LastClickedID: 48014
+      m_ExpandedIDs: 685fffff0aafffffd0fbffffbcb60000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -466,9 +466,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.7947266, y: -13.968046, z: 174.39204}
+    m_Target: {x: 12.2525425, y: 3.069705, z: 201.71407}
     speed: 2
-    m_Value: {x: -1.7947266, y: -13.968046, z: 174.39204}
+    m_Value: {x: 12.2525425, y: 3.069705, z: 201.71407}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -496,13 +496,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.050377112, y: 0.0000019376203, z: 0.00000008992046, w: 0.9987303}
+    m_Target: {x: -0.002098899, y: 0.043487485, z: 0.00009157697, w: 0.99905175}
     speed: 2
-    m_Value: {x: 0.050377112, y: 0.0000019376203, z: 0.00000008992046, w: 0.9987303}
+    m_Value: {x: -0.0020988993, y: 0.04348749, z: 0.00009157698, w: 0.9990518}
   m_Size:
-    m_Target: 174.5929
+    m_Target: 198.20532
     speed: 2
-    m_Value: 174.5929
+    m_Value: 198.20532
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1030,20 +1030,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Settings
+    - Assets/Lightmap Parameters
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Settings
+  - Assets/Lightmap Parameters
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\rebor\Documents\Unity_Projects\The_Raven_Relic
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 414}
-    m_SelectedIDs: 7c380000
-    m_LastClickedID: 14460
-    m_ExpandedIDs: 00000000d433000084340000063500007c3600000a390000f43a0000a43c0000903d0000763f0000d040000058430000e6430000e8450000de4700001e4800007649000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 14ea0000
+    m_LastClickedID: 59924
+    m_ExpandedIDs: 00000000cc15000074160000ea16000060180000dc1a0000c21c00006a1e0000561f00003621000086220000f624000080250000762700006a290000aa290000022b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1071,7 +1071,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d433000084340000063500007c3600000a390000f43a0000a43c0000903d0000763f0000d040000058430000e6430000e8450000de4700001e4800007649000000ca9a3b
+    m_ExpandedIDs: 00000000cc15000074160000ea16000060180000dc1a0000c21c00006a1e0000561f00003621000086220000f624000080250000762700006a290000aa290000022b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
