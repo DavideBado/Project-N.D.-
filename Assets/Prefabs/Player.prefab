@@ -625,6 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614a99e38509f7941bf404b4926fb053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseController: {fileID: 0}
   PlayerController: {fileID: 7770718416607954402}
   animator: {fileID: 4822000795434481915}
 --- !u!95 &1152844176904232875
@@ -658,6 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614a99e38509f7941bf404b4926fb053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noiseController: {fileID: 0}
   PlayerController: {fileID: 7770718416607954402}
   animator: {fileID: 1152844176904232875}
 --- !u!1 &6226086900391593279
@@ -1153,7 +1155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100084, guid: 127832f84c068de41a88aecb1828d0d5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100084, guid: 127832f84c068de41a88aecb1828d0d5, type: 3}
       propertyPath: m_Layer

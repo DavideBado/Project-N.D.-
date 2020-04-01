@@ -45,25 +45,25 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 2
+    value: 3
   toneCurveToeStrength:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.305
   toneCurveToeLength:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0.446
   toneCurveShoulderStrength:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.264
   toneCurveShoulderLength:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 0.74
   toneCurveShoulderAngle:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.359
   toneCurveGamma:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 1.1
   ldrLut:
     overrideState: 0
     value: {fileID: 0}
@@ -94,7 +94,7 @@ MonoBehaviour:
     value: 0
   contrast:
     overrideState: 1
-    value: 8
+    value: -23
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -1439,10 +1439,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.61
+    value: 1.04
   color:
     overrideState: 1
-    value: {r: 0.2735849, g: 0.0761392, b: 0.22866657, a: 1}
+    value: {r: 0.5188679, g: 0.002447496, b: 0.14108168, a: 1}
   ambientOnly:
     overrideState: 0
     value: 1
@@ -1457,10 +1457,10 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 4.95
+    value: 4.08
   directLightingStrength:
     overrideState: 1
-    value: 0.799
+    value: 0.685
   radius:
     overrideState: 0
     value: 0.25
@@ -1491,7 +1491,7 @@ MonoBehaviour:
     value: 0.9
   softKnee:
     overrideState: 1
-    value: 0.5
+    value: 0.583
   clamp:
     overrideState: 0
     value: 65472
@@ -1499,8 +1499,8 @@ MonoBehaviour:
     overrideState: 1
     value: 8
   anamorphicRatio:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.74
   color:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
