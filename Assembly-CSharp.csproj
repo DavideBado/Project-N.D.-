@@ -99,6 +99,7 @@
     <Compile Include="Assets\Editors\HearingEditor.cs" />
     <Compile Include="Assets\Editors\NavigationEditor.cs" />
     <Compile Include="Assets\Escape.cs" />
+    <Compile Include="Assets\FirstPlanning.cs" />
     <Compile Include="Assets\Gate.cs" />
     <Compile Include="Assets\KeySpot.cs" />
     <Compile Include="Assets\LevelDataLoader.cs" />
@@ -200,6 +201,7 @@
     <Compile Include="Assets\Scripts\UI_Scripts\Buttons\PopupsButton.cs" />
     <Compile Include="Assets\Scripts\UI_Scripts\DirectionSpriteController.cs" />
     <Compile Include="Assets\Scripts\UI_Scripts\EnemiesDirection.cs" />
+    <Compile Include="Assets\SecondPlanning.cs" />
     <Compile Include="Assets\TempButtonController.cs" />
     <Compile Include="Assets\TestDecel.cs" />
     <Compile Include="Assets\TestMoveMoveState.cs" />

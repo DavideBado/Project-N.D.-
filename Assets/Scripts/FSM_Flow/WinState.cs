@@ -7,6 +7,7 @@ public class WinState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.ResetTrigger("ChangePhase");
         GameManager.instance.OnExePhase = false;
         GameManager.instance.OnPlanPhase = false;
         GameManager.instance.UI_Manager.Win.SetActive(true);
@@ -31,13 +32,13 @@ public class WinState : StateMachineBehaviour
     {
         GameManager.instance.OnExePhase = false;
         //GameManager.instance.Level_Manager.Level.SetActive(true);
-        foreach (EnemyAI _enemy in GameManager.instance.Level_Manager.EnemiesAI)
-        {
-            _enemy.PauseDelegate(_enemy.GetComponent<EnemyNavController>().graphicsController.gameObject.activeSelf);
-        }
+        //foreach (EnemyAI _enemy in GameManager.instance.Level_Manager.EnemiesAI)
+        //{
+        //    _enemy.PauseDelegate(_enemy.GetComponent<EnemyNavController>().graphicsController.gameObject.activeSelf);
+        //}
         GameManager.instance.Player.TurnOnOffThePlayer(!GameManager.instance.Player.Graphics.activeSelf);
         GameManager.instance.Level_Manager.Level.SetActive(!GameManager.instance.Level_Manager.Level.activeSelf);
-        
+
         GameManager.instance.UI_Manager.Win.SetActive(false);
         GameManager.instance.UI_Manager.KeyIcon.SetActive(false);
         GameManager.instance.UI_Manager.TreasureIcon.SetActive(false);

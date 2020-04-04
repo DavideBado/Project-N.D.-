@@ -8,7 +8,7 @@ public class PlaceableSpot : SpotBase
     public PlaceableSpotGraphicsController Graphics;
     public GameObject PlanObj;
     public PlaceableSpotType SpotType;
-     
+
     public enum PlaceableSpotType
     {
         Null,
@@ -40,5 +40,12 @@ public class PlaceableSpot : SpotBase
     {
         Graphics.SetExeGraphichs(true);
         PlanObj.SetActive(false);
+    }
+
+    public void ActivePlanGraphics()
+    {
+        Graphics.SetExeGraphichs(false);
+        Graphics.SetSelectedGraphichs(false);
+        PlanObj.SetActive(true);
     }
 }

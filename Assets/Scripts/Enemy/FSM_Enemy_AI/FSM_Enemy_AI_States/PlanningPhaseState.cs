@@ -10,7 +10,14 @@ public class PlanningPhaseState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-/*        SceneManager.sceneLoaded += */StartLevel();
+        List<PlaceableSpot> PlaceableSpots = FindObjectsOfType<PlaceableSpot>().ToList();
+        for (int i = 0; i < PlaceableSpots.Count; i++)
+        {
+            PlaceableSpots[i].ActivePlanGraphics();
+        }
+
+        /*        SceneManager.sceneLoaded += */
+        StartLevel();
     }
 
     private static void StartLevel(/*Scene scene, LoadSceneMode loadSceneMode*/)
@@ -30,8 +37,9 @@ public class PlanningPhaseState : StateMachineBehaviour
         //GameManager.instance.Player.isCrouching = false;
         GameManager.instance.Player.freeLookCamera.Priority = 0;
         GameManager.instance.Player.SpotCamera.gameObject.SetActive(false);
-        if(GameManager.instance.Player.SpotCameraScreen) GameManager.instance.Player.SpotCameraScreen.enabled = false;
-       
+        if (GameManager.instance.Player.SpotCameraScreen) GameManager.instance.Player.SpotCameraScreen.enabled = false;
+
+        GameManager.instance.Drone.DroneCamera.gameObject.SetActive(true);
         GameManager.instance.Drone.DroneCamera.Priority = 50;
 
         GameManager.instance.Player.gameObject.SetActive(false);
@@ -51,7 +59,7 @@ public class PlanningPhaseState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(GameManager.instance.Level_Manager.Level == null) StartLevel();
+        if (GameManager.instance.Level_Manager.Level == null) StartLevel();
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

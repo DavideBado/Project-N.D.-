@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public List<EnemyAI> EnemiesAI = new List<EnemyAI>();
+    public List<SpawnSpot> spawnSpots = new List<SpawnSpot>();
+    public List<EscapeSpot> escapeSpots = new List<EscapeSpot>();
     public GameObject Level;
 
     private void Start()

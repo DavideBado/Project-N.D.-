@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public DroneMoveController Drone;
     public string ChangePhaseTrigger, GameOverTrigger, WinTrigger, MainMenuTrigger;
 
+    public bool InFirstPlanning = true;
+
     public List<KeySpot> AllPossiblekey;
     public KeySpot Key;
     public Capsulo Treasure;
@@ -41,14 +43,17 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerCaught += GameOver;
-        PlayerGoal += Win;   
+        PlayerGoal += Win;
+        PostObjective += ChangePhase;
     }
 
     private void OnDisable()
     {
         PlayerCaught -= GameOver;
-        PlayerGoal -= Win;   
+        PlayerGoal -= Win;
+        PostObjective -= ChangePhase;
     }
+
 
     void Awake()
     {
@@ -82,10 +87,23 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            Level_Manager.EnemiesAI.Clear();
+            if (InFirstPlanning) Level_Manager.EnemiesAI.Clear();
             if (!Player) Player = FindObjectOfType<PlayerMovController>();
             if (!Drone) Drone = FindObjectOfType<DroneMoveController>();
-       /*     if (Level_Manager.EnemiesAI.Count == 0) */Level_Manager.EnemiesAI = FindObjectsOfType<EnemyAI>().ToList();
+            if (InFirstPlanning) Level_Manager.EnemiesAI = FindObjectsOfType<EnemyAI>().ToList();
+
+            if (InFirstPlanning) Level_Manager.spawnSpots = FindObjectsOfType<SpawnSpot>().ToList();
+            for (int i = 0; i < Level_Manager.spawnSpots.Count; i++)
+            {
+                Level_Manager.spawnSpots[i].gameObject.SetActive(InFirstPlanning);
+            }
+
+            if (InFirstPlanning && (Level_Manager.escapeSpots.Count == 0 || !Level_Manager.escapeSpots[0])) Level_Manager.escapeSpots = FindObjectsOfType<EscapeSpot>().ToList();
+            for (int i = 0; i < Level_Manager.escapeSpots.Count; i++)
+            {
+                Level_Manager.escapeSpots[i].gameObject.SetActive(!InFirstPlanning);
+            }
+
             if (!Level_Manager.Level) Level_Manager.Level = FindObjectOfType<PezzaMissingLevel>().gameObject;
 
             if (AllPossiblekey.Count == 0 || !AllPossiblekey[0]) AllPossiblekey = FindObjectsOfType<KeySpot>().ToList();
@@ -102,7 +120,7 @@ public class GameManager : MonoBehaviour
                     else AllPossiblekey[i].gameObject.SetActive(false);
                 }
             }
-            if(!Treasure) Treasure = FindObjectOfType<Capsulo>();
+            if (!Treasure) Treasure = FindObjectOfType<Capsulo>();
         }
     }
 
@@ -111,7 +129,7 @@ public class GameManager : MonoBehaviour
         Drone.SetupPopupsCamera(true);
         Drone.DroneCamera.enabled = false;
         Drone.enabled = false;
-        if (CurrentEscapeSpot == null || CurrentStartSpot == null) UI_Manager.PopupEscapeSpwan.SetActive(true);
+        if (/*CurrentEscapeSpot == null ||*/ CurrentStartSpot == null) UI_Manager.PopupEscapeSpwan.SetActive(true);
         else if (!CheckHidingCams()) UI_Manager.PopupHidingCam.SetActive(true);
         else UI_Manager.PopupUltimate.SetActive(true);
     }

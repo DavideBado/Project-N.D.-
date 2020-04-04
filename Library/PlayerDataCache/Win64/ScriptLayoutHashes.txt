@@ -1,17 +1,15 @@
 Win64
 PlayerPath?
-C:/Users/Bado/Desktop/The Raven Relic v0.3.1/The Raven Relic.exe
+C:/Users/Bado/Desktop/The Raven Relic v0.5/The Raven Relic.exe
 SceneListBegin?
-Assets/Scenes/MainMenuTestingDemo.unity
-Assets/Scenes/Definitive/3DBlockout.unity
 Assets/Scenes/Definitive/MainMenu.unity
-Assets/Scenes/Definitive/New_VillageBlockout.unity
+Assets/Scenes/Definitive/3DBlockout.unity
 SceneListEnd?
 cadf30517c697c763871277b9402353e Unity.RenderPipelines.HighDefinition.Runtime.dll:UnityEngine.Experimental.Rendering.HDPipeline.DiffusionProfileSettings
 71961c90b9e05ecb48b5969e15e1c70a Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessLayer
 5fc094978ce3e3591a7500ed380d854a Assembly-CSharp.dll:.AddTypeButton
 aac5b70776ba81e6f8b8d8a146035ce5 Unity.RenderPipelines.HighDefinition.Runtime.dll:UnityEngine.Experimental.Rendering.HDPipeline.ExponentialFog
-6f10b285db487799cefd5e04dbeb5afe Assembly-CSharp.dll:.LevelManager
+09e317753b4bdf0b17beb01b984111a7 Assembly-CSharp.dll:.LevelManager
 23d669c8bf2983ca4a3df160658318a6 Cinemachine.dll:Cinemachine.CinemachineStateDrivenCamera
 726fcf7961cbb4108aa5be5e55b8c8bf Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.ColorGrading
 b13de7a0a457cb8e026d4237dc1b5797 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.LensDistortion
@@ -172,7 +170,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 9b895dcabbc1faf095c000c32d471fd0 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 af4737d5d06e40d33dab2746b4ea8e92 Assembly-CSharp.dll:.Capsulo
-59ac3a7e314e12176454da4d19d17a3b Assembly-CSharp.dll:.PlayerGraphicsController
+668a575ca4e6119f428ba8408d12e1d5 Assembly-CSharp.dll:.PlayerGraphicsController
 12a5f0ac02fe2ae8b2cf062ecb38f8b7 Cinemachine.dll:Cinemachine.CinemachineFreeLook
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 34ca18102b02a452620ec6901e89b840 Assembly-CSharp.dll:.DronemovwmentTest
@@ -236,6 +234,7 @@ f30fa5fb83ddf74479cf38867ce69e04 Unity.RenderPipelines.HighDefinition.Runtime.dl
 cc10e6749eb30ec8a25405260f9836d5 Unity.Postprocessing.Runtime.dll:UnityEngine.Rendering.PostProcessing.PostProcessResources
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 204ea02909ea3f738dafe3ff633d2a93 Cinemachine.dll:Cinemachine.CinemachineTrackedDolly
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Escape
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DroneIdleMovementState
 71bb6a6b6c8f052f948db64c7dd3ca4f Cinemachine.dll:Cinemachine.CinemachinePipeline
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Goal
@@ -362,7 +361,7 @@ ff9c6c84142d18ddec5fb9344a9f2af0 Assembly-CSharp.dll:.DroneMoveState
 ee0cef6caaac8ae485bfa82f000f0f7b Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 c18f29810c64cabac8e85c99fe4bfa69 Assembly-CSharp.dll:.MiddlePointController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.PlayerPhaseSelection
-3c1ab4a4dc82ecde68a37b450da0c60c Assembly-CSharp.dll:.GameManager
+cc9e61868f9272a38dcb93ee8fab8c3f Assembly-CSharp.dll:.GameManager
 5fc094978ce3e3591a7500ed380d854a Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
 27e5341178f188b89bdc6495710b590c Assembly-CSharp.dll:TMPro.Examples.Benchmark01_UGUI
 f69dfc6409fbbd89d3689368e99688a8 Unity.RenderPipelines.HighDefinition.Runtime.dll:UnityEngine.Experimental.Rendering.UI.DebugUIHandlerVector2
@@ -443,4 +442,5 @@ e7ea5a4629368130f8716cbe2767052a Assembly-CSharp.dll:.TriggerTrap
 2388eb9e99b86b3813e7b6dbfe4b3e0c Unity.RenderPipelines.HighDefinition.Runtime.dll:UnityEngine.Experimental.Rendering.UI.DebugUIHandlerContainer
 8d35f16c5022311c6f4d9432be73bfcf Unity.RenderPipelines.HighDefinition.Runtime.dll:UnityEngine.Experimental.Rendering.UI.DebugUIHandlerIndirectFloatField
 7a63e7b95e4b78dc4112e85973cbf056 Assembly-CSharp.dll:.EnemiesDirection
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Escape
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.FirstPlanning
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SecondPlanning

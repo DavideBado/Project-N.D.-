@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
     public GameObject KeyIcon, TreasureIcon;
 
     public float TxtFadeSpeed;
-        
+
     bool InWin = false;
 
     public Action StartWinFade;
@@ -41,17 +41,17 @@ public class UIManager : MonoBehaviour
     public Text VersionTxt;
     private void OnEnable()
     {
-        VersionTxt.text = "v" + Application.version +"   ";
+        VersionTxt.text = "v" + Application.version + "   ";
         StartWinFade += WinInUpdate;
         SceneManager.sceneLoaded += ResetUI;
     }
 
     private void OnDisable()
     {
-       
+
         SceneManager.sceneLoaded -= ResetUI;
     }
-  
+
     private void WinInUpdate()
     {
         InWin = true;
@@ -86,7 +86,7 @@ public class UIManager : MonoBehaviour
     void ResetUI(Scene scene, LoadSceneMode loadSceneMode)
     {
         if (scene.buildIndex == 1)
-        {  
+        {
             WinTxt.color = new Color(WinTxt.color.r, WinTxt.color.b, WinTxt.color.g, 1f);
             ReloadButtonWin.SetActive(false);
             MainMenuButtonWin.SetActive(false);
@@ -131,7 +131,7 @@ public class UIManager : MonoBehaviour
                     TreasureDirection.gameObject.SetActive(false);
 
                     directionSpriteController.DirectionImage = EscapeDirection;
-                    directionSpriteController.DirectionTarget = GameManager.instance.CurrentEscapeSpot.DirectionTarget;
+                    if (GameManager.instance.CurrentEscapeSpot) directionSpriteController.DirectionTarget = GameManager.instance.CurrentEscapeSpot.DirectionTarget;
                     directionSpriteController.distanceTxt = EscapeDistance;
                 }
             }

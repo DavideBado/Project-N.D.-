@@ -9,10 +9,11 @@ public class ExecutionPhaseState : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.ResetTrigger("ChagePhase");
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        GameManager.instance.Setup();       
+        GameManager.instance.Setup();
         GameManager.instance.OnExePhase = true;
         //GameManager.instance.UI_Manager.PhaseTxt.text = "ExecutionPhase";
         //GameManager.instance.UI_Manager.PhaseTxt.gameObject.SetActive(true);
@@ -26,7 +27,7 @@ public class ExecutionPhaseState : StateMachineBehaviour
 
         GameManager.instance.Player.freeLookCamera.enabled = true;
         GameManager.instance.Player.freeLookCamera.Priority = 50;
-       
+
 
         GameManager.instance.Player.SpotCameraScreen = GameManager.instance.UI_Manager.SpotCameraScreen;
         if (GameManager.instance.Player.camSpots.Count == 0)
@@ -42,7 +43,7 @@ public class ExecutionPhaseState : StateMachineBehaviour
 
         GameManager.instance.Drone.DroneCamera.Priority = 0;
 
-        GameManager.instance.Player.transform.position = GameManager.instance.CurrentStartSpot.SpawnPosition.position;
+        if (GameManager.instance.InFirstPlanning) GameManager.instance.Player.transform.position = GameManager.instance.CurrentStartSpot.SpawnPosition.position;
         GameManager.instance.Player.ResetPosition = GameManager.instance.CurrentStartSpot.SpawnPosition.position;
         GameManager.instance.Player.GetComponent<NavMeshObstacle>().enabled = true;
         GameManager.instance.Player.currentSpeed = GameManager.instance.Player.crouchingSpeed;
